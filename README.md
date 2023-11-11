@@ -4,10 +4,20 @@
 
 Requirement: Nodejs 18+ and Java 17+
 
-### Frontend 
+For **Nodejs** packages, only need to run `yarn` at the root folder.
 
-Run at port
+For **Java Spring boot** packagaes, run command `yarn install-java` to install all dependencies. 
 
-### Backend
 
-Run at port 8090
+## How to start
+To start the project in development mode, you can use this commands on root folder:
+
+```bash
+yarn dev
+```
+
+## Infomation
+
+The **Catalog frontend page** runs at `http://localhost:3090/`.
+
+The **Catalog microservice** runs at `http://localhost:8090/`
