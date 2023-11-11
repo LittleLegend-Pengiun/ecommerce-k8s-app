@@ -1,0 +1,23 @@
+{
+  "name": "ecommerce-k9s-app",
+  "private": true,
+  "scripts": {
+    "install-java": "turbo run install-java",
+    "stop-java": "turbo run stop-java",
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+  },
+  "devDependencies": {
+    "eslint": "^8.48.0",
+    "prettier": "^3.0.3",
+    "tsconfig": "*",
+    "turbo": "latest"
+  },
+  "packageManager": "yarn@1.22.19",
+  "workspaces": [
+    "apps/frontend/*",
+    "apps/backend/*"
+  ]
+}
