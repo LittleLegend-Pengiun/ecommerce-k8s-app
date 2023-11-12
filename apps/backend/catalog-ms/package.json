@@ -7,6 +7,7 @@
     "install-java": "./mvnw clean install",
     "dev": "./mvnw spring-boot:run",
     "stop-java": "./mvnw spring-boot:stop",
-    "build": "./mvnw package"
+    "build": "./mvnw package",
+    "image:build": "docker build -t catalog-ms ."
   }
 }
