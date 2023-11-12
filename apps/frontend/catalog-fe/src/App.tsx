@@ -6,7 +6,7 @@ function App() {
   const [data, setData] = useState("");
   async function fetchData() {
     try {
-      const res = await fetch('http://localhost:8090/data', {
+      const res = await fetch(`${process.env.MS_URL}/data`, {
         method: 'GET',
         // mode: 'no-cors'
       })
