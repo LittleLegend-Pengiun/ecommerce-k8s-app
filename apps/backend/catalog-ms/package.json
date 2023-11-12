@@ -6,6 +6,7 @@
   "scripts": {
     "install-java": "./mvnw clean install",
     "dev": "./mvnw spring-boot:run",
-    "stop-java": "./mvnw spring-boot:stop"
+    "stop-java": "./mvnw spring-boot:stop",
+    "build": "./mvnw package"
   }
 }

@@ -11,6 +11,7 @@
       "cache": false,
       "persistent": true
     },
-    "install-java": {}
+    "install-java": {},
+    "image:build": {}
   }
 }

@@ -5,6 +5,7 @@
     "install-java": "turbo run install-java",
     "stop-java": "turbo run stop-java",
     "build": "turbo run build",
+    "image:build": "turbo run image:build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
