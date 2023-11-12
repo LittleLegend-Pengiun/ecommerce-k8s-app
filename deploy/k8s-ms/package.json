@@ -1,0 +1,11 @@
+{
+    "name": "k8s-ms",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "tf:init": "terraform init --upgrade",
+        "tf:apply": "yarn tf:init && terraform apply",
+        "tf:destroy": "terraform destroy"
+    }
+}
