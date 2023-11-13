@@ -23,7 +23,7 @@ FROM nginx:alpine
 COPY --from=builder /app/dist /usr/share/nginx/html
 
 # Expose port 80
-EXPOSE 3090
+EXPOSE 80
 
 # Start Nginx
-CMD ["nginx", "-g", "daemon off;", "-c", "/etc/nginx/nginx.conf", "-p", "/etc/nginx"]
+CMD ["nginx", "-g", "daemon off;"]

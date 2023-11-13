@@ -69,8 +69,8 @@ resource "kubernetes_service" "catalog-fe-service" {
     selector = { app = "catalog-fe-pod", tier = "frontend"}
     port {
       protocol = "TCP"
-      port = 3090
-      target_port = 3090
+      port = 80
+      target_port = 80
       node_port = 30090
     }
     type = "NodePort"
