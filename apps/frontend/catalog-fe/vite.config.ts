@@ -10,8 +10,8 @@ export default defineConfig({
     port: 3090
   },
   plugins: [react()],
-  // define: {
-  //   'process.env.MS_URL': JSON.stringify(process.env.MS_URL),
-  //   'process.env.CONTENT': JSON.stringify(process.env.CONTENT),
-  // },
+  define: {
+    'process.env.MS_URL': JSON.stringify(process.env.MS_URL),
+    'process.env.CONTENT': JSON.stringify(process.env.CONTENT),
+  },
 })

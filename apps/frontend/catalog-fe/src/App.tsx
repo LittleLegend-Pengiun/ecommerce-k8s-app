@@ -29,7 +29,7 @@ function App() {
       <h1>Vite + React</h1>
       <div className="card">
         {/* <p>The message from backend: {data}</p> */}
-        {/* <p>The message from env: {process.env.CONTENT}</p> */}
+        <p>The message from env: {process.env.CONTENT}</p>
       </div>
     </>
   )
