@@ -4,6 +4,16 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 
+if (process.env.NODE_ENV === 'development') {
+  const devEnv = dotenv.config({ path: ".env-local"})
+  process.env = {...process.env, ...devEnv.parsed }
+} 
+else 
+{ // process.env.NODE_ENV === 'production'
+  const prodEnv = dotenv.config({ path: ".env-prod"})
+  process.env = {...process.env, ...prodEnv.parsed }
+}
+
 // https://vitejs.dev/config/
 export default defineConfig({
   server: {
