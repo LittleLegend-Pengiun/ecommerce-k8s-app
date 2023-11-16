@@ -11,7 +11,7 @@ COPY . /app
 RUN ./mvnw package -DskipTests
 
 # Expose the port that your Spring Boot application will run on
-EXPOSE 8090
+EXPOSE 80
 
 # Define the command to run your application
 CMD ["java", "-jar", "target/catalog-0.0.1-SNAPSHOT.jar"]

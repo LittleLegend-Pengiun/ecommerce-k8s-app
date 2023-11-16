@@ -1,22 +1,22 @@
-resource "kubernetes_deployment" "catalog-fe-deploy" {
+resource "kubernetes_deployment" "catalog-ms-deploy" {
   metadata {
-    name = "catalog-fe-deploy"
-    labels = { app = "catalog-fe", tier = "frontend" }
+    name = "catalog-ms-deploy"
+    labels = { app = "catalog-ms", tier = "backend" }
   }
   spec {
     replicas = 1
     selector {
-      match_labels = { app = "catalog-fe-pod", tier = "frontend" }
+      match_labels = { app = "catalog-ms-pod", tier = "backend" }
     }
     template {
       metadata {
-        name = "catalog-fe-pod"
-        labels = { app = "catalog-fe-pod", tier = "frontend"}
+        name = "catalog-ms-pod"
+        labels = { app = "catalog-ms-pod", tier = "backend"}
       }
       spec {
         container {
-          name = "catalog-fe"
-          image = "hoanganhleboy/catalog-fe:latest"
+          name = "catalog-ms"
+          image = "hoanganhleboy/catalog-ms"
           port { container_port = 80 }
           # env {
           #   name = "MS_URL"
@@ -26,17 +26,16 @@ resource "kubernetes_deployment" "catalog-fe-deploy" {
             name = "CONTENT"
             value = "This is the string from k8s"
           }
-          image_pull_policy = "Always"
         }
       }
     }
   }
 }
 
-# resource "kubernetes_horizontal_pod_autoscaler" "catalog-fe-hpa" {
+# resource "kubernetes_horizontal_pod_autoscaler" "catalog-ms-hpa" {
 #   metadata {
-#     name = "catalog-fe-hpa"
-#     labels = { app = "catalog-fe-hpa", tier = "frontend" }
+#     name = "catalog-ms-hpa"
+#     labels = { app = "catalog-ms-hpa", tier = "backend" }
 #   }
 
 #   spec {
@@ -45,7 +44,7 @@ resource "kubernetes_deployment" "catalog-fe-deploy" {
 
 #     scale_target_ref {
 #       kind = "Deployment"
-#       name = "catalog-fe-deploy"
+#       name = "catalog-ms-deploy"
 #     }
 
 #     metric {
@@ -61,19 +60,19 @@ resource "kubernetes_deployment" "catalog-fe-deploy" {
 #   }
 # }
 
-resource "kubernetes_service" "catalog-fe-service" {
+resource "kubernetes_service" "catalog-ms-service" {
   metadata {
-    name = "catalog-fe-service"
-    labels = { app = "catalog-fe-service", tier = "frontend" }
+    name = "catalog-ms-service"
+    labels = { app = "catalog-ms-service", tier = "backend" }
   }
   spec {
-    selector = { app = "catalog-fe-pod", tier = "frontend"}
+    selector = { app = "catalog-ms-pod", tier = "backend"}
     port {
       protocol = "TCP"
       port = 80
       target_port = 80
-      node_port = 30090
+      node_port = 30080
     }
-    type = "NodePort"
+    type = "ClusterIP"
   }
 }
