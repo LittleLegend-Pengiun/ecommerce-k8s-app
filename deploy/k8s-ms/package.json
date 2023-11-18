@@ -5,7 +5,7 @@
     "type": "module",
     "scripts": {
         "tf:init": "terraform init --upgrade",
-        "tf:apply": "yarn tf:init && terraform apply",
-        "tf:destroy": "terraform destroy"
+        "tf:apply": "terraform apply --auto-approve",
+        "tf:destroy": "terraform destroy --auto-approve"
     }
 }

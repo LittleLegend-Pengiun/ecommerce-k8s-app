@@ -71,8 +71,7 @@ resource "kubernetes_service" "catalog-ms-service" {
       protocol = "TCP"
       port = 80
       target_port = 80
-      node_port = 30080
     }
-    type = "ClusterIP"
+    type = "NodePort"
   }
 }
