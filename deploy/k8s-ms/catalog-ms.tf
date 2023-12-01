@@ -16,7 +16,7 @@ resource "kubernetes_deployment" "catalog-ms-deploy" {
         container {
           name = "catalog-ms"
           image = "hoanganhleboy/catalog-ms"
-          port { container_port = 80 }
+          port { container_port = 8090 }
           resources {
             requests = {
               cpu = "256m"
