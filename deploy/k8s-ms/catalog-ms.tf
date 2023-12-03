@@ -16,7 +16,7 @@ resource "kubernetes_deployment" "catalog-ms-deploy" {
         container {
           name = "catalog-ms"
           image = "hoanganhleboy/catalog-ms"
-          port { container_port = 8090 }
+          port { container_port = 8090 } // This port the same with port in the code.
           resources {
             requests = {
               cpu = "256m"
@@ -42,8 +42,8 @@ resource "kubernetes_service" "catalog-ms-service" {
     selector = { app = "catalog-ms-pod", tier = "backend"}
     port {
       protocol = "TCP"
-      port = 8090
-      target_port = 80
+      port = 8090 // port expose to outside
+      target_port = 80 // This port the same with port in the code.
     }
     type = "NodePort"
   }
