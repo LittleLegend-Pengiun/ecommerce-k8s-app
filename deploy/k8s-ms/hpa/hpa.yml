@@ -1,18 +1,14 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  creationTimestamp: "2023-12-03T13:41:24Z"
-  name: catalog-ms-deploy
-  namespace: default
-  resourceVersion: "4179"
-  uid: 9205d258-b16a-42ab-adaf-d8744da606ee
+  name: catalog-ms-hpa
 spec:
   maxReplicas: 10
   metrics:
   - resource:
       name: cpu
       target:
-        averageUtilization: 50
+        averageUtilization: 10
         type: Utilization
     type: Resource
   minReplicas: 1
@@ -20,31 +16,20 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: catalog-ms-deploy
-status:
-  conditions:
-  - lastTransitionTime: "2023-12-03T13:41:39Z"
-    message: recommended size matches current size
-    reason: ReadyForNewScale
-    status: "True"
-    type: AbleToScale
-  - lastTransitionTime: "2023-12-03T13:41:39Z"
-    message: the HPA was able to successfully calculate a replica count from cpu resource
-      utilization (percentage of request)
-    reason: ValidMetricFound
-    status: "True"
-    type: ScalingActive
-  - lastTransitionTime: "2023-12-03T14:14:10Z"
-    message: the desired replica count is less than the minimum replica count
-    reason: TooFewReplicas
-    status: "True"
-    type: ScalingLimited
-  currentMetrics:
-  - resource:
-      current:
-        averageUtilization: 0
-        averageValue: 1m
-      name: cpu
-    type: Resource
-  currentReplicas: 1
-  desiredReplicas: 1
-  lastScaleTime: "2023-12-03T14:14:10Z"
+  behavior:
+    scaleUp:
+      selectPolicy: Max
+      stabilizationWindowSeconds: 60
+      policies:
+      # number of pods that scale in a period of time
+        - periodSeconds: 30
+          type: Pods
+          value: 4
+    scaleDown:
+      selectPolicy: Min
+      stabilizationWindowSeconds: 60
+      policies:
+      # number of pods that scale in a period of time
+        - periodSeconds: 30
+          type: Pods
+          value: 4
