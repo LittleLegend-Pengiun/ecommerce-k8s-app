@@ -4,6 +4,7 @@ resource "kubernetes_deployment" "catalog-ms-deploy" {
     labels = { app = "catalog-ms", tier = "backend" }
   }
   spec {
+    replicas = 1
     selector {
       match_labels = { app = "catalog-ms-pod", tier = "backend" }
     }

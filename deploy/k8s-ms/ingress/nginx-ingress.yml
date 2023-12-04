@@ -17,7 +17,8 @@ spec:
                 port:
                   number: 80
           - pathType: Prefix
-            path: /frontend(/|$)(.*)
+            # path: /frontend/?(.*)
+            path: /
             backend:
               service:
                 name: catalog-fe-service
