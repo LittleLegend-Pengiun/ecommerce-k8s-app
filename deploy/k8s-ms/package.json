@@ -8,8 +8,9 @@
         "tf:apply": "terraform apply --auto-approve",
         "tf:destroy": "terraform destroy --auto-approve",
         "hpa:stress-test": "kubectl run -i --tty load-generator --rm --image=busybox:1.28 --restart=Never -- /bin/sh -c \"while true; do wget -q -O- http://catalog-ms-service:8090; done\"",
+        "hpa:deploy": "kubectl apply -f hpa/hpa.yml",
         "test-api": "kubectl run -i --tty load-generator --rm --image=busybox:1.28 --restart=Never -- /bin/sh -c \"wget -q -O- http://catalog-ms-service:80\"",
         "ingress:deploy": "kubectl apply -f ingress/nginx-ingress.yml",
-        "hpa:deploy": "kubectl apply -f hpa/hpa.yml"
+        "kctl-apply": "kubectl apply -f"
     }
 }

@@ -5,12 +5,12 @@ metadata:
 spec:
   maxReplicas: 10
   metrics:
-  - resource:
-      name: cpu
-      target:
-        averageUtilization: 10
-        type: Utilization
-    type: Resource
+    - resource:
+        name: cpu
+        target:
+          averageUtilization: 10
+          type: Utilization
+      type: Resource
   minReplicas: 1
   scaleTargetRef:
     apiVersion: apps/v1
@@ -21,7 +21,6 @@ spec:
       selectPolicy: Max
       stabilizationWindowSeconds: 60
       policies:
-      # number of pods that scale in a period of time
         - periodSeconds: 30
           type: Pods
           value: 4
@@ -29,7 +28,6 @@ spec:
       selectPolicy: Min
       stabilizationWindowSeconds: 60
       policies:
-      # number of pods that scale in a period of time
         - periodSeconds: 30
           type: Pods
           value: 4
