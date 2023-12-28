@@ -15,6 +15,10 @@ app.get("/", (req, res) => {
     res.send("OK!");
 });
 
+app.get("/health", (req, res) => { 
+    res.send("OK!");
+});
+
 const port = 4000;
 app.listen(port, () => {
     console.log(
