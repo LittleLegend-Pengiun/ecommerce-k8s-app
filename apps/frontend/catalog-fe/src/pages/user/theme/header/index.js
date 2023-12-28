@@ -176,7 +176,7 @@ const Header = () => {
                     </li>
                     <li>
                         <Link to={"#"}>
-                            Thiết bị văn phòng
+                            Đồng hồ thông minh
                         </Link>
                     </li>
                     <li>
