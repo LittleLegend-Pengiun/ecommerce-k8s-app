@@ -67,6 +67,12 @@ import feature60Img from "assets/user/images/featured/component-8.jpg";
 import feature61Img from "assets/user/images/featured/component-9.jpg";
 import feature62Img from "assets/user/images/featured/component-10.jpg";
 import feature63Img from "assets/user/images/featured/component-11.jpg";
+//Internet
+import feature64Img from "assets/user/images/featured/internet-1.jpg";
+import feature65Img from "assets/user/images/featured/internet-2.jpg";
+import feature66Img from "assets/user/images/featured/internet-3.jpg";
+import feature67Img from "assets/user/images/featured/internet-4.jpg";
+import feature68Img from "assets/user/images/featured/internet-5.jpg";
 //
 import { memo } from "react";
 import { AiOutlineEye, AiOutlineShoppingCart } from "react-icons/ai";
@@ -395,6 +401,31 @@ const HomePage = () => {
           img: feature63Img,
           name: "Túi đựng laptop 14 inch MSI Urban Raider",
           price: 1890000,
+        },
+        {
+          img: feature64Img,
+          name: "Bộ phát Wifi Indoor Grandstream GWN7605LR",
+          price: 24990000,
+        },
+        {
+          img: feature65Img,
+          name: "Router Wifi 6 TP-Link Archer AX80",
+          price: 19690000,
+        },
+        {
+          img: feature66Img,
+          name: "Bộ chuyển đổi USB Wifi Ăng Ten Kép AX1800",
+          price: 26190000,
+        },
+        {
+          img: feature67Img,
+          name: "Card Wifi AX3000 Gigabyte GC-WBAX200",
+          price: 1590000,
+        },
+        {
+          img: feature68Img,
+          name: "Bộ chuyển đổi USB Wifi Nano Bluetooth 4.2",
+          price: 649000,
         },
       ],
     },
@@ -735,6 +766,36 @@ const HomePage = () => {
           img: feature63Img,
           name: "Túi đựng laptop 14 inch MSI Urban Raider",
           price: 1890000,
+        },
+      ]
+    },
+    Internet:{
+      title: "Thiết bị mạng",
+      products: [
+        {
+          img: feature64Img,
+          name: "Bộ phát Wifi Indoor Grandstream GWN7605LR",
+          price: 24990000,
+        },
+        {
+          img: feature65Img,
+          name: "Router Wifi 6 TP-Link Archer AX80",
+          price: 19690000,
+        },
+        {
+          img: feature66Img,
+          name: "Bộ chuyển đổi USB Wifi Ăng Ten Kép AX1800",
+          price: 26190000,
+        },
+        {
+          img: feature67Img,
+          name: "Card Wifi AX3000 Gigabyte GC-WBAX200",
+          price: 1590000,
+        },
+        {
+          img: feature68Img,
+          name: "Bộ chuyển đổi USB Wifi Nano Bluetooth 4.2",
+          price: 649000,
         },
       ]
     }
