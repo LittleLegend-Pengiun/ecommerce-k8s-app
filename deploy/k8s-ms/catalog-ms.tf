@@ -17,48 +17,22 @@ resource "kubernetes_deployment" "catalog-ms-deploy" {
         container {
           name = "catalog-ms"
           image = "hoanganhleboy/catalog-ms"
-          port { container_port = 80 }
-          # env {
-          #   name = "MS_URL"
-          #   value = ""
-          # }
-          env {
-            name = "CONTENT"
-            value = "This is the string from k8s"
+          port { container_port = 8090 } // This port the same with port in the code.
+          resources {
+            requests = {
+              cpu = "256m"
+              memory = "128Mi"
+            }
+            limits = {
+              cpu = "256m"
+              memory = "128Mi"
+            }
           }
         }
       }
     }
   }
 }
-
-# resource "kubernetes_horizontal_pod_autoscaler" "catalog-ms-hpa" {
-#   metadata {
-#     name = "catalog-ms-hpa"
-#     labels = { app = "catalog-ms-hpa", tier = "backend" }
-#   }
-
-#   spec {
-#     min_replicas = 1
-#     max_replicas = 3
-
-#     scale_target_ref {
-#       kind = "Deployment"
-#       name = "catalog-ms-deploy"
-#     }
-
-#     metric {
-#       type = "Resource"
-#       resource {
-#         name  = "cpu"
-#         target {
-#           type               = "Utilization"
-#           average_utilization = 10
-#         }
-#       }
-#     }
-#   }
-# }
 
 resource "kubernetes_service" "catalog-ms-service" {
   metadata {
@@ -69,8 +43,8 @@ resource "kubernetes_service" "catalog-ms-service" {
     selector = { app = "catalog-ms-pod", tier = "backend"}
     port {
       protocol = "TCP"
-      port = 80
-      target_port = 80
+      port = 8090 // port expose to outside
+      target_port = 80 // This port the same with port in the code.
     }
     type = "NodePort"
   }
