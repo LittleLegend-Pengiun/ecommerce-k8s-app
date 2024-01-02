@@ -1,5 +1,5 @@
 import express from "express";
-import * as prometheusExporter from '@tailorbrands/node-exporter-prometheus';
+import prometheusExporter from '@tailorbrands/node-exporter-prometheus';
 
 const app = express();
 

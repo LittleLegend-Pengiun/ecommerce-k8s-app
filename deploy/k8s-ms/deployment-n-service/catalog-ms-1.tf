@@ -38,13 +38,18 @@ resource "kubernetes_service" "catalog-ms-1-service" {
   metadata {
     name = "catalog-ms-1-service"
     labels = { app = "catalog-ms-1-service", tier = "backend" }
+    annotations = {
+      "prometheus.io/scrape": "true"
+      "prometheus.io/port": "4000"
+      "prometheus.io/path": "/metrics"
+    }
   }
   spec {
     selector = { app = "catalog-ms-1-pod", tier = "backend"}
     port {
       protocol = "TCP"
       port = 4000 // port expose to outside
-      target_port = 80 // This port the same with port in the code.
+      target_port = 4000 // This port the same with port in the code.
     }
     type = "NodePort"
   }

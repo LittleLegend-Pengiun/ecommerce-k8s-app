@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "image:build": "docker build -t catalog-ms-1 ."
+    "image:build": "docker build -t hoanganhleboy/catalog-ms-1 ."
   },
   "devDependencies": {
     "nodemon": "^3.0.2"
