@@ -81,7 +81,7 @@ import { Link } from "react-router-dom";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import { formatPrice } from "utils/formater";
 import "./style.scss";
-
+//console.log(process.env.REACT_APP_ENV);
 const HomePage = () => {
   const featProducts = {
     all: {
