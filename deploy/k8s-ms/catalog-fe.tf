@@ -33,34 +33,6 @@ resource "kubernetes_deployment" "catalog-fe-deploy" {
   }
 }
 
-# resource "kubernetes_horizontal_pod_autoscaler" "catalog-fe-hpa" {
-#   metadata {
-#     name = "catalog-fe-hpa"
-#     labels = { app = "catalog-fe-hpa", tier = "frontend" }
-#   }
-
-#   spec {
-#     min_replicas = 1
-#     max_replicas = 3
-
-#     scale_target_ref {
-#       kind = "Deployment"
-#       name = "catalog-fe-deploy"
-#     }
-
-#     metric {
-#       type = "Resource"
-#       resource {
-#         name  = "cpu"
-#         target {
-#           type               = "Utilization"
-#           average_utilization = 10
-#         }
-#       }
-#     }
-#   }
-# }
-
 resource "kubernetes_service" "catalog-fe-service" {
   metadata {
     name = "catalog-fe-service"
@@ -72,7 +44,6 @@ resource "kubernetes_service" "catalog-fe-service" {
       protocol = "TCP"
       port = 80
       target_port = 80
-      node_port = 30090
     }
     type = "NodePort"
   }
