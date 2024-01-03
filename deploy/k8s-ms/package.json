@@ -4,13 +4,16 @@
     "version": "0.0.0",
     "type": "module",
     "scripts": {
-        "tf:init": "terraform init --upgrade",
-        "tf:apply": "terraform apply --auto-approve",
-        "tf:destroy": "terraform destroy --auto-approve",
+        "tf:init": "terraform -chdir=\"./deployment-n-service\" init --upgrade",
+        "tf:apply": "terraform -chdir=\"./deployment-n-service\" apply --auto-approve",
+        "tf:destroy": "terraform -chdir=\"./deployment-n-service\" destroy --auto-approve",
         "hpa:stress-test": "kubectl run -i --tty load-generator --rm --image=busybox:1.28 --restart=Never -- /bin/sh -c \"while true; do wget -q -O- http://catalog-ms-service:8090; done\"",
         "hpa:deploy": "kubectl apply -f hpa/hpa.yml",
         "test-api": "kubectl run -i --tty load-generator --rm --image=busybox:1.28 --restart=Never -- /bin/sh -c \"wget -q -O- http://catalog-ms-service:80\"",
         "ingress:deploy": "kubectl apply -f ingress/nginx-ingress.yml",
+        "keda:init": "kubectl apply --server-side -f https://github.com/kedacore/keda/releases/download/v2.12.1/keda-2.12.1-core.yaml",
+        "keda:deploy": "kubectl apply -f keda/scaled-object.yml",
+        "keda:stress-test": "./testing/k6 run ./testing/api-stress-test.js",
         "kctl-apply": "kubectl apply -f"
     }
 }
