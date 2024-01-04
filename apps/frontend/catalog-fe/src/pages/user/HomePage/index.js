@@ -846,8 +846,8 @@ const HomePage = () => {
 
           {/* Hiển thị phân trang */}
           <ReactPaginate
-            previousLabel={"Previous"}
-            nextLabel={"Next"}
+            previousLabel={"Trang trước"}
+            nextLabel={"Trang sau"}
             pageCount={pageCount}
             onPageChange={changePage}
             containerClassName={"pagination"}
