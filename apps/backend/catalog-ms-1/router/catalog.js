@@ -99,52 +99,52 @@ const data = [
     price: 7190000,
   },
   {
-    img: feature11Img,
+    img: 'https://i.ibb.co/m4wvxcq/phone-5.webp',
     name: "Iphone 15 Pro Max",
     price: 38990000,
   },
   {
-    img: feature27Img,
+    img: 'https://i.ibb.co/hZxS7wp/phone-6.webp',
     name: "Điện thoại Samsung Galaxy Z Fold 4",
     price: 23490000,
   },
   {
-    img: feature28Img,
+    img: 'https://i.ibb.co/xgHQLxt/phone-7.webp',
     name: "Điện thoại Samsung Galaxy Z Flip 4",
     price: 11990000,
   },
   {
-    img: feature29Img,
+    img: 'https://i.ibb.co/12dVZJx/phone-8.webp',
     name: "Điện thoại Samsung Galaxy S23 Ultra",
     price: 24990000,
   },
   {
-    img: feature30Img,
+    img: 'https://i.ibb.co/nCPy458/phone-9.webp',
     name: "Điện thoại Samsung Galaxy S22 Ultra",
     price: 19990000,
   },
   {
-    img: feature31Img,
+    img: 'https://i.ibb.co/Sfgrt58/phone-10.webp',
     name: "Điện thoại Xiaomi Redmi Note 11 Pro",
     price: 18990000,
   },
   {
-    img: feature32Img,
+    img: 'https://i.ibb.co/8rP3CH0/phone-11.webp',
     name: "Điện thoại Xiaomi Redmi 9C",
     price: 10990000,
   },
   {
-    img: feature33Img,
+    img: 'https://i.ibb.co/F6jsSZj/phone-12.webp',
     name: "Điện thoại ASUS ROG Phone 6",
     price: 8990000,
   },
   {
-    img: feature34Img,
+    img: 'https://i.ibb.co/nkR4ZNv/phone-13.webp',
     name: "Điện thoại Nubia Red Magic 6",
     price: 17990000,
   },
   {
-    img: feature35Img,
+    img: 'https://i.ibb.co/X3NctTP/phone-14.webp',
     name: "Điện thoại ASUS Zenfone 8",
     price: 12990000,
   },
@@ -154,62 +154,62 @@ const data = [
     price: 2490000,
   },
   {
-    img: feature13Img,
+    img: 'https://i.ibb.co/02J6WTJ/audio-2.webp',
     name: "Tai nghe Bluetooth SoundPeats",
     price: 879000,
   },
   {
-    img: feature14Img,
+    img: 'https://i.ibb.co/b1fZQGb/audio-3.webp',
     name: "Loa Karaoke YS-119 SUYOSD",
     price: 899000,
   },
   {
-    img: feature15Img,
+    img: 'https://i.ibb.co/VLKYZG1/audio-4.webp',
     name: "Tai nghe DAREU EH406",
     price: 299000,
   },
   {
-    img: feature16Img,
+    img: 'https://i.ibb.co/ry84KYV/audio-5.webp',
     name: "Loa SoundBar LG SN4R 4.1",
     price: 1590000,
   },
   {
-    img: feature17Img,
+    img: 'https://i.ibb.co/nC36SCx/audio-6.webp',
     name: "Tai nghe USB Logitech H390",
     price: 699000,
   },
   {
-    img: feature36Img,
+    img: 'https://i.ibb.co/HdGDMhn/audio-7.webp',
     name: "Loa JBL PartyBox 1000",
     price: 879000,
   },
   {
-    img: feature37Img,
+    img: 'https://i.ibb.co/9GhJSvJ/audio-8.webp',
     name: "Loa Karaoke YS-119 SUYOSD",
     price: 2490000,
   },
   {
-    img: feature38Img,
+    img: 'https://i.ibb.co/w02t5zq/audio-9.webp',
     name: "Tai nghe USB Logitech H390 màu hồng",
     price: 899000,
   },
   {
-    img: feature39Img,
+    img: 'https://i.ibb.co/df8xtzp/audio-10.webp',
     name: "Tai nghe JBL GO 3",
     price: 949000,
   },
   {
-    img: feature40Img,
+    img: 'https://i.ibb.co/FzjSF9c/audio-11.webp',
     name: "Loa Bluetooth Xiaomi MDZ-36-DB",
     price: 299000,
   },
   {
-    img: feature41Img,
+    img: 'https://i.ibb.co/7GM29VQ/audio-12.webp',
     name: "Tai nghe Bluetooth SoundPeats Air3 Deluxe",
     price: 1590000,
   },
   {
-    img: feature42Img,
+    img: 'https://i.ibb.co/LpvphHX/audio-13.webp',
     name: "Loa Bluetooth Karaoke SDRD-608",
     price: 699000,
   },
@@ -350,3 +350,77 @@ router.get("/", (req, res) => {
         products: data,
     });
 });
+
+
+export default router;
+
+/*
+https://i.ibb.co/fG3FfS9/audio-1.webp
+https://i.ibb.co/02J6WTJ/audio-2.webp
+https://i.ibb.co/b1fZQGb/audio-3.webp
+https://i.ibb.co/VLKYZG1/audio-4.webp
+https://i.ibb.co/ry84KYV/audio-5.webp
+https://i.ibb.co/nC36SCx/audio-6.webp
+https://i.ibb.co/HdGDMhn/audio-7.webp
+https://i.ibb.co/9GhJSvJ/audio-8.webp
+https://i.ibb.co/w02t5zq/audio-9.webp
+https://i.ibb.co/df8xtzp/audio-10.webp
+https://i.ibb.co/FzjSF9c/audio-11.webp
+https://i.ibb.co/7GM29VQ/audio-12.webp
+https://i.ibb.co/LpvphHX/audio-13.webp
+https://i.ibb.co/3vvj37K/component-1.webp
+https://i.ibb.co/njwXXN1/component-2.webp
+https://i.ibb.co/pwLGTDw/component-3.webp
+https://i.ibb.co/0ynKTb1/component-4.webp
+https://i.ibb.co/JqgmC1V/component-5.webp
+https://i.ibb.co/8cFNRkV/component-6.webp
+https://i.ibb.co/x3rvR3s/component-7.webp
+https://i.ibb.co/f89z6Hv/component-8.webp
+https://i.ibb.co/pJwdXYZ/component-9.webp
+https://i.ibb.co/rH2knLh/component-10.webp
+https://i.ibb.co/t3gprfp/component-11.webp
+https://i.ibb.co/3f4G8S2/internet-1.webp
+https://i.ibb.co/8xFcCND/internet-2.webp
+https://i.ibb.co/ySQH6dH/internet-3.webp
+https://i.ibb.co/LYNTNrD/internet-4.webp
+https://i.ibb.co/61DQ7zW/internet-5.webp
+https://i.ibb.co/Z2Hc7Yz/laptop-1.webp
+https://i.ibb.co/K9D67v8/laptop-2.webp
+https://i.ibb.co/2jKrspz/laptop-3.webp
+https://i.ibb.co/XW1wD5F/laptop-4.webp
+https://i.ibb.co/wzdQtXr/laptop-5.webp
+https://i.ibb.co/gSZrgJD/laptop-6.webp
+https://i.ibb.co/h92YM39/laptop-7.webp
+https://i.ibb.co/1snG3QP/laptop-8.webp
+https://i.ibb.co/1vKyz39/laptop-9.webp
+https://i.ibb.co/dDmbTRk/laptop-10.webp
+https://i.ibb.co/tQN1Wgp/laptop-11.webp
+https://i.ibb.co/kcysXFC/laptop-12.webp
+https://i.ibb.co/fxY0wCB/laptop-13.webp
+https://i.ibb.co/tPwyQ67/laptop-14.webp
+https://i.ibb.co/yq6KQ8C/laptop-15.webp
+https://i.ibb.co/1f4dnFw/phone-1.webp
+https://i.ibb.co/zGRDf0C/phone-2.webp
+https://i.ibb.co/cw25tvw/phone-3.webp
+https://i.ibb.co/LCPDh2g/phone-4.webp
+https://i.ibb.co/m4wvxcq/phone-5.webp
+https://i.ibb.co/hZxS7wp/phone-6.webp
+https://i.ibb.co/xgHQLxt/phone-7.webp
+https://i.ibb.co/12dVZJx/phone-8.webp
+https://i.ibb.co/nCPy458/phone-9.webp
+https://i.ibb.co/Sfgrt58/phone-10.webp
+https://i.ibb.co/8rP3CH0/phone-11.webp
+https://i.ibb.co/F6jsSZj/phone-12.webp
+https://i.ibb.co/nkR4ZNv/phone-13.webp
+https://i.ibb.co/X3NctTP/phone-14.webp
+https://i.ibb.co/0s8q3sN/watch-1.webp
+https://i.ibb.co/cYB97qy/watch-2.webp
+https://i.ibb.co/sbjRpKr/watch-3.webp
+https://i.ibb.co/L1Zh98N/watch-4.webp
+https://i.ibb.co/7WygS4t/watch-5.webp
+https://i.ibb.co/GspCYSF/watch-6.webp
+https://i.ibb.co/VQnL7mT/watch-7.webp
+https://i.ibb.co/rsMTQ8F/watch-8.webp
+https://i.ibb.co/QMzsj1c/watch-9.webp
+https://i.ibb.co/B6zZ0KQ/watch-10.webp
+*/
