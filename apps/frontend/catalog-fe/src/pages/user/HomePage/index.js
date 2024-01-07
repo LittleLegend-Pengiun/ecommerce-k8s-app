@@ -81,8 +81,9 @@ import { Link } from "react-router-dom";
 // import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import { formatPrice } from "utils/formater";
 import "./style.scss";
-import React, { useState} from "react";
+import React, { useState,useEffect} from "react";
 import ReactPaginate from 'react-paginate';
+import productAPI from 'api/productAPI';
 const HomePage = () => {
   const featProducts =  {
       title: "Tất cả",
@@ -799,6 +800,13 @@ const HomePage = () => {
     //     },
     //   ]
     // }
+  useEffect(()=>{
+    const fetchProducts = async () => {
+        const productList = await productAPI.getAll();
+        console.log(productList);
+    }
+    fetchProducts();
+  },[])
   const [pageNumber, setPageNumber] = useState(0);
   const productsPerPage = 8;
   const pagesVisited = pageNumber * productsPerPage;
