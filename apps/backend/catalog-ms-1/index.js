@@ -1,6 +1,6 @@
 import express from "express";
 import prometheusExporter from '@tailorbrands/node-exporter-prometheus';
-import router from "./router/catalog";
+import router from "./router/catalog.js";
 
 const app = express();
 
