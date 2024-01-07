@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosClient = axios.create({
-    baseURL: 'http://localhost:4000/',
+    baseURL: process.env.REACT_APP_CATALOG_MS_1_URL,
     headers: {
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": '*',
