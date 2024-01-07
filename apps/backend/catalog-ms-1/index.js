@@ -1,6 +1,7 @@
 import express from "express";
 import prometheusExporter from '@tailorbrands/node-exporter-prometheus';
 import router from "./router/catalog.js";
+import cors from "cors";
 
 const app = express();
 
@@ -11,6 +12,7 @@ const options = {
 };
 const promExporter = prometheusExporter(options);
 app.use(promExporter.middleware);
+app.use(cors());
 app.get('/metrics', promExporter.metrics);
 app.get("/", (req, res) => { 
     res.send("OK!");
