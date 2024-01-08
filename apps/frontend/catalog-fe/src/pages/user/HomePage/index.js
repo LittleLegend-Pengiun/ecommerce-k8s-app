@@ -9,14 +9,14 @@ import ReactPaginate from 'react-paginate';
 import axios from 'axios';
 const HomePage = () => {
   // const [loading, setLoading] = useState(false);
-  const [featProducts, setFeatProducts] = useState({products:[]})
+  const [allProducts, setAllProducts] = useState({products:[]})
 
   useEffect(() => {
     const fetchData = async () =>{
       // setLoading(true);
       try {
         const {data: response} = await axios.get('http://127.0.0.1:4000/products');
-        setFeatProducts(response);
+        setAllProducts(response);
       } catch (error) {
         console.error(error.message);
       }
@@ -25,11 +25,11 @@ const HomePage = () => {
 
     fetchData();
   }, []);
-  console.log(featProducts);
+  console.log(allProducts);
   const [pageNumber, setPageNumber] = useState(0);
   const productsPerPage = 12;
   const pagesVisited = pageNumber * productsPerPage;
-  const displayProducts = featProducts.products.slice(pagesVisited, pagesVisited + productsPerPage).map((item, index) => {
+  const displayProducts = allProducts.products.slice(pagesVisited, pagesVisited + productsPerPage).map((item, index) => {
     return (
       <div className="col-lg-3 col-md-4 col-sm-6 col-xs-12" key={index}>
       <div className="featured__item pl-pr-10">
@@ -53,7 +53,7 @@ const HomePage = () => {
     </div>
     );
   });
-  const pageCount = Math.ceil(featProducts.products.length / productsPerPage);
+  const pageCount = Math.ceil(allProducts.products.length / productsPerPage);
 
   const changePage = ({ selected }) => {
     setPageNumber(selected);
