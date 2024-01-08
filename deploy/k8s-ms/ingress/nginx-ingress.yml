@@ -9,15 +9,22 @@ spec:
   rules:
     - http:
         paths:
+          # - pathType: Prefix
+          #   path: /backend(/|$)(.*)
+          #   backend:
+          #     service:
+          #       name: catalog-ms-service
+          #       port:
+          #         number: 8080
           - pathType: Prefix
-            path: /backend(/|$)(.*)
+            path: /catalog(/|$)(.*)
             backend:
               service:
-                name: catalog-ms-service
+                name: catalog-ms-1-service
                 port:
-                  number: 80
+                  number: 4000
           - pathType: Prefix
-            path: /frontend/?(.*)
+            path: /?(.*)
             # path: /
             backend:
               service:
