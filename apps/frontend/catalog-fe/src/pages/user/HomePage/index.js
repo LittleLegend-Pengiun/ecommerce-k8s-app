@@ -1,25 +1,31 @@
-
-import { memo } from "react";
-import { AiOutlineEye, AiOutlineShoppingCart } from "react-icons/ai";
-// import Carousel from "react-multi-carousel";
-import { Link } from "react-router-dom";
 // import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
+// import Carousel from "react-multi-carousel";
+import { AiOutlineEye, AiOutlineShoppingCart } from "react-icons/ai";
+import { Link } from "react-router-dom";
 import { formatPrice } from "utils/formater";
 import "./style.scss";
-import React, { useState,useEffect} from "react";
+import React, { useState,useEffect,memo} from "react";
 import ReactPaginate from 'react-paginate';
-import productAPI from 'api/productAPI';
+import axios from 'axios';
 const HomePage = () => {
-  const [featProducts, setFeatProducts] = useState({products:[]});
-  useEffect(()=>{
-    const fetchProducts = async () => {
-       const productList = await productAPI.getAll();
-       return productList;
+  // const [loading, setLoading] = useState(false);
+  const [featProducts, setFeatProducts] = useState({products:[]})
+
+  useEffect(() => {
+    const fetchData = async () =>{
+      // setLoading(true);
+      try {
+        const {data: response} = await axios.get('http://127.0.0.1:4000/products');
+        setFeatProducts(response);
+      } catch (error) {
+        console.error(error.message);
+      }
+      // setLoading(false);
     }
-    fetchProducts().then((res)=>{
-      setFeatProducts(res);
-    })
-  },[featProducts])
+
+    fetchData();
+  }, []);
+  console.log(featProducts);
   const [pageNumber, setPageNumber] = useState(0);
   const productsPerPage = 12;
   const pagesVisited = pageNumber * productsPerPage;
@@ -60,10 +66,7 @@ const HomePage = () => {
           <div className="section-title">
             <h2>Khám phá tất cả các loại sản phẩm</h2>
           </div>
-          {/* Hiển thị danh sách sản phẩm */}
           <div className="row">{displayProducts}</div>
-
-          {/* Hiển thị phân trang */}
           <ReactPaginate
             previousLabel={"Trang trước"}
             nextLabel={"Trang sau"}
