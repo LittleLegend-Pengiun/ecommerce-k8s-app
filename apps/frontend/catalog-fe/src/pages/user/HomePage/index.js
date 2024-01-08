@@ -15,7 +15,8 @@ const HomePage = () => {
     const fetchData = async () =>{
       // setLoading(true);
       try {
-        const {data: response} = await axios.get('http://127.0.0.1:4000/products');
+        const res = await axios.get('http://127.0.0.1:4000/products');
+        const response = res.data;
         setAllProducts(response);
       } catch (error) {
         console.error(error.message);
@@ -25,7 +26,7 @@ const HomePage = () => {
 
     fetchData();
   }, []);
-  console.log(allProducts);
+  // console.log(allProducts);
   const [pageNumber, setPageNumber] = useState(0);
   const productsPerPage = 12;
   const pagesVisited = pageNumber * productsPerPage;
