@@ -21,7 +21,7 @@ const HomePage = () => {
     })
   },[featProducts])
   const [pageNumber, setPageNumber] = useState(0);
-  const productsPerPage = 8;
+  const productsPerPage = 12;
   const pagesVisited = pageNumber * productsPerPage;
   const displayProducts = featProducts.products.slice(pagesVisited, pagesVisited + productsPerPage).map((item, index) => {
     return (
