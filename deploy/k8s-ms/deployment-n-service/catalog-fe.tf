@@ -16,7 +16,7 @@ resource "kubernetes_deployment" "catalog-fe-deploy" {
       spec {
         container {
           name = "catalog-fe"
-          image = "hieuhoang2901/catalog-fe:latest"
+          image = "hoanganhleboy/catalog-fe:latest"
           port { container_port = 80 }
           # env {
           #   name = "MS_URL"

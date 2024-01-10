@@ -24,7 +24,7 @@ spec:
                 port:
                   number: 4000
           - pathType: Prefix
-            path: /?(.*)
+            path: /frontend(/|$)(.*)
             # path: /
             backend:
               service:
