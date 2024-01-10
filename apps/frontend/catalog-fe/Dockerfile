@@ -1,16 +1,28 @@
-FROM node:20.10.0-alpine as build
-WORKDIR /app
-ENV PATH /app/node_modules/.bin:$PATH
-COPY ./package.json /app/
-COPY ./ yarn.lock /app/
-RUN yarn
-COPY . /app
-RUN yarn build
+# Use an official Node runtime as a parent image
+FROM node:18 AS builder
 
-# stage 2 - build the final image and copy the react build files
-FROM nginx:1.17.8-alpine
-COPY --from=build /app/build /usr/share/nginx/html
-RUN rm /etc/nginx/conf.d/default.conf
-COPY nginx/nginx.conf /etc/nginx/conf.d
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy package.json and package-lock.json to the container
+COPY package.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy the rest of the application code to the container
+COPY . .
+
+# Build the Vite React application
+RUN npm run build
+
+# Use an official Nginx runtime as a parent image
+FROM nginx:alpine
+
+# Copy the build output from the builder stage to the nginx web root
+COPY --from=builder /app/build /usr/share/nginx/html
+
+# Expose port 80
 EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+
+# Start Nginx
