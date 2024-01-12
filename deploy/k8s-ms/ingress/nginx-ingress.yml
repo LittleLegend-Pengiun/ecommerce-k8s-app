@@ -4,7 +4,9 @@ metadata:
   name: example-ingress
   annotations:
     nginx.ingress.kubernetes.io/enable-directory-listing: "true"
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    # kubernetes.io/ingress.class: nginx
+    # nginx.ingress.kubernetes.io/use-regex: "true"
 spec:
   rules:
     - http:
@@ -24,11 +26,11 @@ spec:
                 port:
                   number: 4000
           - pathType: Prefix
-            path: /frontend(/|$)(.*)
+            path: /?(.*)
             # path: /
             backend:
               service:
                 name: catalog-fe-service
                 port:
-                  number: 80
+                  number: 8080
 ---
