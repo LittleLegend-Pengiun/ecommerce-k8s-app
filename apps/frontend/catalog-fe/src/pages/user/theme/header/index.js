@@ -47,7 +47,7 @@ const Header = () => {
     return (
     <div>
         <div className="header__top">
-        <div className='container'>
+        <div className="container">
             <div className="row">
                 <div className="col-6 header__top_left">
                     <ul>
