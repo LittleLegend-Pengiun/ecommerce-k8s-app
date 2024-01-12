@@ -15,14 +15,14 @@ app.use(promExporter.middleware);
 app.use(cors());
 app.get('/metrics', promExporter.metrics);
 app.get("/", (req, res) => { 
-    res.send("OK!");
+    res.send("Hello from Catalog microservice!");
 });
 
 app.get("/health", (req, res) => { 
-    res.send("OK!");
+    res.send("Health check: OK!");
 });
 
-app.use("/catalog", router);
+app.use("/products", router);
 
 const port = 4000;
 app.listen(port, () => {

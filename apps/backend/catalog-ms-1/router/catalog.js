@@ -345,7 +345,7 @@ const data = [
   },
 ];
 
-router.get("/products", (req, res) => {
+router.get("/", (req, res) => {
     res.send({
         products: data,
     });
