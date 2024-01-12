@@ -22,7 +22,7 @@ app.get("/health", (req, res) => {
     res.send("OK!");
 });
 
-app.use("/products", router);
+app.use("/catalog", router);
 
 const port = 4000;
 app.listen(port, () => {
