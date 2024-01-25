@@ -5,12 +5,12 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 if (process.env.NODE_ENV === 'development') {
-  const devEnv = dotenv.config({ path: ".env-local"})
+  const devEnv = dotenv.config({ path: ".env.development"})
   process.env = {...process.env, ...devEnv.parsed }
 } 
 else 
 { // process.env.NODE_ENV === 'production'
-  const prodEnv = dotenv.config({ path: ".env-prod"})
+  const prodEnv = dotenv.config({ path: ".env.production"})
   process.env = {...process.env, ...prodEnv.parsed }
 }
 
@@ -21,7 +21,6 @@ export default defineConfig({
   },
   plugins: [react()],
   define: {
-    'process.env.MS_URL': JSON.stringify(process.env.MS_URL),
-    'process.env.CONTENT': JSON.stringify(process.env.CONTENT),
+    'process.env.REACT_APP_CATALOG_MS_1_URL': JSON.stringify(process.env.REACT_APP_CATALOG_MS_1_URL),
   },
 })

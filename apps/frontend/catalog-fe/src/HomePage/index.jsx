@@ -16,7 +16,7 @@ const HomePage = () => {
       // setLoading(true);
       try {
         const res = await axios.get(
-          `http://127.0.0.1:4000/products`
+          `${process.env.REACT_APP_CATALOG_MS_1_URL}/products`
         );
 
         const response = res.data;
