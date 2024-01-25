@@ -1,6 +1,6 @@
 import {memo} from 'react';
 import "./style.scss";
-import Link from './Link'
+import Link from '../Link'
 import { AiOutlineLinkedin,AiOutlineFacebook,AiOutlineInstagram } from 'react-icons/ai';
 
 

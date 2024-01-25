@@ -10,13 +10,9 @@ import {
     AiOutlineShoppingCart,
     AiOutlineMenu,
     AiOutlinePhone} from "react-icons/ai";
-// import { Link } from "react-router-dom";
+import Link from "../Link"
 import { formatPrice } from "../../utils/formater"
 // import { ROUTERS } from "utils/router";
-
-const Link = ({to,children}) => {
-    return <div>{children}</div>
-}
 
 
 const Header = () => {

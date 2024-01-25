@@ -1,15 +1,16 @@
 import { useEffect, useState, memo} from 'react'
 import viteLogo from '/vite.svg'
 import Header from './theme/header'
+import MasterLayout from './theme/masterLayout'
+import HomePage from './HomePage'
 
 function App() {
 
   return (
     <>
-      <Header />
-      <div>
-        <h1>Hello World</h1>
-      </div>
+      <MasterLayout>
+        <HomePage />
+      </MasterLayout>
     </>
   )
 }

@@ -1,5 +1,11 @@
 import React from "react";
 
-export default Link = ({ to, children }) => {
-  return <div>{children}</div>;
+const Link = ({ to, children }) => {
+  return (
+    <li>
+      <a href={to}>{children}</a>
+    </li>
+  )
 };
+
+export default Link;
