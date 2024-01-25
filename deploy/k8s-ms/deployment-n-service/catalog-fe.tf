@@ -17,7 +17,7 @@ resource "kubernetes_deployment" "catalog-fe-deploy" {
         container {
           name = "catalog-fe"
           image = "hoanganhleboy/catalog-fe:latest"
-          port { container_port = 8080 }
+          port { container_port = 80 }
           # env {
           #   name = "MS_URL"
           #   value = ""
@@ -42,8 +42,8 @@ resource "kubernetes_service" "catalog-fe-service" {
     selector = { app = "catalog-fe-pod", tier = "frontend"}
     port {
       protocol = "TCP"
-      port = 8080
-      target_port = 8080
+      port = 80
+      target_port = 80
     }
     type = "NodePort"
   }
