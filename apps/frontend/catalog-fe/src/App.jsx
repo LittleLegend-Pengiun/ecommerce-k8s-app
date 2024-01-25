@@ -1,38 +1,17 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, memo} from 'react'
 import viteLogo from '/vite.svg'
-import './App.css'
+import Header from './theme/header'
 
 function App() {
-  const [data, setData] = useState("");
-  async function fetchData() {
-    try {
-      const res = await fetch(`${process.env.MS_URL}/data`, {
-        method: 'GET',
-        // mode: 'no-cors'
-      })
-      const json = await res.json();
-      setData(json?.message);
-    } catch (err) {
-      console.error(err);
-    }
-  }
-
-  useEffect(() => { fetchData() }, []);
 
   return (
     <>
+      <Header />
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <p>The message from backend: {data}</p>
-        <p>The message from env: {process.env.CONTENT}</p>
+        <h1>Hello World</h1>
       </div>
     </>
   )
 }
 
-export default App
+export default memo(App)
