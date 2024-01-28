@@ -6,7 +6,8 @@ services:
       POSTGRES_PASSWORD: password123
       POSTGRES_USER: user123
       POSTGRES_DB: db123
-  app:
-    image: my-node-app
+    expose:
+      - "5432" # Publishes 5433 to other containers but NOT to host machine
     ports:
-      - 13000:3000
+      - "5432:5432"
+    # command: -p 5432
