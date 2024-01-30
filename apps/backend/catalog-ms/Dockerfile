@@ -5,13 +5,13 @@ FROM eclipse-temurin:17-jdk-alpine
 WORKDIR /app
 
 # Copy the current directory contents into the container at /app
-COPY . /app
+COPY target/catalog-0.0.1-SNAPSHOT.jar /app/catalog-ms.jar
 
 # Build the Spring Boot application
-RUN ./mvnw package -DskipTests
+# RUN ./mvnw package -DskipTests
 
 # Expose the port that your Spring Boot application will run on
-EXPOSE 80
+EXPOSE 8090
 
 # Define the command to run your application
-CMD ["java", "-jar", "target/catalog-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "catalog-ms.jar"]

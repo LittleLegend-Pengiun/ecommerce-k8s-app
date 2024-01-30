@@ -1,0 +1,17 @@
+version: "3"
+services: 
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: duyphatbk
+      POSTGRES_USER: postgres
+      POSTGRES_DB: catalog
+    expose:
+      - "5432" # Publishes 5433 to other containers but NOT to host machine
+    ports:
+      - "5432:5432"
+    # command: -p 5432
+  # catalog-db-java:
+  #   image: catalog-ms
+  #   ports:
+  #     - "8090:8090"
