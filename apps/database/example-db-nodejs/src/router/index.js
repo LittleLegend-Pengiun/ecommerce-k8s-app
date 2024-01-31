@@ -1,12 +1,9 @@
-const express = require('express')
-const pool = require('./db')
-const port = 3000
+const { Router } = require('express');
+const pool = require('../database/db');
 
-const app = express()
-app.use(express.json())
+const router = Router();
 
-//routes
-app.get('/', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         // await pool.connect();
         const data = await pool.query('SELECT * FROM schools')
@@ -17,7 +14,7 @@ app.get('/', async (req, res) => {
     }
 })
 
-app.post('/', async (req, res) => {
+router.post('/', async (req, res) => {
     const { name, location } = req.body
     try {
         await pool.query('INSERT INTO schools (name, address) VALUES ($1, $2)', [name, location])
@@ -28,7 +25,7 @@ app.post('/', async (req, res) => {
     }
 })
 
-app.get('/setup', async (req, res) => {
+router.get('/setup', async (req, res) => {
     try {
         await pool.query('CREATE TABLE schools( id SERIAL PRIMARY KEY, name VARCHAR(100), address VARCHAR(100))')
         res.status(200).send({ message: "Successfully created table" })
@@ -39,4 +36,4 @@ app.get('/setup', async (req, res) => {
 })
 
 
-app.listen(port, () => console.log(`Server has started on port: ${port}`))
+module.exports = router;

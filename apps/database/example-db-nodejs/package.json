@@ -1,18 +1,20 @@
 {
-  "name": "catalog-db",
+  "name": "example-db-nodejs",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "start": "node dist/index.js",
     "dev": "nodemon src/server.js",
     "build": "webpack",
-    "init:db": "docker-compose up -d"
+    "init:db": "docker-compose up -d",
+    "image:build": "docker build -t example-db-nodejs ."
   },
   "dependencies": {
     "express": "^4.18.2",
     "pg": "^8.10.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "webpack-cli": "^5.1.4"
   }
 }
