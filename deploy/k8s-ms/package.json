@@ -4,11 +4,6 @@
     "version": "0.0.0",
     "type": "module",
     "scripts": {
-<<<<<<< HEAD
-        "tf:init": "terraform init --upgrade",
-        "tf:apply": "terraform apply --auto-approve",
-        "tf:destroy": "terraform destroy --auto-approve"
-=======
         "tf:init": "terraform -chdir=\"./deployment-n-service\" init --upgrade",
         "tf:apply": "terraform -chdir=\"./deployment-n-service\" apply --auto-approve",
         "tf:destroy": "terraform -chdir=\"./deployment-n-service\" destroy --auto-approve",
@@ -20,6 +15,5 @@
         "keda:deploy": "kubectl apply -f keda/scaled-object.yml",
         "keda:stress-test": "./testing/k6 run ./testing/api-stress-test.js",
         "kctl-apply": "kubectl apply -f"
->>>>>>> dev
     }
 }
