@@ -17,13 +17,14 @@ COPY . .
 RUN npm run build
 
 # Use an official Nginx runtime as a parent image
-FROM nginx:alpine
+# FROM nginx:alpine
 
-# Copy the build output from the builder stage to the nginx web root
-COPY --from=builder /app/dist /usr/share/nginx/html
+# # Copy the build output from the builder stage to the nginx web root
+# COPY --from=builder /app/build /usr/share/nginx/html
 
-# Expose port 80
-EXPOSE 80
+# # Expose port 80
+EXPOSE 8080
 
 # Start Nginx
-# CMD ["nginx", "-g"]
+
+CMD ["node", "server.js"]
