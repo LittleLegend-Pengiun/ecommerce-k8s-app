@@ -1,0 +1,34 @@
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: catalog-ms-hpa
+  namespace: default
+spec:
+  maxReplicas: 10
+  metrics:
+    - resource:
+        name: cpu
+        target:
+          averageUtilization: 10
+          type: Utilization
+      type: Resource
+  minReplicas: 1
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: catalog-ms-deploy
+  behavior:
+    scaleUp:
+      selectPolicy: Max
+      stabilizationWindowSeconds: 60
+      policies:
+        - periodSeconds: 30
+          type: Pods
+          value: 4
+    scaleDown:
+      selectPolicy: Min
+      stabilizationWindowSeconds: 60
+      policies:
+        - periodSeconds: 30
+          type: Pods
+          value: 4

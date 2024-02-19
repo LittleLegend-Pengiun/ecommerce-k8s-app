@@ -5,7 +5,7 @@ FROM eclipse-temurin:17-jdk-alpine
 WORKDIR /app
 
 # Copy the current directory contents into the container at /app
-COPY target/catalog-0.0.1-SNAPSHOT.jar /app/catalog-ms.jar
+COPY target/*.jar /app/catalog-ms.jar
 
 # Build the Spring Boot application
 # RUN ./mvnw package -DskipTests
