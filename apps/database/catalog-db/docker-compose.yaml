@@ -1,17 +1,50 @@
-version: "3"
-services: 
-  db:
-    image: postgres
-    environment:
-      POSTGRES_PASSWORD: duyphatbk
-      POSTGRES_USER: postgres
-      POSTGRES_DB: catalog
-    expose:
-      - "5432" # Publishes 5433 to other containers but NOT to host machine
-    ports:
-      - "5432:5432"
+# version: "3"
+# services: 
+#   db:
+#     image: postgres
+#     environment:
+#       POSTGRES_PASSWORD: duyphatbk
+#       POSTGRES_USER: postgres
+#       POSTGRES_DB: catalog
+#     expose:
+#       - "5432" # Publishes 5433 to other containers but NOT to host machine
+#     ports:
+#       - "5432:5432"
     # command: -p 5432
   # catalog-db-java:
   #   image: catalog-ms
   #   ports:
   #     - "8090:8090"
+version: '3'
+
+services:
+  postgres:
+    image: postgres:12
+    environment:
+      POSTGRES_DB: catalog
+      POSTGRES_USER: duyphatbk
+      POSTGRES_PASSWORD: duyphatbk
+    ports:
+      - "5432:5432"
+  
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+      
+  spring-boot-app:
+    image: catalog-ms:1.0
+    ports:
+      - "8090:8090"
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/catalog
+      SPRING_DATASOURCE_USERNAME: duyphatbk
+      SPRING_DATASOURCE_PASSWORD: duyphatbk
+      
