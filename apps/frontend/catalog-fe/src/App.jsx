@@ -1,4 +1,4 @@
-import { useEffect, useState, memo} from 'react'
+import { memo } from 'react'
 import viteLogo from '/vite.svg'
 import Header from './theme/header'
 import MasterLayout from './theme/masterLayout'
