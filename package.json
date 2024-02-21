@@ -22,6 +22,7 @@
     "apps/frontend/*",
     "apps/backend/*",
     "apps/database/*",
+    "deploy/rabbitmq/example-apps/*",
     "deploy/*"
   ]
 }
