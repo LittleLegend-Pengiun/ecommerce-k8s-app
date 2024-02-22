@@ -8,6 +8,7 @@
     "dev": "./mvnw spring-boot:run",
     "stop-java": "./mvnw spring-boot:stop",
     "build": "./mvnw package -DskipTests",
-    "image:build": "docker build -t catalog-ms ."
+    "image:build": "docker build -t catalog-ms .",
+    "init:db": "docker-compose up -d"
   }
 }
