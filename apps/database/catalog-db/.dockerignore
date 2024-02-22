@@ -1,8 +1,5 @@
 .turbo
-<<<<<<< HEAD:apps/database/catalog-db/.dockerignore
-=======
 # target
->>>>>>> dev:apps/backend/catalog-ms/.dockerignore
 README*
 .gitignore
 package.json
