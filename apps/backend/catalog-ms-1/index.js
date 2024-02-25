@@ -1,7 +1,9 @@
 import express from "express";
 import prometheusExporter from '@tailorbrands/node-exporter-prometheus';
-import router from "./router/catalog.js";
+import { router as catalogRouter } from "./router/catalog.js";
 import cors from "cors";
+import initConsumer from "./rabbitMQ/consumer.js";
+import initProducer from "./rabbitMQ/producer.js";
 
 const app = express();
 
@@ -22,7 +24,10 @@ app.get("/health", (req, res) => {
     res.send("Health check: OK!");
 });
 
-app.use("/products", router);
+app.use("/products", catalogRouter);
+
+initConsumer();
+initProducer();
 
 const port = 4000;
 app.listen(port, () => {
