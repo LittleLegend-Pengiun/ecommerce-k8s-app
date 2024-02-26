@@ -1,18 +1,10 @@
-import { useEffect, useState, memo} from 'react'
-import viteLogo from '/vite.svg'
-import Header from './theme/header'
-import MasterLayout from './theme/masterLayout'
-import HomePage from './HomePage'
-
+import { Button} from 'antd';
 function App() {
-
   return (
-    <>
-      <MasterLayout>
-        <HomePage />
-      </MasterLayout>
-    </>
+   <div>
+    <Button type="primary">Primary Button</Button>
+   </div>
   )
 }
 
-export default memo(App)
+export default App
