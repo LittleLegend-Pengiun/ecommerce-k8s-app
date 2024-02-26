@@ -1,8 +1,9 @@
 import React from 'react'
 import { Col} from 'antd';
-import Search from 'antd/lib/input/Search';
+// import Search from 'antd/lib/input/Search';
 import { UserOutlined,DownOutlined,ShoppingCartOutlined } from '@ant-design/icons';
 import { WrapperAccountHeader, WrapperHeader, WrapperTextHeader,WrapperTextHeaderSmall } from './style';
+import SearchInputButton  from '../SearchInputButton/SearchInputButton'
 const HeaderComponent = () => {
   return (
     <div>
@@ -11,9 +12,9 @@ const HeaderComponent = () => {
             <WrapperTextHeader>BKU-SHOP</WrapperTextHeader>
         </Col>
         <Col span={12}>
-        <Search
-            placeholder="input search text"
-            allowClear
+        <SearchInputButton
+            placeholder="Nhập từ khoá để tìm kiếm"
+            innerText="Tìm kiếm"
             size="large"
         />
         </Col>
@@ -23,7 +24,7 @@ const HeaderComponent = () => {
         <UserOutlined style={{fontSize:'30px'}}/>
         </div>
         <div>
-            <WrapperTextHeaderSmall>Đăng nhập/Đăng ký</WrapperTextHeaderSmall>
+            <WrapperTextHeaderSmall>Đăng nhập / Đăng ký</WrapperTextHeaderSmall>
             <div>
             <WrapperTextHeaderSmall>Tài khoản</WrapperTextHeaderSmall>
             <DownOutlined />
