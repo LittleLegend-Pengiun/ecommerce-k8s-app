@@ -4,10 +4,7 @@ import React from 'react'
 const ButtonComponent = ({ size, styleButton, styleTextButton, textbutton, disabled, ...rests }) => {
   return (
     <Button
-      style={{
-        ...styleButton,
-        background: disabled ? '#ccc' : styleButton.background
-      }}
+      style={styleButton}
       size={size}
       {...rests}
     >
