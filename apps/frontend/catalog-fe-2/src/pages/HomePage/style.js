@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import ButtonComponent from "../../../../product-detail-fe/src/components/ButtonComponent/ButtonComponent";
-
+import ButtonComponent from '../../components/ButtonComponent/ButtonComponent'
+import ReactPaginate from 'react-paginate';
 export const WrapperCategoryProduct =styled.div`
     display: flex;
     align-items: center;
@@ -27,4 +27,12 @@ export const WrapperProducts = styled.div`
     gap: 20px;
     justify-content: center;
     margin-top: 20px;
+`
+export const WrapperText = styled.h1`
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-size: 28px;
+    font-weight: 600;
+    color: #008874;
 `

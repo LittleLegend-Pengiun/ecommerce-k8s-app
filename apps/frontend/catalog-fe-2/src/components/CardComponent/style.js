@@ -17,10 +17,13 @@ export const WrapperCardStyle = styled(Card)`
 //     height:20px;
 // `;
 export const StyleNameProduct = styled.div`
-    font-weight:400;
+    font-weight:600;
     font-size:16px;
     line-height:24px;
     color:rgb(56,56,61);
+    height:48px;
+    overflow:hidden;
+    text-overflow:ellipsis;
 `;
 export const WrapperReportText = styled.div`
     display:flex;
@@ -40,4 +43,6 @@ export const WrapperDiscountText = styled.span`
     font-size:14px;
     font-weight:400;
     color:red;
+`;
+export const WrapperText = styled.div`
 `;
