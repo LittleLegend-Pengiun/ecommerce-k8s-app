@@ -1,0 +1,115 @@
+.row {
+    display: flex;
+    justify-content: center;
+    gap:40px;
+    padding: 40px 0;
+}
+.Footer 
+{
+    margin-top:60px;
+    background-color: #008874;
+    padding-top:40px;
+    .footer__about {
+        .footer__about__logo{
+            display: inline-block;
+            color:white;
+            margin:0;
+            font-size: 30px;
+        }
+        ul li 
+        {
+        font-size: 16px;
+        color:white;
+        line-height: 36px;
+        list-style: none;
+    }
+    }
+    .footer__widget 
+    {
+    overflow: hidden;
+    h6 {
+        color:white;
+        font-size: 20px;
+        font-weight: 700;
+        margin: 0;
+    }
+    ul {
+        float:left;
+        // width:50%;
+        li {
+            list-style: none;
+            a {
+                color:white;
+                font-size: 16px;
+                line-height: 32px;
+                text-decoration: none;
+            }
+        }
+    }
+    }
+    p {
+        font-size: 16px;
+        color:white;
+    }
+    form 
+    {
+        .input-group 
+        {
+            display: flex;
+            align-items: center;
+            input 
+                {
+                    width:100%;
+                    font-size:16px;
+                    padding-left:20px;
+                    color:black;
+                    height:40px;
+                    border: 1px solid #ededed;
+                    ::placeholder 
+                    {
+                        color:white;
+                    }
+                }
+            button 
+            {
+                padding:1px 26px;
+                height:43.5px;
+                min-width:max-content;
+                background-color: white;
+                color:black;
+                border:1px solid #ededed;
+                font-size: 16px;
+                &:hover 
+                {
+                    background-color: #404040;
+                    color:white;
+                    border-color: #ffffff;
+                }
+            }
+                
+        }
+        .footer__widget__social{
+            display: flex;
+            align-items: center;
+            column-gap: 10px;
+            margin-top:30px;
+            div {
+                :hover {
+                    background-color: #404040;
+                    color:#ffffff;
+                    border-color: #ffffff;
+                }
+            svg {
+                font-size:20px;
+                padding:10px;
+                color:#404040;
+                border:1px solid #ededed;
+                border-radius:50%;
+                transition: all 0,3s;;
+                background: #ffffff;
+                cursor:pointer;
+            }
+            }
+        }
+    }
+}
