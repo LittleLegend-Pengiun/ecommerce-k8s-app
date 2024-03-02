@@ -23,7 +23,7 @@ export let options = {
 };
 
 export default function () {
-  let r = http.get(`http://127.0.0.1/catalog`);
+  let r = http.get(`http://192.168.49.100:4000/`);
   check(r, {
     "status is 200": (r) => r.status === 200,
   });

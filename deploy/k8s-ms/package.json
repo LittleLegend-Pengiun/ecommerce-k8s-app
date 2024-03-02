@@ -16,7 +16,7 @@
         "keda:init": "kubectl apply --server-side -f https://github.com/kedacore/keda/releases/download/v2.12.1/keda-2.12.1-core.yaml",
         "keda:deploy": "kubectl apply -f keda/scaled-object.yml",
         "keda:stress-test": "./testing/k6 run ./testing/api-stress-test.js",
-        "prometheus:setup": "&& kubectl create namespace monitoring && kubectl create -f prometheus/clusterRole.yaml && kubectl create -f prometheus/config-map.yaml && kubectl create  -f prometheus/prometheus-deployment.yaml",
+        "prometheus:setup": "kubectl create -f prometheus/clusterRole.yaml && kubectl create -f prometheus/config-map.yaml && kubectl create  -f prometheus/prometheus-deployment.yaml && kubectl create -f prometheus/prometheus-service.yaml",
         "kctl-apply": "kubectl apply -f"
     }
 }
