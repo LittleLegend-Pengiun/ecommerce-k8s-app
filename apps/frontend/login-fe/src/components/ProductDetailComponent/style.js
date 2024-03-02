@@ -23,8 +23,8 @@ export const WrapperTextReport = styled.span`
     line-height: 24px;
 `;
 export const WrapperProductPrice = styled.div`
-    background:rgb(250, 250, 250);
     border-radius: 4px;
+    padding: 10px 0;
 `;
 export const WrapperProductPriceText= styled.h1`
     font-size: 32px;
@@ -35,9 +35,7 @@ export const WrapperProductPriceText= styled.h1`
 `;
 export const WrapperAddress = styled.div`
     margin-top: 20px;
-    border:1px solid #efefef;
     padding-bottom: 20px;
-    background:#f9f9f9;
     span.address {
         font-size: 15px;
         line-height: 24px;
@@ -59,6 +57,7 @@ export const WrapperAddress = styled.div`
         color:black;
         font-weight: 500;
         padding-left:10px;
+        margin-top:10px;
     }
 `;
 export const WrapperQuantityProduct = styled.div`

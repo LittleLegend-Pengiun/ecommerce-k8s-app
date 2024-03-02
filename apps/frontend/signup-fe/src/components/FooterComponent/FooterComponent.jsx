@@ -1,0 +1,71 @@
+import React from 'react'
+import "./style.scss";
+import { Link } from "react-router-dom";
+import { AiOutlineLinkedin,AiOutlineFacebook,AiOutlineInstagram } from 'react-icons/ai';
+
+const FooterComponent = () => {
+  return (
+    <div>
+        <footer className="Footer">
+            <div className="container">
+                <div className="row">
+                    <div className="footer__about">
+                        <h1 className="footer__about__logo">BKU-SHOP</h1>
+                        <ul>
+                            <li>Địa chỉ: 268 Lý Thường Kiệt</li>
+                            <li>Điện thoại: 0123 456 789</li>
+                            <li>Email: bku-shop@hcmut.edu.vn</li>
+                        </ul>
+                    </div>
+                    <div className="footer__widget">
+                        <h6>Cửa hàng</h6>
+                        <ul>
+                            <li>
+                                <Link to={""}>
+                                    Liên hệ
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={""}>
+                                    Thông tin về chúng tôi
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={""}>
+                                    Sản phẩm kinh doanh
+                                </Link>
+                            </li>
+                        </ul>
+
+                    </div>
+                    <div className="footer__widget">
+                        <h6>Khuyến mãi & ưu đãi</h6>
+                        <p>Đăng ký nhận thông tin tại đây</p>
+                        <form action="#">
+                            <div>
+                                <div className="input-group">
+                                    <input type="text" placeholder="Nhập email của bạn" />
+                                    <button type="submit" className="button-submit">Đăng ký</button>
+                                </div>
+                                <div className="footer__widget__social">
+                                    <div>
+                                        <AiOutlineFacebook/>
+                                    </div>
+                                    <div>
+                                        <AiOutlineInstagram/>
+                                    </div>
+                                    <div>
+                                        <AiOutlineLinkedin/>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </footer>;
+    </div>
+  )
+}
+
+export default FooterComponent
