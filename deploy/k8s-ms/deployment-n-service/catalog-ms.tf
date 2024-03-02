@@ -46,6 +46,6 @@ resource "kubernetes_service" "catalog-ms-service" {
       port = 8090 // port expose to outside
       target_port = 80 // This port the same with port in the code.
     }
-    type = "NodePort"
+    type = "LoadBalancer"
   }
 }
