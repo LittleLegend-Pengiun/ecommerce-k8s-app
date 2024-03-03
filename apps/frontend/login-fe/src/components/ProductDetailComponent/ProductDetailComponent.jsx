@@ -104,7 +104,7 @@ const ProductDetailComponent = () => {
                                 styleButton={{borderRadius:'3px',border:'1px solid #efefef'}}
                                 textButton={<MinusOutlined />}
                             />
-                            <WrapperInputQuantity defaultValue={3} onChange={onChange} size="large"/>
+                            <WrapperInputQuantity defaultValue={3} onChange={onChange} size="large" />
                             <WrapperButtonQuantity
                                 size="large"
                                 styleButton={{borderRadius:'3px',border:'1px solid #efefef'}}
