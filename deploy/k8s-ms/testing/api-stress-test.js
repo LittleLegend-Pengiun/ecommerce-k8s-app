@@ -17,7 +17,7 @@ export let options = {
     { duration: '1m', target: 500 },
     { duration: '2m', target: 1000 },
     { duration: '2m', target: 1200 },
-    // { duration: "2m", target: 10000000 },
+    { duration: "2m", target: 10000000 },
     { duration: "2m", target: 10 },
   ],
 };
