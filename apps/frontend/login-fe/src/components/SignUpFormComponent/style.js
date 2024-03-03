@@ -75,10 +75,10 @@ export const WrappperAcceptPolicy = styled.div`
     }
     a {
         margin-left: 10px;
-        font-size: 14px;
+        font-size: 16px;
         font-weight: 500;
         line-height: 24px;
-        color: #008477;
+        color: black;
     
     }
 `;
