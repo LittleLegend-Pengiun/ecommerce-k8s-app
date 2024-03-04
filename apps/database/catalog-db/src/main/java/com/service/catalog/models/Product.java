@@ -2,8 +2,6 @@ package com.service.catalog.models;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.Date;
-
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -32,7 +30,7 @@ public class Product {
     private String imageUrl;
     private Integer stockQuantity;
     private String manufacture;
-    private Date releaseDate;
+    private String releaseDate;
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
