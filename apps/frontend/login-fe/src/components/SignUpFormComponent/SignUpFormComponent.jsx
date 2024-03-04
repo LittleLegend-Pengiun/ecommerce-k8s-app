@@ -10,10 +10,10 @@ import {
 const SignUpFormComponent = () => {
   return (
     <center style={{height:'100%'}}>
-          <WrapperForm action="#">
+          <WrapperForm action="POST">
             <WrapperTitle>Đăng ký tài khoản để trải nghiệm tất cả các tính năng của BKU SHOP</WrapperTitle>
             <p>Nhập các thông tin bên dưới</p>
-            <span style={{color:'red'}}>(*) Bắt buộc</span>
+            {/* <span style={{color:'red'}}>(*) Bắt buộc</span> */}
             <WrapperInputFiled
                 type="text"
                 size="large"
@@ -47,6 +47,7 @@ const SignUpFormComponent = () => {
             <WrapperButton
             size="large"
             textButton="Đăng ký tài khoản"
+            htmlType="submit"
             />     
           <WrrapperNavigateSignIn>
             <span>Bạn đã có tài khoản?</span>

@@ -19,8 +19,7 @@ const HomePage = () => {
       const fetchData = async () =>{
         // setLoading(true);
         try {
-        // const res = await axios.get(`${process.env.REACT_APP_CATALOG_MS_1_URL}/products`);
-          const res = await axios.get(`http://localhost:4000/products`);
+        const res = await axios.get(`${process.env.REACT_APP_CATALOG_MS_1_URL}/products`);
           const response = res.data;
           setAllProducts(response);
         } catch (error) {
