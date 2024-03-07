@@ -14,7 +14,6 @@ public class CatalogApplication {
 	@Autowired
 	public ReadData readData;
 	private static final Logger logger = LoggerFactory.getLogger(CatalogApplication.class);
-
 	public static void main(String[] args) {
 		SpringApplication.run(CatalogApplication.class, args);
 	}

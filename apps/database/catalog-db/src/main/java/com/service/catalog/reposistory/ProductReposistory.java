@@ -1,7 +1,6 @@
 package com.service.catalog.reposistory;
 
 import com.service.catalog.models.Product;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Component;
 

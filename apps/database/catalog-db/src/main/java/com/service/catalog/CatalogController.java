@@ -1,21 +1,33 @@
-// package com.service.catalog;
+package com.service.catalog;
 
-// import org.springframework.web.bind.annotation.CrossOrigin;
-// import org.springframework.web.bind.annotation.RequestMapping;
-// import org.springframework.web.bind.annotation.ResponseBody;
-// import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
-// @RestController
-// @CrossOrigin
-// public class CatalogController {
-//     @RequestMapping("/data")
-//     public CatalogMessage helloWorld() {
-//         return new CatalogMessage("Hello from Spring boot!");
-//     }
+import com.service.catalog.rabbitmq.RabbitMQProducer;
 
-//     @RequestMapping("/")
-//     @ResponseBody
-//     public String okMessage() {
-//         return "OK!";
-//     }
-// }
+@RestController
+@CrossOrigin
+public class CatalogController {
+	
+	@Autowired private RabbitMQProducer rabbitMQProducer;
+	
+    @RequestMapping("/greeting")
+    public CatalogMessage helloWorld() {
+        return new CatalogMessage("Hello from Spring boot!");
+    }
+
+    @RequestMapping("/")
+    @ResponseBody
+    public String okMessage() {
+        return "OK!";
+    }
+    
+    @RequestMapping("/test-mq")
+    public String doneMessage() {
+    	rabbitMQProducer.sendMessage("connected to RabbitMQ");
+    	return "OK";
+    }
+}

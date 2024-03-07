@@ -47,4 +47,13 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/catalog
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: duyphatbk
-      
+  # spring-boot-app:
+  #   image: catalog-ms:1.0
+  #   ports:
+  #     - "8090:8090"
+  #   depends_on:
+  #     - postgres
+  #   environment:
+  #     SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/catalog
+  #     SPRING_DATASOURCE_USERNAME: duyphatbk
+  #     SPRING_DATASOURCE_PASSWORD: duyphatbk    
