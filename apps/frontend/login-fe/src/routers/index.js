@@ -1,7 +1,9 @@
 import HomePage from '../pages/HomePage/HomePage'
 import NotFoundPage from '../pages/NotFoundPage/NotFoundPage'
+import PaymentPage from '../pages/PaymentPage/PaymentPage'
 import ProductDetailPage from '../pages/ProductDetailPage/ProductDetailPage'
 import RetrivePassword from '../pages/RetrivePassword/RetrivePassword'
+import ShoppingCartPage from '../pages/ShoppingCartPage/ShoppingCartPage'
 import SignInPage from '../pages/SignInPage/SignInPage'
 import SignUpPage from '../pages/SignUpPage/SignUpPage'
 export const routes = [
@@ -28,6 +30,16 @@ export const routes = [
     {
         path :'/product-detail/:id',
         component: ProductDetailPage,
+        isShowHeader: true
+    },
+    {
+        path :'/payment/:id',
+        component: PaymentPage,
+        isShowHeader: true
+    },
+    {
+        path :'/shopping-cart/:id',
+        component: ShoppingCartPage,
         isShowHeader: true
     },
     {
