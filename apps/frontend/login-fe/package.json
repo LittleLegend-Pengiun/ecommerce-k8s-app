@@ -15,6 +15,7 @@
     "antd": "^5.14.2",
     "axios": "^1.6.7",
     "dotenv": "^16.4.5",
+    "formik": "^2.4.5",
     "mdb-react-ui-kit": "^7.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -25,7 +26,8 @@
     "react-slick": "^0.30.2",
     "sass": "^1.71.1",
     "slick-carousel": "^1.8.1",
-    "styled-components": "^6.1.8"
+    "styled-components": "^6.1.8",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.56",

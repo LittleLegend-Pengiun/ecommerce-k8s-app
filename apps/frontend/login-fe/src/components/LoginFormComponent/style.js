@@ -1,7 +1,8 @@
 import  { styled } from 'styled-components';
 import InputComponent from '../../components/InputComponent/InputComponent';
 import ButtonComponent from '../../components/ButtonComponent/ButtonComponent';
-export const WrapperForm =styled.form
+import { Checkbox, Form } from 'antd';
+export const WrapperForm =styled(Form)
 `
     padding: 20px;
     background-color: #f4f4f4;
@@ -14,14 +15,13 @@ export const WrapperForm =styled.form
     }
 `;
 export const WrapperInputFiled = styled(InputComponent)`
-    margin-top: 20px;
+    // margin-top: 20px;
     width: 50%;
     display: block; 
     border-radius: 0;
 `;
 export const WrapperButton =styled(ButtonComponent)
 `
-    margin-top: 20px;
     width: 50%;
     display: block;
     border-radius: 0;
@@ -61,8 +61,7 @@ export const WrapperForgotPassword = styled.div`
         color: black;
     }
 `;
-export const WrappperRemember = styled.div`
-    // margin-right: 20px;
+export const WrappperRemember = styled(Checkbox)`
     input {
         margin-right: 5px;
         
@@ -76,6 +75,6 @@ export const WrappperRemember = styled.div`
 export const WrapperMoreAction = styled.div`
     display: flex;
     width: 50%;
-    margin-top: 10px;
-    gap: 30%;
+    // margin-top: 10px;
+    justify-content: space-between;
 `;
