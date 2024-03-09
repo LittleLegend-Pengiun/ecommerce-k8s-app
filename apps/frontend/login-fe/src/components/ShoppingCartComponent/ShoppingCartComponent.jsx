@@ -17,57 +17,57 @@ const cart = [
   {
     key: '1',
     product: 'Điện thoại Xiaomi Redmi Note 12',
-    price: 10000,
+    price: 1000000,
     quantity: 2,
-    subTotal: 20000,
+    subTotal: 2000000,
     image: productImg
   },
   {
     key: '2',
     product: 'Điện thoại Xiaomi Redmi Note 12',
-    price: 10000,
+    price: 1000000,
     quantity: 2,
-    subTotal: 20000,
+    subTotal: 2000000,
     image: productImg
   },
   {
     key: '3',
     product: 'Điện thoại Xiaomi Redmi Note 12',
-    price: 10000,
+    price: 1000000,
     quantity: 2,
-    subTotal: 20000,
+    subTotal: 2000000,
     image: productImg
   },
   {
     key: '4',
     product: 'Điện thoại Xiaomi Redmi Note 12',
-    price: 10000,
+    price: 1000000,
     quantity: 2,
-    subTotal: 20000,
+    subTotal: 2000000,
     image: productImg
   },
   {
     key: '5',
     product: 'Điện thoại Xiaomi Redmi Note 12',
-    price: 10000,
+    price: 1000000,
     quantity: 2,
-    subTotal: 20000,
+    subTotal: 2000000,
     image: productImg
   },
   {
     key: '6',
     product: 'Điện thoại Xiaomi Redmi Note 12',
-    price: 10000,
+    price: 1000000,
     quantity: 2,
-    subTotal: 20000,
+    subTotal: 2000000,
     image: productImg
   },
   {
     key: '7',
     product: 'Điện thoại Xiaomi Redmi Note 12',
-    price: 10000,
+    price: 1000000,
     quantity: 2,
-    subTotal: 20000,
+    subTotal: 2000000,
     image: productImg
   },
 ]
@@ -84,8 +84,10 @@ const ShoppingCartComponent = () => {
         newData[dataIndex].subTotal = newData[dataIndex].price * parseInt(newQuantity, 10);
         setData(newData);
     };
+    const totalSubtotal = data.reduce((total, item) => total + item.subTotal, 0);
+    const priceShippng = (totalSubtotal > 1000000) ? 0 : totalSubtotal*0.1;
 
-    return (
+    return (  
         <div>
           <WrapperTable 
             pagination={{ pageSize: 4 }}
@@ -101,7 +103,9 @@ const ShoppingCartComponent = () => {
               </div>
           )}
             />
-            <WrapperColumn title="Giá" dataIndex="price" key="price" width="20%"/>
+            <WrapperColumn title="Giá" dataIndex="price" key="price" width="20%"
+              render={(text) => formatPrice(text)}
+            />
             <WrapperColumn 
                 title="Số lượng" 
                 dataIndex="quantity" 
@@ -115,7 +119,9 @@ const ShoppingCartComponent = () => {
                     />
                 )}
             />   
-            <WrapperColumn title="Tổng phụ" dataIndex="subTotal" key="subTotal" width="20%"/>
+            <WrapperColumn title="Tổng phụ" dataIndex="subTotal" key="subTotal" width="20%"
+             render={(text) => formatPrice(text)}
+            />
         </WrapperTable>
           <div style={{display:'flex',justifyContent:'space-between'}}>
               <div>
@@ -157,7 +163,7 @@ const ShoppingCartComponent = () => {
                       Tổng phụ:
                     </WrapperCol>
                     <WrapperCol>
-                     {formatPrice(1000000)}
+                     {formatPrice(totalSubtotal)}
                     </WrapperCol>
                     </WrapperRow>
                     <WrapperRow>
@@ -165,7 +171,7 @@ const ShoppingCartComponent = () => {
                       Phí vận chuyển:
                     </WrapperCol>
                     <WrapperCol>
-                      Miễn phí
+                      {formatPrice(priceShippng)}
                     </WrapperCol>
                     </WrapperRow> 
                     <WrapperRow>
@@ -173,7 +179,7 @@ const ShoppingCartComponent = () => {
                       Tổng cuối cùng:
                     </WrapperCol>
                     <WrapperCol>
-                    {formatPrice(1000000)}
+                    {formatPrice(totalSubtotal + priceShippng)}
                     </WrapperCol>
                     </WrapperRow>
               </div>
