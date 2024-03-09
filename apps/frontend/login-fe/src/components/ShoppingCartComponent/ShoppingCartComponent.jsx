@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
-import { Table } from 'antd';
+import { Divider, Table } from 'antd';
 const { Column} = Table;
+import productImg from '../../assets/images/detail/color-vang.webp';
 import {
     WrapperTable,
     WrapperColumn,
@@ -13,6 +14,7 @@ const cart = [
     price: 10000,
     quantity: 2,
     subTotal: 20000,
+    image: productImg
   },
   {
     key: '2',
@@ -20,6 +22,7 @@ const cart = [
     price: 10000,
     quantity: 2,
     subTotal: 20000,
+    image: productImg
   },
   {
     key: '3',
@@ -27,6 +30,7 @@ const cart = [
     price: 10000,
     quantity: 2,
     subTotal: 20000,
+    image: productImg
   },
   {
     key: '4',
@@ -34,6 +38,7 @@ const cart = [
     price: 10000,
     quantity: 2,
     subTotal: 20000,
+    image: productImg
   },
 ]
 const ShoppingCartComponent = () => {
@@ -52,12 +57,22 @@ const ShoppingCartComponent = () => {
 
     return (
         <WrapperTable dataSource={data}>
-            <WrapperColumn title="Sản phẩm" dataIndex="product" key="product" />
-            <WrapperColumn title="Giá" dataIndex="price" key="price" />
+            <WrapperColumn title="Sản phẩm" dataIndex="product" key="product" width="40%"
+            render={(text, record) => (
+              <div style={{ display: 'flex', position: 'relative' }}>
+                        <img src={record.image} alt={record.product} style={{ marginRight: '5px', width: 'auto', height: 'auto' }} />
+                        <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+                            <span style={{ display: 'block' }}>{text}</span>
+                        </div>
+              </div>
+          )}
+            />
+            <WrapperColumn title="Giá" dataIndex="price" key="price" width="20%"/>
             <WrapperColumn 
                 title="Số lượng" 
                 dataIndex="quantity" 
                 key="quantity"
+                width="20%"
                 render={(text, record) => (
                     <WrapperInput
                         type="number" 
@@ -66,7 +81,7 @@ const ShoppingCartComponent = () => {
                     />
                 )}
             />   
-            <WrapperColumn title="Tổng phụ" dataIndex="subTotal" key="subTotal" />
+            <WrapperColumn title="Tổng phụ" dataIndex="subTotal" key="subTotal" width="20%"/>
         </WrapperTable>
     );
 };
