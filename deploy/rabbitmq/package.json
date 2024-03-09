@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "mq:init": "docker run --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq",
-    "ha-proxy:docker:build": "docker build -t haproxy-server cluster/.",
-    "mq:cluster:init": "docker-compose -f docker-compose.yml up"
+    "haproxy:docker:build": "docker build -t haproxy-server cluster/.",
+    "mq:cluster:init": "docker-compose -f cluster/docker-compose.yml up -d"
   }
 }

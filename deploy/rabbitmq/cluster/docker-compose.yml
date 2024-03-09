@@ -5,6 +5,7 @@ services:
     image: rabbitmq:3-management
     container_name: rabbitmq-node-1
     hostname: rabbitmq-node-1
+    cpus: "1"
     ports:
       - "15672:15672"
     networks:
@@ -20,6 +21,7 @@ services:
     image: rabbitmq:3-management
     container_name: rabbitmq-node-2
     hostname: rabbitmq-node-2
+    cpus: "1"
     ports:
       - "15673:15672"
     networks:
@@ -35,6 +37,7 @@ services:
     image: rabbitmq:3-management
     container_name: rabbitmq-node-3
     hostname: rabbitmq-node-3
+    cpus: "1"
     ports:
       - "15674:15672"
     networks:
@@ -50,6 +53,7 @@ services:
     image: haproxy-server:latest
     container_name: haproxy
     hostname: haproxy
+    cpus: "1"
     ports:
       - "5672:5672"
       - "1936:1936"
