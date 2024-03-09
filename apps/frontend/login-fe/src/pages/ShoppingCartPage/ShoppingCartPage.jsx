@@ -3,7 +3,7 @@ import ShoppingCartComponent from '../../components/ShoppingCartComponent/Shoppi
 
 const ShoppingCartPage = () => {
   return (
-    <div style={{padding:'0 120px',background:'#efefef',height:'1000px'}}>
+    <div style={{padding:'0 200px',background:'#efefef'}}>
       <h2>Trang chủ - Giỏ hàng</h2>
       <ShoppingCartComponent/>
     </div>

@@ -1,5 +1,7 @@
 import styled from 'styled-components';
-import { Table} from 'antd';
+import { Table,Row,Col} from 'antd';
+import ButtonComponent from '../ButtonComponent/ButtonComponent'
+import InputComponent from '../InputComponent/InputComponent';
 const { Column} = Table;
 export const WrapperTable = styled(Table)`
     .ant-table {
@@ -38,3 +40,22 @@ export const WrapperInput = styled.input`
     font-size: 16px;
     background-color: #efefef;
 `;
+export const WrapperButton = styled(ButtonComponent)`
+background-color:#008477;
+font-weight:500;
+font-size:16px;
+border-radius:0;
+`
+export const WrapperDiscountInput = styled(InputComponent)`
+    width:50%;
+    border-radius:0;
+    height: fit-content;
+`
+export const WrapperRow = styled(Row)`
+    padding:10px;
+    justify-content:space-between;
+`
+export const WrapperCol = styled(Col)`
+    font-size:16px;
+    font-weight:400;
+`
