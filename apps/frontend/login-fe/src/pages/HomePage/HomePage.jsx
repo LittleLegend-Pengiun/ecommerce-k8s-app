@@ -54,7 +54,7 @@ const HomePage = () => {
   };
     return (
         <> 
-            <div id="container" style={{backgroundColor:'#efefef',padding:'0 120px',height:'auto',marginTop:'20px'}}>
+            <div id="container" style={{backgroundColor:'#efefef',padding:'0 120px',height:'auto'}}>
                 <div style={{display:'flex'}}>
                     <WrapperColCategory>
                         <div className="category">

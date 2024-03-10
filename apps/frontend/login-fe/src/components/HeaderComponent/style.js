@@ -6,10 +6,11 @@ export const WrapperHeader = styled(Row)`
     align-items: center;
     gap:16px;
     flex-wrap: nowrap;
+    margin-bottom: 40px;
 `;
 export const WrapperTextHeader = styled.span`
     color: white;
-    font-size: 24px;
+    font-size: 30px;
     font-weight: bold;
     text-align:left;
 `;

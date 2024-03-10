@@ -1,70 +1,54 @@
 import React from 'react'
 import "./style.scss";
-import { Link } from "react-router-dom";
-import { AiOutlineLinkedin,AiOutlineFacebook,AiOutlineInstagram } from 'react-icons/ai';
-
+import { Col } from 'antd';
+import { WrapperLi,
+        WrapperUl,
+        WrapperInput,
+        WrapperButton
+} from './style';
 const FooterComponent = () => {
   return (
-    <div>
-        <footer className="Footer">
-            <div className="container">
-                <div className="row">
-                    <div className="footer__about">
-                        <h1 className="footer__about__logo">BKU-SHOP</h1>
-                        <ul>
-                            <li>Địa chỉ: 268 Lý Thường Kiệt</li>
-                            <li>Điện thoại: 0123 456 789</li>
-                            <li>Email: bku-shop@hcmut.edu.vn</li>
-                        </ul>
+        <div style={{display:'flex',justifyContent:'space-around',padding:'40px',backgroundColor:'#008477',color:'white',marginTop:'40px'}}>
+            <Col>
+                <h1>BKU-SHOP</h1>
+            </Col>
+            <Col>
+            <WrapperUl>
+                <WrapperLi>Địa chỉ: 268 Lý Thường Kiệt</WrapperLi>
+                <WrapperLi>Điện thoại: 0123 456 789</WrapperLi>
+                <WrapperLi>Email:bku-shop@hcmut.edu.vn</WrapperLi>
+            </WrapperUl>
+            </Col>
+            <Col>           
+            <WrapperUl>
+                <WrapperLi>Liên hệ</WrapperLi>
+                <WrapperLi>Thông tin về chúng tôi</WrapperLi>
+                <WrapperLi>Sản phẩm kinh doanh</WrapperLi>
+            </WrapperUl>
+            </Col>
+            <Col>
+                <WrapperUl>
+                    <WrapperLi>Khuyến mãi & ưu đãi</WrapperLi>
+                    <WrapperLi>Đăng ký nhận thông tin tại đây</WrapperLi>
+                    <WrapperLi>
+                    <div style={{display:'flex'}}>
+                    <WrapperInput
+                        placeholder="Nhập email của bạn"
+                        type="text"
+                        size="large"
+                    />
+                    <WrapperButton
+                        type="primary" 
+                        text="Đăng ký" 
+                        htmlType="submit"
+                        size="large"
+                        textButton="Đăng ký"
+                    />
                     </div>
-                    <div className="footer__widget">
-                        <h6>Cửa hàng</h6>
-                        <ul>
-                            <li>
-                                <Link to={""}>
-                                    Liên hệ
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to={""}>
-                                    Thông tin về chúng tôi
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to={""}>
-                                    Sản phẩm kinh doanh
-                                </Link>
-                            </li>
-                        </ul>
-
-                    </div>
-                    <div className="footer__widget">
-                        <h6>Khuyến mãi & ưu đãi</h6>
-                        <p>Đăng ký nhận thông tin tại đây</p>
-                        <form action="#">
-                            <div>
-                                <div className="input-group">
-                                    <input type="text" placeholder="Nhập email của bạn" />
-                                    <button type="submit" className="button-submit">Đăng ký</button>
-                                </div>
-                                <div className="footer__widget__social">
-                                    <div>
-                                        <AiOutlineFacebook/>
-                                    </div>
-                                    <div>
-                                        <AiOutlineInstagram/>
-                                    </div>
-                                    <div>
-                                        <AiOutlineLinkedin/>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </footer>;
-    </div>
+                    </WrapperLi>
+                </WrapperUl>
+            </Col>
+        </div>
   )
 }
 
