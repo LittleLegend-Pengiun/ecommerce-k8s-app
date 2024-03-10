@@ -8,7 +8,7 @@ import {
     WrapperTable,
     WrapperColumn,
 } from './style'
-const cart = [
+const orderedList = [
   {
     OrderID: 'CS490570962VN',
     OrderDate:'01/01/2021',
@@ -68,7 +68,7 @@ const ManageOrderComponent = () => {
         <Col span={20} style={{marginLeft:'10px'}}>
         <WrapperTable 
             pagination={{ pageSize: 4 }}
-            dataSource={data}
+            dataSource={orderedList}
           >
             <WrapperColumn title="Mã đơn hàng" dataIndex="OrderID" key="OrderID" width="20%"/>
             <WrapperColumn title="Ngày đặt hàng" dataIndex="OrderDate" key="OrderID" width="20%"/>
