@@ -1,8 +1,8 @@
 import React from 'react'
-
-const CategoryProduct = ({name}) => {
+import {WrapperCategoryItem} from './style'
+const CategoryProduct = ({categoryName}) => {
   return (
-    <div>{name}</div>
+    <WrapperCategoryItem>{categoryName}</WrapperCategoryItem>
   )
 }
 

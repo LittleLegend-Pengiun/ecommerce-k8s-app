@@ -1,5 +1,9 @@
 import CategoryProduct from "../../components/CategoryProduct/CategoryProduct";
-import { WrapperCategoryProduct,WrapperButtonHover, WrapperProducts,WrapperText } from "./style";
+import {  WrapperProducts,
+        WrapperText,
+        WrapperColCategory,
+        WrapperSlider,
+} from "./style";
 import SliderComponent from "../../components/SliderComponent/SliderComponent";
 import CardComponent from "../../components/CardComponent/CardComponent";
 import slider1 from "../../assets/images/slider/slider1.png";
@@ -12,7 +16,7 @@ import './style.scss'
 import { formatPrice } from '../../formater/formater'
 
 const HomePage = () => {
-    const category = ['cate1','cate2','cate3']
+    const category = ['Tất cả sản phẩm','Điện thoại','Laptop','Máy ảnh','Phụ kiện','Đồng hồ'];
     const [allProducts, setAllProducts] = useState({products:[]})
 
     useEffect(() => {
@@ -50,40 +54,22 @@ const HomePage = () => {
   };
     return (
         <> 
-            <div style={{padding:'0 120px'}}>
-                <WrapperCategoryProduct>
-                {category.map((item) => {
-                    return (
-                    <CategoryProduct name={item} key={item}/>)
-                })}
-                </WrapperCategoryProduct>
-            </div>
-            <div id="container" style={{backgroundColor:'#efefef',padding:'0 120px',height:'auto'}}>
-                <SliderComponent arrImages={[slider1,slider2,slider3]}/>
-            
-                {/* <div style={{ display:'flex',justifyContent:'center',width:'100%',marginTop:'10px'}}>
-                    <WrapperButtonHover 
-                        textbutton="Xem thêm" 
-                        type="outline" 
-                        styleButton=
-                        {
-                            {
-                                border:'1px solid #008874',
-                                color:'#008874',
-                                width:'240px',
-                                height:'40px',
-                                borderRadius:'4px',
-                            }
-                        } 
-                        styleTextButton={
-                            {
-                                fontWeight:500,
-                                fontSize:'16px',
-                            }
-                    }>
+            <div id="container" style={{backgroundColor:'#efefef',padding:'0 120px',height:'auto',marginTop:'20px'}}>
+                <div style={{display:'flex'}}>
+                    <WrapperColCategory>
+                        <div className="category">
+                            <h1 style={{margin:0,color:'#008477'}}>Danh mục sản phẩm</h1>
+                            {category.map((item,index) => {
+                                console.log(item)
+                                return <CategoryProduct key={index} categoryName={item}/>
+                            })}
 
-                    </WrapperButtonHover>
-                </div> */}
+                        </div>
+                    </WrapperColCategory>
+                    <WrapperSlider>
+                        <SliderComponent arrImages={[slider1,slider2,slider3]}/>
+                    </WrapperSlider>                    
+                </div>       
                 <div>
                     <WrapperText>Khám phá sản phẩm của chúng tôi</WrapperText>
                     <WrapperProducts>

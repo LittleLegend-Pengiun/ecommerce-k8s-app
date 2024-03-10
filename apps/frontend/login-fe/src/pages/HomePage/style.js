@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import ButtonComponent from '../../components/ButtonComponent/ButtonComponent'
-// import ReactPaginate from 'react-paginate';
+import { Col } from 'antd'
 export const WrapperCategoryProduct =styled.div`
     display: flex;
     align-items: center;
@@ -35,4 +35,11 @@ export const WrapperText = styled.h1`
     font-size: 28px;
     font-weight: 600;
     color: #008874;
+`
+export const WrapperColCategory = styled(Col)`
+    width:25%;
+    margin-right: 20px;
+`
+export const WrapperSlider = styled(Col)`
+    width:75%;
 `
