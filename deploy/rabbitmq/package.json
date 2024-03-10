@@ -2,6 +2,10 @@
   "name": "rabbitmq",
   "version": "1.0.0",
   "scripts": {
-    "init:mq": "docker run --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq"
+    "mq:init": "docker run --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq",
+    "haproxy:docker:build": "docker build -t haproxy-server cluster/.",
+    "mq:cluster:init": "docker-compose -f cluster/docker-compose.yml up -d",
+    "mq:through-put:test": "java -jar testing/perf-test-latest.jar --uri \"http://localhost:5672\" -x 1 -y 2 -u \"throughput-test-1\" -a --id \"test 1\"",
+    "mq:high-load:test": "java -jar perf-test-latest.jar --uri <uri> --queue-pattern 'perf-test-%d' --queue-pattern-from 1 --queue-pattern-to 200 --producers 200 --consumers 200"
   }
 }
