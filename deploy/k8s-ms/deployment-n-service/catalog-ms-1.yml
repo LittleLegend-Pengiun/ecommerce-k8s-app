@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: catalog-ms-1-deploy
+  labels:
+    app: catalog-ms-1
+    tier: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: catalog-ms-1-pod
+      tier: backend
+  template:
+    metadata:
+      name: catalog-ms-1-pod
+      labels:
+        app: catalog-ms-1-pod
+        tier: backend
+    spec:
+      containers:
+      - name: catalog-ms-1
+        image: hoanganhleboy/catalog-ms-1
+        ports:
+        - containerPort: 4000
+        resources:
+          requests:
+            cpu: "256m"
+            memory: "128Mi"
+          limits:
+            cpu: "256m"
+            memory: "128Mi"
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: catalog-ms-1-service
+  labels:
+    app: catalog-ms-1-service
+    tier: backend
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "4000"
+    prometheus.io/path: "/metrics"
+spec:
+  selector:
+    app: catalog-ms-1-pod
+    tier: backend
+  ports:
+  - protocol: TCP
+    port: 4000
+    targetPort: 4000
+  type: LoadBalancer

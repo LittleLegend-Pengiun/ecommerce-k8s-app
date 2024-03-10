@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import com.service.catalog.models.Product;
 import com.service.catalog.models.ProductMessage;
 import com.service.catalog.rabbitmq.RabbitMQProducer;
+
 import com.service.catalog.reposistory.ProductReposistory;
 import com.service.catalog.services.ProductResponseListener;
 
@@ -16,7 +17,7 @@ public class ProductController {
     
     @Autowired
     ProductReposistory productReposistory;
-
+  
     @Autowired
     private RabbitMQProducer rabbitMQProducer;
 

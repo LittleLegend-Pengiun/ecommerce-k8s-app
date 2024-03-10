@@ -36,6 +36,7 @@ services:
     depends_on:
       - postgres
       - rabbitmq
+
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/catalog
       SPRING_DATASOURCE_USERNAME: postgres
@@ -47,3 +48,13 @@ services:
       EXCHANGE_NAME: exchange-name
       QUEUE_NAME: queue-name
       ROUTING_KEY: routing-key
+  # spring-boot-app:
+  #   image: catalog-ms:1.0
+  #   ports:
+  #     - "8090:8090"
+  #   depends_on:
+  #     - postgres
+  #   environment:
+  #     SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/catalog
+  #     SPRING_DATASOURCE_USERNAME: duyphatbk
+  #     SPRING_DATASOURCE_PASSWORD: duyphatbk    
