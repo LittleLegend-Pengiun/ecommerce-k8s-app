@@ -1,5 +1,6 @@
 package com.service.catalog.models;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Date;
 
@@ -22,21 +23,22 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "discounts")
+@Table(name = "orders")
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Discount {
+public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long discountId;
+    private Long orderId;
 
     @ManyToOne
-    @JoinColumn(name = "product_id")
-    private Product product;
+    @JoinColumn(name = "user_id")
+    private User user;
     
-    private Double discountPercentage;
-    private Date startDate;
-    private Date endDate;
-    
+    private Date orderDate;
+    private BigDecimal totalAmount;
+    private String orderStatus;
+    private String shippingAddress;
+    private String paymentStatus;
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_date", updatable = false)

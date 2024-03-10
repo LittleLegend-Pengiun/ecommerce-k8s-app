@@ -22,7 +22,7 @@ services:
     image: postgres:12
     environment:
       POSTGRES_DB: catalog
-      POSTGRES_USER: duyphatbk
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: duyphatbk
     ports:
       - "5432:5432"
@@ -30,13 +30,23 @@ services:
   pgadmin:
     image: dpage/pgadmin4
     environment:
-      PGADMIN_DEFAULT_EMAIL: admin@example.com
-      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_DEFAULT_EMAIL: duyphatbk@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: duyphatbk
     ports:
       - "5050:80"
     depends_on:
       - postgres
       
+  spring-boot-app:
+    image: catalog-ms:1.0
+    ports:
+      - "8090:8090"
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/catalog
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: duyphatbk
   # spring-boot-app:
   #   image: catalog-ms:1.0
   #   ports:
@@ -46,5 +56,4 @@ services:
   #   environment:
   #     SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/catalog
   #     SPRING_DATASOURCE_USERNAME: duyphatbk
-  #     SPRING_DATASOURCE_PASSWORD: duyphatbk
-      
+  #     SPRING_DATASOURCE_PASSWORD: duyphatbk    

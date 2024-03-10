@@ -22,21 +22,21 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "discounts")
+@Table(name = "payments")
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Discount {
+public class Payment {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long discountId;
+    private Long paymentId;
 
     @ManyToOne
-    @JoinColumn(name = "product_id")
-    private Product product;
+    @JoinColumn(name = "order_id")
+    private Order order;
     
-    private Double discountPercentage;
-    private Date startDate;
-    private Date endDate;
-    
+    private Date paymentDate;
+    private String paymentMethod;
+    private Double amount;
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_date", updatable = false)
