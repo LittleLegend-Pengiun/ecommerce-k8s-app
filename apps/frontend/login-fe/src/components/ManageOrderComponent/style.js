@@ -4,6 +4,7 @@ import { Table,Row,Col} from 'antd';
 import ButtonComponent from '../ButtonComponent/ButtonComponent'
 import InputComponent from '../InputComponent/InputComponent';
 const { Column} = Table;
+import {EyeOutlined} from '@ant-design/icons';
 export const WrapperTable = styled(Table)`
     .ant-table {
         margin-top: 20px;
@@ -59,4 +60,21 @@ export const WrapperRow = styled(Row)`
 export const WrapperCol = styled(Col)`
     font-size:16px;
     font-weight:400;
+`
+export const WrapperEyeOutlined = styled(EyeOutlined)`
+    color: ${props=>props.color};
+    cursor: pointer;
+    font-size: 20px;
+    &:hover {
+       transform: scale(1.8);
+    }
+`
+export const WrapperStatus= styled.span`
+    color: white;
+    border: 1px solid ${props=>props.color};
+    padding: 5px 5px;
+    background-color: ${props=>props.color};
+    width: 70%;
+    text-align: center;
+    font-size: 16px;
 `

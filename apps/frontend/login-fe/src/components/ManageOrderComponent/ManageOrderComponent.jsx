@@ -7,6 +7,8 @@ import {EyeOutlined} from '@ant-design/icons';
 import { 
     WrapperTable,
     WrapperColumn,
+    WrapperEyeOutlined,
+    WrapperStatus,
 } from './style'
 const orderedList = [
   {
@@ -27,14 +29,14 @@ const orderedList = [
     OrderID: 'CS490570964VN',
     OrderDate:'01/01/2021',
     totalPrice: 2000000,
-    methodPayment: 'Than toán khi nhận hàng',
+    methodPayment: 'Than toán bằng ví Momo',
     OrderStatus: 'Đang giao hàng',
   },
   {
     OrderID: 'CS490570965VN',
     OrderDate:'01/01/2021',
     totalPrice: 2000000,
-    methodPayment: 'Than toán khi nhận hàng',
+    methodPayment: 'Than toán bằng ví BKPAY',
     OrderStatus: 'Đã hủy',
   },
   {
@@ -89,8 +91,8 @@ const ManageOrderComponent = () => {
               if (text==='Chờ xác nhận') color = 'orange';
               return (
                 <div style={{display:'flex',justifyContent:'space-between'}}>
-                  <span style={{color:color,border:'1px solid {color}',padding:'5px 10px'}}>{text}</span>
-                  <EyeOutlined style={{color:color,cursor:'pointer',fontSize:'20px'}} />
+                  <WrapperStatus color={color} >{text}</WrapperStatus>
+                  <WrapperEyeOutlined color={color} />
                 </div>
               )
               }
