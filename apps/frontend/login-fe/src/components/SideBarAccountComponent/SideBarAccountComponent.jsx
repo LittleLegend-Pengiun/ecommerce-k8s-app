@@ -15,7 +15,7 @@ const SideBarAccountComponent = () => {
             <h1>Tài khoản của tôi</h1>
             <WrapperUl style={{listStyle:'none',padding:'0'}}>
                 <WrapperLi>Thông tin tài khoản</WrapperLi>
-                <WrapperLi style={{color:'#008477',fontWeight:'500'}}>Lịch sử mua hàng</WrapperLi>
+                <WrapperLi>Lịch sử mua hàng</WrapperLi>
                 <WrapperLi>Đăng xuất</WrapperLi>
             </WrapperUl>
         </div>

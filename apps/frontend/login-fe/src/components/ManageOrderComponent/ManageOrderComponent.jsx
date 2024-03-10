@@ -1,8 +1,7 @@
 
-import React,{useState} from 'react'
+import React from 'react'
 import SideBarAccountComponent from './../SideBarAccountComponent/SideBarAccountComponent';
 import { Table,Col} from 'antd';
-const { Column} = Table;
 import {formatPrice} from '../../formater/formater';
 import {EyeOutlined} from '@ant-design/icons';
 import { 
@@ -61,20 +60,6 @@ const cart = [
   },
 ]
 const ManageOrderComponent = () => {
-  const [data, setData] = useState(cart);
-
-    const handleQuantityChange = (key, newQuantity) => {
-        const dataIndex = data.findIndex(item => item.OrderID === key);
-        if (dataIndex === -1 || isNaN(newQuantity) || newQuantity < 0) {
-            return;
-        }
-        const newData = [...data];
-        newData[dataIndex].quantity = parseInt(newQuantity, 10);
-        newData[dataIndex].subTotal = newData[dataIndex].price * parseInt(newQuantity, 10);
-        setData(newData);
-    };
-    const totalSubtotal = data.reduce((total, item) => total + item.subTotal, 0);
-    const priceShippng = (totalSubtotal > 1000000) ? 0 : totalSubtotal*0.1;
   return (
     <div style={{display:'flex'}}>
         <Col span={4}>

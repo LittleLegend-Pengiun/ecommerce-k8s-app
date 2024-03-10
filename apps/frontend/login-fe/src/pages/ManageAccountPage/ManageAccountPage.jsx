@@ -1,11 +1,11 @@
 import React from 'react'
-import ManageOrderComponent from '../../components/ManageOrderComponent/ManageOrderComponent'
 import {RightOutlined } from '@ant-design/icons';
+import ManageAccountComponent from './../../components/ManageAccountComponent/ManageAccountComponent';
 const ManageAccountPage = () => {
   return (
-    <div style={{padding:'0 120px'}}>
+    <div style={{padding:'0 200px'}}>
         <h2>Tài khoản  <span><RightOutlined /></span> Quản lý tài khoản <span><RightOutlined /></span> Thông tin tài khoản</h2>
-        <ManageOrderComponent />
+        <ManageAccountComponent/>
     </div>
   )
 }
