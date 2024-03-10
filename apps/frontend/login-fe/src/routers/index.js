@@ -1,4 +1,6 @@
 import HomePage from '../pages/HomePage/HomePage'
+import ManageAccountPage from '../pages/ManageAccountPage/ManageAccountPage'
+import ManageOrderPage from '../pages/ManageOrderPage/ManageOrderPage'
 import NotFoundPage from '../pages/NotFoundPage/NotFoundPage'
 import PaymentPage from '../pages/PaymentPage/PaymentPage'
 import ProductDetailPage from '../pages/ProductDetailPage/ProductDetailPage'
@@ -40,6 +42,16 @@ export const routes = [
     {
         path :'/shopping-cart/:id',
         component: ShoppingCartPage,
+        isShowHeader: true
+    },
+    {
+        path :'/manage-order/:id',
+        component: ManageOrderPage,
+        isShowHeader: true
+    },
+    {
+        path :'/manage-account/:id',
+        component: ManageAccountPage,
         isShowHeader: true
     },
     {

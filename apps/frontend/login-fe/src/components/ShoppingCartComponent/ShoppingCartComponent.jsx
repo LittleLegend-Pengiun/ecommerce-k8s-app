@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import { Table,Row,Col } from 'antd';
+import { Table} from 'antd';
 const { Column} = Table;
 import productImg from '../../assets/images/detail/color-vang.webp';
 import {formatPrice} from '../../formater/formater';
@@ -15,56 +15,56 @@ import {
 } from './style'
 const cart = [
   {
-    key: '1',
-    product: 'Điện thoại Xiaomi Redmi Note 12',
+    productID: '1',
+    productName: 'Điện thoại Xiaomi Redmi Note 12',
     price: 1000000,
     quantity: 2,
     subTotal: 2000000,
     image: productImg
   },
   {
-    key: '2',
-    product: 'Điện thoại Xiaomi Redmi Note 12',
+    productID: '2',
+    productName: 'Điện thoại Xiaomi Redmi Note 12',
     price: 1000000,
     quantity: 2,
     subTotal: 2000000,
     image: productImg
   },
   {
-    key: '3',
-    product: 'Điện thoại Xiaomi Redmi Note 12',
+    productID: '3',
+    productName: 'Điện thoại Xiaomi Redmi Note 12',
     price: 1000000,
     quantity: 2,
     subTotal: 2000000,
     image: productImg
   },
   {
-    key: '4',
-    product: 'Điện thoại Xiaomi Redmi Note 12',
+    productID: '4',
+    productName: 'Điện thoại Xiaomi Redmi Note 12',
     price: 1000000,
     quantity: 2,
     subTotal: 2000000,
     image: productImg
   },
   {
-    key: '5',
-    product: 'Điện thoại Xiaomi Redmi Note 12',
+    productID: '5',
+    productName: 'Điện thoại Xiaomi Redmi Note 12',
     price: 1000000,
     quantity: 2,
     subTotal: 2000000,
     image: productImg
   },
   {
-    key: '6',
-    product: 'Điện thoại Xiaomi Redmi Note 12',
+    productID: '6',
+    productName: 'Điện thoại Xiaomi Redmi Note 12',
     price: 1000000,
     quantity: 2,
     subTotal: 2000000,
     image: productImg
   },
   {
-    key: '7',
-    product: 'Điện thoại Xiaomi Redmi Note 12',
+    productID: '7',
+    productName: 'Điện thoại Xiaomi Redmi Note 12',
     price: 1000000,
     quantity: 2,
     subTotal: 2000000,
@@ -75,7 +75,7 @@ const ShoppingCartComponent = () => {
     const [data, setData] = useState(cart);
 
     const handleQuantityChange = (key, newQuantity) => {
-        const dataIndex = data.findIndex(item => item.key === key);
+        const dataIndex = data.findIndex(item => item.productID === key);
         if (dataIndex === -1 || isNaN(newQuantity) || newQuantity < 0) {
             return;
         }
@@ -93,7 +93,7 @@ const ShoppingCartComponent = () => {
             pagination={{ pageSize: 4 }}
             dataSource={data}
           >
-            <WrapperColumn title="Sản phẩm" dataIndex="product" key="product" width="40%"
+            <WrapperColumn title="Sản phẩm" dataIndex="productName" key="productID" width="40%"
             render={(text, record) => (
               <div style={{ display: 'flex', position: 'relative' }}>
                   <img src={record.image} alt={record.product} style={{ marginRight: '5px', width: 'auto', height: 'auto' }} />
@@ -103,23 +103,23 @@ const ShoppingCartComponent = () => {
               </div>
           )}
             />
-            <WrapperColumn title="Giá" dataIndex="price" key="price" width="20%"
+            <WrapperColumn title="Giá" dataIndex="price" key="productID" width="20%"
               render={(text) => formatPrice(text)}
             />
             <WrapperColumn 
                 title="Số lượng" 
                 dataIndex="quantity" 
-                key="quantity"
+                key="productID"
                 width="20%"
                 render={(text, record) => (
                     <WrapperInput
                         type="number" 
                         value={text} 
-                        onChange={(e) => handleQuantityChange(record.key, e.target.value)} 
+                        onChange={(e) => handleQuantityChange(record.productID, e.target.value)} 
                     />
                 )}
             />   
-            <WrapperColumn title="Tổng phụ" dataIndex="subTotal" key="subTotal" width="20%"
+            <WrapperColumn title="Tổng phụ" dataIndex="subTotal" key="productID" width="20%"
              render={(text) => formatPrice(text)}
             />
         </WrapperTable>
