@@ -25,7 +25,7 @@ const onFinishFailed = (errorInfo) => {
 };
 const cart = [
     {
-      key: '1',
+      productID: '1',
       product: 'Điện thoại Xiaomi Redmi Note 12',
       price: 1000000,
       quantity: 2,
@@ -34,7 +34,7 @@ const cart = [
       discount:0.1
     },
     {
-      key: '2',
+      productID: '2',
       product: 'Điện thoại Xiaomi Redmi Note 12',
       price: 1000000,
       quantity: 2,
@@ -43,7 +43,7 @@ const cart = [
       discount:0.1
     },
     {
-      key: '3',
+      productID: '3',
       product: 'Điện thoại Xiaomi Redmi Note 12',
       price: 1000000,
       quantity: 2,
@@ -52,7 +52,7 @@ const cart = [
       discount:0.1
     },
     {
-        key: '4',
+        productID: '4',
         product: 'Điện thoại Xiaomi Redmi Note 12',
         price: 1000000,
         quantity: 2,
@@ -61,7 +61,7 @@ const cart = [
         discount:0.1
       },
       {
-        key: '5',
+        productID: '5',
         product: 'Điện thoại Xiaomi Redmi Note 12',
         price: 1000000,
         quantity: 2,
@@ -92,7 +92,7 @@ const PaymentComponent = () => {
                                 pagination={{ pageSize: 4 }}
                                 dataSource={data}
                             >
-                                <WrapperColumn title="Danh sách sản phẩm" dataIndex="product" key="product" width="40%"
+                                <WrapperColumn title="Danh sách sản phẩm" dataIndex="product" key="productID" width="70%"
                                 render={(text, record) => (
                                 <div style={{ display: 'flex', position: 'relative' }}>
                                     <img src={record.image} alt={record.product} style={{ marginRight: '5px', width: '80px', height: 'auto' }} />
@@ -102,7 +102,7 @@ const PaymentComponent = () => {
                                 </div>
                             )}
                                 />  
-                                <WrapperColumn title="Tổng phụ" dataIndex="subTotal" key="subTotal" width="20%"
+                                <WrapperColumn title="Tổng phụ" dataIndex="subTotal" key="productID" width="30%"
                                 render={(text) => formatPrice(text)}
                                 />
                             </WrapperTable>
