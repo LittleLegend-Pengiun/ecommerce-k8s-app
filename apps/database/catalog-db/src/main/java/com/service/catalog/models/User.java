@@ -13,29 +13,29 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import lombok.Data;
 
-@Entity
 @Data
-@Table(name = "discounts")
+@Entity
+@Table(name = "users")
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Discount {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long discountId;
-
-    @ManyToOne
-    @JoinColumn(name = "product_id")
-    private Product product;
-    
-    private Double discountPercentage;
-    private Date startDate;
-    private Date endDate;
+    private Long userId;
+    private String username;
+    private String password;
+    private String email;
+    private String fullName;
+    private String address;
+    private String phoneNumber;
+    private Date dateOfBirth;
+    private String gender;
+    private Date registrationDate;
+    private Boolean isMemberShip;
     
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)

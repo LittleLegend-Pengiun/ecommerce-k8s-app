@@ -1,7 +1,6 @@
 package com.service.catalog.models;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -22,21 +21,24 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "discounts")
+@Table(name = "order_details")
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Discount {
+public class OrderDetail {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long discountId;
+    private Long orderDetailId;
+
+    @ManyToOne
+    @JoinColumn(name = "order_id")
+    private Order order;
 
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
-    
-    private Double discountPercentage;
-    private Date startDate;
-    private Date endDate;
-    
+
+    private Integer quantity;
+    private Double unitPrice;
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_date", updatable = false)
