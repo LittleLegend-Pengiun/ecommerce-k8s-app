@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: catalog-ms-deploy
+  labels:
+    app: catalog-ms
+    tier: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: catalog-ms-pod
+      tier: backend
+  template:
+    metadata:
+      name: catalog-ms-pod
+      labels:
+        app: catalog-ms-pod
+        tier: backend
+    spec:
+      containers:
+      - name: catalog-ms
+        image: hoanganhleboy/catalog-ms-1
+        ports:
+        - containerPort: 4000
+        resources:
+          requests:
+            cpu: "256m"
+            memory: "128Mi"
+          limits:
+            cpu: "256m"
+            memory: "128Mi"
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: catalog-ms-service
+  labels:
+    app: catalog-ms-service
+    tier: backend
+spec:
+  selector:
+    app: catalog-ms-pod
+    tier: backend
+  ports:
+  - protocol: TCP
+    port: 4000
+    targetPort: 4000
+  type: LoadBalancer
