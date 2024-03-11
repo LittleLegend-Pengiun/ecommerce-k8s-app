@@ -16,17 +16,16 @@ import org.springframework.context.annotation.Configuration;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
-
 @Configuration
 public class RabbitMQConfig {
 	@Value("${EXCHANGE_NAME}")
     private String exchangeName;
-	
-	@Value("${QUEUE_NAME}")
-    private String queueName;
 
     @Value("${ROUTING_KEY}")
     private String routingKey;
+	
+	@Value("${QUEUE_NAME}")
+    private String queueName;
 
 	@Bean
 	Queue queue() {
