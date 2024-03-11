@@ -31,3 +31,4 @@ public class RabbitMQProducer {
     //     productResponseListener.receiveResponse(response);
     // }
 }
+
