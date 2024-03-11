@@ -30,6 +30,16 @@ services:
       - "5672:5672"
       - "15672:15672"
 
+
+  rabbitmq:
+    image: "rabbitmq:management"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
   spring-boot-app:
     image: catalog-ms:1.0
     ports:
