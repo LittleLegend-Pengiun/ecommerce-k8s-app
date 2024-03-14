@@ -26,6 +26,7 @@ export const WrapperTextHeaderSmall = styled.span`
 color:white;
 font-size: 16px;
 white-space: nowrap;
+margin-right:5px;
 `;
 export const WrapperLink = styled(Link)`
 color:white;

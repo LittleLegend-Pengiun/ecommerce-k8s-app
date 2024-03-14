@@ -45,14 +45,14 @@ const HeaderComponent = () => {
             </div>
         </div>
         </WrapperAccountHeader>
-        <div>
-          <Badge count={5} style={{backgroundColor:'red'}} size='small'>
-            <ShoppingCartOutlined style={{fontSize:'30px',color:'white',marginRight:'5px'}}/>
-          </Badge>
-            <WrapperTextHeaderSmall>
-              <WrapperLink to="/shopping-cart/:id">Giỏ hàng</WrapperLink>
-            </WrapperTextHeaderSmall>
-        </div>
+          <WrapperLink to="/shopping-cart/:id">
+            <Badge count={5} style={{backgroundColor:'red'}} size='small'>
+              <ShoppingCartOutlined style={{fontSize:'30px',color:'white',marginRight:'5px'}}/>
+            </Badge>
+              <WrapperTextHeaderSmall>
+                Giỏ hàng
+              </WrapperTextHeaderSmall>
+          </WrapperLink>
         </Col>
       </WrapperHeader>
     </div>
