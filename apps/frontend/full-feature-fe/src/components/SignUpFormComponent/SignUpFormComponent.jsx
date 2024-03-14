@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import {
     WrapperInputFiled,
     WrapperTitle,
@@ -8,13 +9,16 @@ import {
     WrappperAcceptPolicy,
   } from './style'
 import {Form } from 'antd';
-const onFinish = (values) => {
-  console.log('Success:', values);
-};
-const onFinishFailed = (errorInfo) => {
-  console.log('Failed:', errorInfo);
-};
+
 const SignUpFormComponent = () => {
+    const navigate = useNavigate();
+    const onFinish = (values) => {
+        console.log('Success:', values);
+        navigate('/sign-in');
+      };
+      const onFinishFailed = (errorInfo) => {
+        console.log('Failed:', errorInfo);
+      };
   return (
     <center style={{height:'100%'}}>
           <WrapperForm 
@@ -90,7 +94,12 @@ const SignUpFormComponent = () => {
                         required: true,
                         message: 'Vui lòng nhập mật khẩu',
                     },
-                ]}
+                //     {
+                //         pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+                //         message:
+                //             'Mật khẩu phải chứa ít nhất 8 ký tự, bao gồm ít nhất một chữ hoa, một chữ thường, một chữ số và một kí tự đặc biệt',
+                //     },
+                 ]}
             >
             <WrapperInputFiled
                 type="password"

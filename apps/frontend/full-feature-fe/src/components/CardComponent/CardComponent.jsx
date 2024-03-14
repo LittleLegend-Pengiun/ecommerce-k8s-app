@@ -1,14 +1,11 @@
 import React from 'react'
-import { Card,Image } from 'antd';
 import logo from '../../assets/images/slider/logo.png'
 import { 
     StyleNameProduct,
     WrapperReportText,
     WrapperPriceText,
-    // WrapperDiscountText,
     WrapperCardStyle,
     WrapperText,
-    // WrapperImageStyle
 } from './style';
 import { StarFilled } from '@ant-design/icons';
 const CardComponent = (props) => {
@@ -20,7 +17,7 @@ const CardComponent = (props) => {
     bodytyle={{padding:'10px'}}
     cover={<img alt="example" src={productImg}/>}
   >
-    <img src={logo} alt="logo" preview={false}
+    <img src={logo} alt="logo" preview="false"
     style={{width:'90px',height:'20px',borderTopLeftRadius:'3px',position:'absolute',top:'-1px',left:'-1px'}}
     />
     <WrapperText>
@@ -35,7 +32,6 @@ const CardComponent = (props) => {
     </WrapperText>
     <WrapperPriceText>
         {productPrice}
-        {/* <WrapperDiscountText>-5%</WrapperDiscountText> */}
     </WrapperPriceText>
   </WrapperCardStyle>
   )

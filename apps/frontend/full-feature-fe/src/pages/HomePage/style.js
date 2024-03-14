@@ -32,7 +32,7 @@ export const WrapperText = styled.h1`
     text-align: center;
     margin-top: 40px;
     margin-bottom: 40px;
-    font-size: 28px;
+    font-size: 30px;
     font-weight: 600;
     color: #008874;
 `

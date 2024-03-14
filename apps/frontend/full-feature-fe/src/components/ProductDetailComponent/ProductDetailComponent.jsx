@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { Row, Col,Image } from 'antd'
 import imageProduct from '../../assets/images/detail/detail-1.webp'
 import imageProductSmall_1 from '../../assets/images/detail/small-1.webp'
@@ -29,8 +29,7 @@ import '../../formater/formater'
 import { StarFilled ,PlusOutlined,MinusOutlined } from '@ant-design/icons'
 import {formatPrice} from '../../formater/formater'
 import logo from '../../assets/images/slider/logo.png'
-// import ButtonComponent from '../ButtonComponent/ButtonComponent'
-// import InputComponent from '../InputComponent/InputComponent'
+import { Link } from 'react-router-dom'
 const ProductDetailComponent = () => {
     const onChange = () => { }
   return (
@@ -113,16 +112,20 @@ const ProductDetailComponent = () => {
                         </div>
                     </WrapperQuantityProduct>
                 <WrapperButton>
-                    <WrapperBuyButton
-                        size="large" 
-                        styleButton={{borderRadius:'0'}}
-                        textButton="Mua ngay"
-                    />
-                    <WrapperAddCartButton
-                        size="large" 
-                        styleButton={{borderRadius:'0'}}
-                        textButton="Thêm vào giỏ hàng"
-                    />
+                    <Link to="/payment/:id">
+                        <WrapperBuyButton
+                            size="large" 
+                            styleButton={{borderRadius:'0'}}
+                            textButton="Mua ngay"
+                        />
+                    </Link>
+                    <Link to="/shopping-cart/:id">
+                        <WrapperAddCartButton
+                            size="large" 
+                            styleButton={{borderRadius:'0'}}
+                            textButton="Thêm vào giỏ hàng"
+                        />
+                    </Link>
                 </WrapperButton>
             </div>
         </Col>

@@ -4,41 +4,49 @@ const router = epxress.Router();
 
 const data = [
   {
+    id: 1,
     img: 'https://i.ibb.co/Z2Hc7Yz/laptop-1.webp',
     name: "Laptop HP ProBook",
     price: 21990000,
   },
   {
+    id: 2,
     img: 'https://i.ibb.co/K9D67v8/laptop-2.webp',
     name: "Laptop MSI Morden",
     price: 17490000,
   },
   {
+    id: 3,
     img: 'https://i.ibb.co/2jKrspz/laptop-3.webp',
     name: "Laptop Lenovo LOQ",
     price: 26190000,
   },
   {
+    id: 4,
     img: 'https://i.ibb.co/XW1wD5F/laptop-4.webp',
     name: "Laptop Dell Inspiron",
     price: 18590000,
   },
   {
+    id: 5,
     img: 'https://i.ibb.co/wzdQtXr/laptop-5.webp',
     name: "Laptop HP Pavilion",
     price: 26490000,
   },
   {
+    id: 6,
     img: 'https://i.ibb.co/gSZrgJD/laptop-6.webp',
     name: "Laptop Acer Aspire",
     price: 16990000,
   },
   {
+    id: 7,
     img: 'https://i.ibb.co/h92YM39/laptop-7.webp',
     name: "Laptop Asus Vivobook Go",
     price: 8990000,
   },
   {
+    id: 8,
     img: 'https://i.ibb.co/1snG3QP/laptop-8.webp',
     name: "Laptop Acer Aspire 3",
     price: 10990000,

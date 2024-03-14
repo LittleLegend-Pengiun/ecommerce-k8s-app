@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import {
     WrapperInputFiled,
     WrapperTitle,
@@ -10,13 +11,16 @@ import {
     WrapperMoreAction,
   } from './style'
   import { Form } from 'antd';
-const onFinish = (values) => {
+
+const LoginFormComponent = () => {
+  const navigate = useNavigate()
+  const onFinish = (values) => {
     console.log('Success:', values);
+    navigate('/');
   };
-const onFinishFailed = (errorInfo) => {
+  const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
   };
-const LoginFormComponent = () => {
   return (
     <center style={{height:'100%'}}>
           <WrapperForm 

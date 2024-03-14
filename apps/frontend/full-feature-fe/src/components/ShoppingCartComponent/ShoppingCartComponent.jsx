@@ -13,6 +13,7 @@ import {
     WrapperRow,
     WrapperCol,
 } from './style'
+import { Link } from 'react-router-dom';
 const cart = [
   {
     productID: '1',
@@ -86,7 +87,6 @@ const ShoppingCartComponent = () => {
     };
     const totalSubtotal = data.reduce((total, item) => total + item.subTotal, 0);
     const priceShippng = (totalSubtotal > 1000000) ? 0 : totalSubtotal*0.1;
-
     return (  
         <div>
           <WrapperTable 
@@ -125,12 +125,14 @@ const ShoppingCartComponent = () => {
         </WrapperTable>
           <div style={{display:'flex',justifyContent:'space-between'}}>
               <div>
-                <WrapperButton
-                icon={<ArrowLeftOutlined />}
-                size="large"
-                textButton="Tiếp tục mua sắm"
-                type="primary"
-                />
+                <Link to="/">
+                  <WrapperButton
+                  icon={<ArrowLeftOutlined />}
+                  size="large"
+                  textButton="Tiếp tục mua sắm"
+                  type="primary"
+                  />
+                </Link>
               </div>
               <div>
                 <WrapperButton

@@ -14,7 +14,8 @@ import axios from 'axios';
 import ReactPaginate from 'react-paginate';
 import './style.scss'
 import { formatPrice } from '../../formater/formater'
-
+import {Link} from 'react-router-dom';
+// import { LineOutlined } from "@ant-design/icons";
 const HomePage = () => {
     const category = ['Tất cả sản phẩm','Điện thoại','Laptop','Máy ảnh','Phụ kiện','Đồng hồ'];
     const [allProducts, setAllProducts] = useState({products:[]})
@@ -39,12 +40,14 @@ const HomePage = () => {
     const pagesVisited = pageNumber * productsPerPage;
     const displayProducts = allProducts.products.slice(pagesVisited, pagesVisited + productsPerPage).map((item,index) => {
         return (
-                <CardComponent 
+                <Link to={`/product-detail/${item.id}`} key={index} style={{textDecoration:'none'}}>
+                    <CardComponent 
                     key={index}
                     productName={item.name}
                     productImg={item.img}
                     productPrice={formatPrice(item.price)}
-                />
+                    />
+                </Link>
         );
     });
     const pageCount = Math.ceil(allProducts.products.length / productsPerPage);
@@ -57,10 +60,9 @@ const HomePage = () => {
             <div id="container" style={{backgroundColor:'#efefef',padding:'0 120px',height:'auto'}}>
                 <div style={{display:'flex'}}>
                     <WrapperColCategory>
-                        <div className="category">
-                            <h1 style={{margin:0,color:'#008477'}}>Danh mục sản phẩm</h1>
+                        <div className="category" style={{backgroundColor:'white',padding:'10px'}}>
+                            <h1 style={{margin:0,color:'black'}}>Danh mục sản phẩm</h1>
                             {category.map((item,index) => {
-                                console.log(item)
                                 return <CategoryProduct key={index} categoryName={item}/>
                             })}
 
