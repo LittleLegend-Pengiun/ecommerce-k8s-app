@@ -1,8 +1,8 @@
 package controllers
 
 import (
-	"go-auth-server/initializers"
-	"go-auth-server/models"
+	"authen-ms/initializers"
+	"authen-ms/models"
 	"net/http"
 	"os"
 	"time"

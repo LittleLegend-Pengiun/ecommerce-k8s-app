@@ -1,9 +1,9 @@
 package middlewares
 
 import (
+	"authen-ms/initializers"
+	"authen-ms/models"
 	"fmt"
-	"go-auth-server/initializers"
-	"go-auth-server/models"
 	"os"
 	"time"
 

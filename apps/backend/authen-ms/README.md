@@ -3,7 +3,7 @@
 To make life easier, you can run the project with [Compile Daemon](https://github.com/githubnemo/CompileDaemon).
 
 ```bash
-CompileDaemon --command="./go-auth-server"
+CompileDaemon --command="./authen-ms"
 ```
 
 This project is powered by [Fiber](https://docs.gofiber.io/) and [GORM](https://gorm.io/) with SQLLite.

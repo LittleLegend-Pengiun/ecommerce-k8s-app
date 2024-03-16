@@ -1,8 +1,8 @@
 package main
 
 import (
-	"go-auth-server/controllers"
-	"go-auth-server/middlewares"
+	"authen-ms/controllers"
+	"authen-ms/middlewares"
 	"net/http"
 
 	"github.com/gofiber/fiber/v2"

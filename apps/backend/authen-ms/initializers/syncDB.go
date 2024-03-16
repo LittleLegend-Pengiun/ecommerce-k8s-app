@@ -1,7 +1,7 @@
 package initializers
 
 import (
-	"go-auth-server/models"
+	"authen-ms/models"
 )
 
 func SyncDatabase() {

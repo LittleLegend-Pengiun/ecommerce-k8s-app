@@ -1,4 +1,4 @@
-module go-auth-server
+module authen-ms
 
 go 1.21.6
 
