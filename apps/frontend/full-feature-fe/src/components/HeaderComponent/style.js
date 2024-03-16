@@ -27,6 +27,11 @@ color:white;
 font-size: 16px;
 white-space: nowrap;
 margin-right:5px;
+cursor: pointer;
+&:hover{
+    color:white;
+    font-weight: bold;
+}
 `;
 export const WrapperLink = styled(Link)`
 color:white;

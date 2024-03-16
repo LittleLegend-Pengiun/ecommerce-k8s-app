@@ -1,7 +1,8 @@
 import  { styled } from 'styled-components';
 import InputComponent from '../../components/InputComponent/InputComponent';
 import ButtonComponent from '../../components/ButtonComponent/ButtonComponent';
-export const WrapperForm =styled.form
+import { Form } from 'antd';
+export const WrapperForm =styled(Form)
 `
     padding: 20px;
     background-color: #f4f4f4;

@@ -32,8 +32,7 @@ const SignUpFormComponent = () => {
               autoComplete="off"
           >
             <WrapperTitle>Đăng ký tài khoản để trải nghiệm tất cả các tính năng của BKU SHOP</WrapperTitle>
-            <p>Nhập các thông tin bên dưới</p>
-            {/* <span style={{color:'red'}}>(*) Bắt buộc</span> */}
+            <p>Nhập các thông tin bên dưới <span style={{color:'red'}}>(*) Bắt buộc</span></p>
             <Form.Item
                 name="fullName"
                 rules={[
@@ -46,7 +45,7 @@ const SignUpFormComponent = () => {
             <WrapperInputFiled
                 type="text"
                 size="large"
-                placeholder="Tên đầy đủ" 
+                placeholder="Tên đầy đủ (*)"
             />
             </Form.Item>
             <Form.Item
@@ -65,7 +64,7 @@ const SignUpFormComponent = () => {
               <WrapperInputFiled
                 type="text"
                 size="large"
-                placeholder="Email" 
+                placeholder="Email (*)" 
               />
             </Form.Item>
             <Form.Item
@@ -84,7 +83,7 @@ const SignUpFormComponent = () => {
                <WrapperInputFiled
                 type="text"
                 size="large"
-                placeholder="Số điện thoại" 
+                placeholder="Số điện thoại (*)"
               />
             </Form.Item>
             <Form.Item
@@ -104,7 +103,7 @@ const SignUpFormComponent = () => {
             <WrapperInputFiled
                 type="password"
                 size="large"
-                placeholder="Mật khẩu" 
+                placeholder="Mật khẩu (*)"
             />
             </Form.Item>
             <Form.Item
@@ -129,7 +128,7 @@ const SignUpFormComponent = () => {
             <WrapperInputFiled
                 type="password"
                 size="large"
-                placeholder="Xác nhận mật khẩu" 
+                placeholder="Xác nhận mật khẩu (*)"
             />
             </Form.Item>
             <Form.Item
@@ -143,7 +142,7 @@ const SignUpFormComponent = () => {
                 ]}
             >
             <WrappperAcceptPolicy>
-                <label>Đồng ý các điều khoản</label>
+                <label>Đồng ý các điều khoản (*)</label>
                 <a href="#">Điều khoản</a>
             </WrappperAcceptPolicy>
             </Form.Item>
