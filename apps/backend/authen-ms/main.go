@@ -12,6 +12,7 @@ func init() {
 	initializers.LoadEnvVariables()
 	initializers.ConnectToDB()
 	initializers.SyncDatabase()
+	initializers.CreateUsers()
 }
 
 func main() {
