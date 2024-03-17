@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "dev": "CompileDaemon --command=\"./auth-ms\""
+    "dev": "CompileDaemon --command=\"./auth-ms\"",
+    "image:build": "docker build -t authen-ms ."
   }
 }
