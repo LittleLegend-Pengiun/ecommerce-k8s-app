@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductMessage implements Serializable{
+public class ProductMessage implements Serializable {
     String action;
     String instance;
 }

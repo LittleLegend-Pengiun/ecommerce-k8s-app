@@ -1,5 +1,6 @@
 package com.service.catalog.models;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -24,7 +25,6 @@ import lombok.Data;
 @Table(name = "order_details")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class OrderDetail {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long orderDetailId;
@@ -38,12 +38,12 @@ public class OrderDetail {
     private Product product;
 
     private Integer quantity;
-    private Double unitPrice;
+    private BigDecimal unitPrice;
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_date", updatable = false)
     private LocalDateTime createdDate;
-    
+
     @UpdateTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "updated_date")

@@ -27,8 +27,12 @@ public class RabbitMQProducer {
             e.printStackTrace();
         }
     }
-    // public void sendResponse(List<Product> response) {
-    //     productResponseListener.receiveResponse(response);
-    // }
+    public void sendMessageOrder(ProductMessage productMessage) {
+        try {
+            rabbitTemplate.convertAndSend(
+                    exchangeName, routingKey, productMessage);
+        } catch (AmqpException e) {
+            e.printStackTrace();
+        }
+    }
 }
-

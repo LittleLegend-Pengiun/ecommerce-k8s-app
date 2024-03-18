@@ -22,7 +22,7 @@ import lombok.Data;
 @Table(name = "products")
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data
-public class Product implements Serializable{
+public class Product implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long productId;
@@ -39,7 +39,7 @@ public class Product implements Serializable{
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_date", updatable = false)
     private LocalDateTime createdDate;
-    
+
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @UpdateTimestamp
     @Temporal(TemporalType.TIMESTAMP)

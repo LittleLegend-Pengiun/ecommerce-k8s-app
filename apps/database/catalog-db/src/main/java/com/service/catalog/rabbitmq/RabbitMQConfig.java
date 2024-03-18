@@ -18,35 +18,55 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 @Configuration
 public class RabbitMQConfig {
-	@Value("${EXCHANGE_NAME}")
+    @Value("${EXCHANGE_NAME}")
     private String exchangeName;
 
     @Value("${ROUTING_KEY}")
     private String routingKey;
-	
-	@Value("${QUEUE_NAME}")
+
+    @Value("${QUEUE_NAME}")
     private String queueName;
 
-	@Bean
-	Queue queue() {
-		return new Queue(queueName, true);
-	}
+    @Value("${ORDER_QUEUE_NAME}")
+    private String orderQueueName; // New queue for Order processing
 
-	@Bean
-	Exchange exchange() {
-		return new DirectExchange(exchangeName);
-	}
+    @Value("${ORDER_ROUTING_KEY}")
+    private String orderRoutingKey;
 
-	@Bean
-	Binding binding(Queue queue, Exchange exchange) {
-		return BindingBuilder.bind(queue)
-				.to(exchange)
-				.with(routingKey)
-				.noargs();
-	}
+    @Bean
+    Queue queue() {
+        return new Queue(queueName, true);
+    }
 
-	// chuẩn hóa dữ liệu
-	@Bean
+    @Bean
+    Queue orderQueue() {
+        return new Queue(orderQueueName, true); // Define the new Order queue
+    }
+
+    @Bean
+    Exchange exchange() {
+        return new DirectExchange(exchangeName);
+    }
+
+    @Bean
+    Binding binding(Queue queue, Exchange exchange) {
+        return BindingBuilder.bind(queue)
+                .to(exchange)
+                .with(routingKey)
+                .noargs();
+    }
+
+    @Bean
+    Binding orderBinding(Queue orderQueue, Exchange exchange) {
+        return BindingBuilder.bind(orderQueue)
+                .to(exchange)
+                .with(orderRoutingKey) // Use the same routing key as existing queue
+                .noargs();
+    }
+
+    // chuẩn hóa dữ liệu
+    @Bean
+    @SuppressWarnings("null")
     MessageConverter jsonMessageConverter(ObjectMapper objectMapper) {
         Jackson2JsonMessageConverter jsonMessageConverter = new Jackson2JsonMessageConverter(objectMapper);
         return jsonMessageConverter;
@@ -60,6 +80,7 @@ public class RabbitMQConfig {
     }
 
     @Bean
+    @SuppressWarnings("null")
     RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory, MessageConverter jsonMessageConverter) {
         RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
         rabbitTemplate.setMessageConverter(jsonMessageConverter);

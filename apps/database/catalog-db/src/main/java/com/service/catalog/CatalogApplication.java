@@ -19,7 +19,8 @@ public class CatalogApplication {
 	}
 	@PostConstruct
     public void init()  {
-		readData.readJsonFile("catalog.json");
+		readData.readCatalogProducts("catalog.json");
+		readData.readUsers("user.json");
 		logger.info("Users Saved!");
     }
 	// @Override

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import com.service.catalog.models.Product;
 import com.service.catalog.models.ProductMessage;
 import com.service.catalog.rabbitmq.RabbitMQProducer;
-import com.service.catalog.reposistory.ProductReposistory;
+import com.service.catalog.reposistory.ProductRepository;
 import com.service.catalog.services.ProductResponseListener;
 
 import java.util.List;
@@ -16,7 +16,7 @@ public class ProductController {
     
     
     @Autowired
-    ProductReposistory productReposistory;
+    ProductRepository productReposistory;
 
     @Autowired
     private RabbitMQProducer rabbitMQProducer;
@@ -35,6 +35,7 @@ public class ProductController {
         rabbitMQProducer.sendMessage(productMessage);
         
         List<Product> responseProducts = productResponseListener.waitForResponse();
+        
         return responseProducts;
     }
     // @RequestMapping(value = "/{productId}", method = RequestMethod.GET)
