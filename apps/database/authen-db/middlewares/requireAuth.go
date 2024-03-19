@@ -1,8 +1,8 @@
 package middlewares
 
 import (
-	"authen-ms/initializers"
-	"authen-ms/models"
+	"authen-db/initializers"
+	"authen-db/models"
 	"fmt"
 	"os"
 	"time"

@@ -1,7 +1,7 @@
 package main
 
 import (
-	"authen-ms/initializers"
+	"authen-db/initializers"
 	"os"
 
 	"github.com/gofiber/fiber/v2"

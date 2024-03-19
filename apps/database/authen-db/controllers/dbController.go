@@ -1,8 +1,8 @@
 package controllers
 
 import (
-	"authen-ms/initializers"
-	"authen-ms/models"
+	"authen-db/initializers"
+	"authen-db/models"
 	"net/http"
 
 	"github.com/gofiber/fiber/v2"

@@ -1,4 +1,4 @@
-module authen-ms
+module authen-db
 
 go 1.21.6
 

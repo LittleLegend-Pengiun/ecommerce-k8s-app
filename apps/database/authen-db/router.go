@@ -1,8 +1,8 @@
 package main
 
 import (
-	"authen-ms/controllers"
-	"authen-ms/middlewares"
+	"authen-db/controllers"
+	"authen-db/middlewares"
 	"net/http"
 
 	"github.com/gofiber/fiber/v2"

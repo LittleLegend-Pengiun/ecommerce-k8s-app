@@ -1,7 +1,7 @@
 package initializers
 
 import (
-	"authen-ms/models"
+	"authen-db/models"
 )
 
 func SyncDatabase() {
