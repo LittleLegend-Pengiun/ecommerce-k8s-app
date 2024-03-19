@@ -1,0 +1,16 @@
+C:\Users\HP\Desktop\ecommerce-k8s-app\apps\backend\catalog-ms-java\src\main\java\com\service\catalog\rabbitmq\RabbitMQConfig.java
+C:\Users\HP\Desktop\ecommerce-k8s-app\apps\backend\catalog-ms-java\src\main\java\com\service\catalog\rabbitmq\RabbitMQProducer.java
+C:\Users\HP\Desktop\ecommerce-k8s-app\apps\backend\catalog-ms-java\src\main\java\com\service\catalog\models\ProductMessage.java
+C:\Users\HP\Desktop\ecommerce-k8s-app\apps\backend\catalog-ms-java\src\main\java\com\service\catalog\models\ValueResolver.java
+C:\Users\HP\Desktop\ecommerce-k8s-app\apps\backend\catalog-ms-java\src\main\java\com\service\catalog\CatalogApplication.java
+C:\Users\HP\Desktop\ecommerce-k8s-app\apps\backend\catalog-ms-java\src\main\java\com\service\catalog\reposistory\UserRepository.java
+C:\Users\HP\Desktop\ecommerce-k8s-app\apps\backend\catalog-ms-java\src\main\java\com\service\catalog\services\ProductResponseListener.java
+C:\Users\HP\Desktop\ecommerce-k8s-app\apps\backend\catalog-ms-java\src\main\java\com\service\catalog\models\User.java
+C:\Users\HP\Desktop\ecommerce-k8s-app\apps\backend\catalog-ms-java\src\main\java\com\service\catalog\services\ReadData.java
+C:\Users\HP\Desktop\ecommerce-k8s-app\apps\backend\catalog-ms-java\src\main\java\com\service\catalog\models\Discount.java
+C:\Users\HP\Desktop\ecommerce-k8s-app\apps\backend\catalog-ms-java\src\main\java\com\service\catalog\reposistory\ProductRepository.java
+C:\Users\HP\Desktop\ecommerce-k8s-app\apps\backend\catalog-ms-java\src\main\java\com\service\catalog\CatalogController.java
+C:\Users\HP\Desktop\ecommerce-k8s-app\apps\backend\catalog-ms-java\src\main\java\com\service\catalog\models\Product.java
+C:\Users\HP\Desktop\ecommerce-k8s-app\apps\backend\catalog-ms-java\src\main\java\com\service\catalog\CatalogMessage.java
+C:\Users\HP\Desktop\ecommerce-k8s-app\apps\backend\catalog-ms-java\src\main\java\com\service\catalog\rabbitmq\RabbitMQConsumer.java
+C:\Users\HP\Desktop\ecommerce-k8s-app\apps\backend\catalog-ms-java\src\main\java\com\service\catalog\controllers\ProductController.java
