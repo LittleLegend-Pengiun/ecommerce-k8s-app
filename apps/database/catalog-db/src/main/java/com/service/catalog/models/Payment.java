@@ -33,7 +33,7 @@ public class Payment {
     @ManyToOne
     @JoinColumn(name = "order_id")
     private Order order;
-    
+
     private Date paymentDate;
     private String paymentMethod;
     private Double amount;
@@ -41,7 +41,7 @@ public class Payment {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_date", updatable = false)
     private LocalDateTime createdDate;
-    
+
     @UpdateTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "updated_date")

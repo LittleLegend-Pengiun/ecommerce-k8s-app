@@ -32,16 +32,16 @@ public class Discount {
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
-    
+
     private Double discountPercentage;
     private Date startDate;
     private Date endDate;
-    
+
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_date", updatable = false)
     private LocalDateTime createdDate;
-    
+
     @UpdateTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "updated_date")

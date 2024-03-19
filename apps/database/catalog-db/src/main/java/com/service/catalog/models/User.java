@@ -36,12 +36,12 @@ public class User {
     private String gender;
     private Date registrationDate;
     private Boolean isMemberShip;
-    
+
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_date", updatable = false)
     private LocalDateTime createdDate;
-    
+
     @UpdateTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "updated_date")
