@@ -12,18 +12,15 @@ import http from "k6/http";
 export let options = {
   stages: [
     { duration: "1m", target: 50 },
-    // { duration: "1m", target: 150 },
-    // { duration: "1m", target: 300 },
     { duration: '1m', target: 500 },
     { duration: '2m', target: 1000 },
     { duration: '2m', target: 1200 },
-    // { duration: "2m", target: 10000000 },
     { duration: "2m", target: 10 },
   ],
 };
 
 export default function () {
-  let r = http.get(`http://127.0.0.1/catalog`);
+  let r = http.get(`http://192.168.49.10:4000/`);
   check(r, {
     "status is 200": (r) => r.status === 200,
   });

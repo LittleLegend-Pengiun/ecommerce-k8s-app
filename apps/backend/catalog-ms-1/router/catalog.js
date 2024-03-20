@@ -760,7 +760,7 @@ router.get("/", (req, res) => {
 });
 
 
-export default router;
+export { router };
 
 /*
 https://i.ibb.co/fG3FfS9/audio-1.webp
