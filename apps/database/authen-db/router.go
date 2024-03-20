@@ -1,20 +1,20 @@
 package main
 
 import (
-	"authen-db/controllers"
-	"authen-db/middlewares"
 	"net/http"
+
+	"authen-db/controllers"
 
 	"github.com/gofiber/fiber/v2"
 )
 
 func router(app *fiber.App) {
 	// Apply middleware before binding route
-	app.Use("/validation", middlewares.RequireAuth)
+	// app.Use("/validation", middlewares.RequireAuth)
 
 	app.Get("/", Hello)
 	app.Get("/users", controllers.GetAllUsers)
-	app.Get("/validation", controllers.Validate)
+	// app.Get("/validation", controllers.Validate)
 
 	app.Post("/signup", controllers.SignUp)
 	app.Post("/login", controllers.Login)
