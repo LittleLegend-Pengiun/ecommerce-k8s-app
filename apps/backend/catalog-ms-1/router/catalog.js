@@ -752,7 +752,7 @@ const data =[
     "description": "Bộ chuyển đổi USB Wifi Nano Bluetooth 4.2"
   }
 ];
-
+  
 router.get("/", (req, res) => {
     res.send({
         products: data,
