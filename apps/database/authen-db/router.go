@@ -16,8 +16,8 @@ func router(app *fiber.App) {
 	app.Get("/users", controllers.GetAllUsers)
 	// app.Get("/validation", controllers.Validate)
 
-	app.Post("/signup", controllers.SignUp)
-	app.Post("/login", controllers.Login)
+	// app.Post("/signup", controllers.SignUp)
+	// app.Post("/login", controllers.Login)
 }
 
 func Hello(c *fiber.Ctx) error {
