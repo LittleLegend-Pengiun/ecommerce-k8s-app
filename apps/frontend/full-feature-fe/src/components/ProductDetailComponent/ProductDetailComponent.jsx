@@ -25,6 +25,7 @@ import {
     WrapperBuyButton,
     WrapperAddCartButton,
     WrapperReleaseDate,
+    WrapperContent,
 } from './style'
 import { StarFilled ,PlusOutlined,MinusOutlined } from '@ant-design/icons'
 import {formatPrice} from '../../formater/formater'
@@ -102,10 +103,10 @@ const ProductDetailComponent = ({productID}) => {
             <StarFilled style={{fontSize:'12px',color:'yellow'}}/>
             <StarFilled style={{fontSize:'12px',color:'yellow'}}/>
             </span>
-        <WrapperTextReport><span>Số lượng trong kho: ({seletedProduct.stockQuantity})</span> | Đã bán {seletedProduct.soldQuantity}</WrapperTextReport>
+        <WrapperTextReport>Số lượng trong kho: <span><WrapperContent>({seletedProduct.stockQuantity})</WrapperContent></span> | Đã bán: <WrapperContent>{seletedProduct.soldQuantity}</WrapperContent></WrapperTextReport>
         <div style={{margin:'12px 0'}}>
-            <WrapperReleaseDate>Ngày ra mắt: <span style={{color:'#008477',fontWeight:'500',fontSize:'22px'}}>{seletedProduct.releaseDate}</span></WrapperReleaseDate>
-            <WrapperReleaseDate>Nhà sản xuất: <span style={{color:'#008477',fontWeight:'500',fontSize:'22px'}}>{seletedProduct.manufacture}</span></WrapperReleaseDate>
+            <WrapperReleaseDate>Ngày ra mắt: <WrapperContent>{seletedProduct.releaseDate}</WrapperContent></WrapperReleaseDate>
+            <WrapperReleaseDate>Nhà sản xuất: <WrapperContent>{seletedProduct.manufacture}</WrapperContent></WrapperReleaseDate>
         </div>
             <WrapperProductPrice>
                 <WrapperProductPriceText>{formatPrice(seletedProduct.price)}</WrapperProductPriceText>

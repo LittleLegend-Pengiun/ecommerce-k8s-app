@@ -99,3 +99,8 @@ export const WrapperAddCartButton = styled(ButtonComponent)`
     font-weight:500;
     color:#008477;
 `
+export const WrapperContent = styled.span`
+    color:#008477;
+    font-size: 22px;
+    font-weight: 400;
+`
