@@ -104,7 +104,7 @@ const ProductDetailComponent = ({productID}) => {
             <StarFilled style={{fontSize:'12px',color:'yellow'}}/>
             </span>
         <WrapperTextReport>Số lượng trong kho: <span><WrapperContent>({seletedProduct.stockQuantity})</WrapperContent></span> | Đã bán: <WrapperContent>{seletedProduct.soldQuantity}</WrapperContent></WrapperTextReport>
-        <div style={{margin:'12px 0'}}>
+        <div style={{margin:'14px 0'}}>
             <WrapperReleaseDate>Ngày ra mắt: <WrapperContent>{seletedProduct.releaseDate}</WrapperContent></WrapperReleaseDate>
             <WrapperReleaseDate>Nhà sản xuất: <WrapperContent>{seletedProduct.manufacture}</WrapperContent></WrapperReleaseDate>
         </div>
@@ -128,12 +128,12 @@ const ProductDetailComponent = ({productID}) => {
                 </WrapperColImage>
             </Row>
         </div>
-            <WrapperAddress>
+            {/* <WrapperAddress>
                 <p>Thông tin vận chuyển</p>
                 <span style={{paddingLeft:'10px'}}>Giao đến </span>
                 <span className="address">268 Phường 14 Quận 10 - TP Hồ Chí Minh </span>
                 <span className="change-address"> Đổi địa chỉ</span>
-            </WrapperAddress>
+            </WrapperAddress> */}
             <div style={{marginBottom:'10px',fontSize:'20px',fontWeight:'500'}}>Số lượng</div>
             <div style={{display:'flex'}}>
                     <WrapperQuantityProduct>
