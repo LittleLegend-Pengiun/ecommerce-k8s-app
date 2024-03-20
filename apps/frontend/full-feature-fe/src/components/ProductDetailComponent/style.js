@@ -12,7 +12,7 @@ export const WrapperColImage = styled(Col)`
 export const WrapperProductDescription = styled.h1`
     color:rgb(36, 36, 36);
     font-size: 24px;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 32px;
     word-break: break-word;
 `;
@@ -25,6 +25,7 @@ export const WrapperTextReport = styled.span`
 export const WrapperProductPrice = styled.div`
     border-radius: 4px;
     padding: 10px 0;
+    display: flex;
 `;
 export const WrapperProductPriceText= styled.h1`
     font-size: 32px;
@@ -32,6 +33,12 @@ export const WrapperProductPriceText= styled.h1`
     margin-right:10px;
     font-weight: 500;
     color:red;
+`;
+export const WrapperReleaseDate = styled.span`
+    font-size: 20px;
+    line-height: 24px;
+    color:black;
+    padding-right:10px;
 `;
 export const WrapperAddress = styled.div`
     margin-top: 20px;
@@ -83,10 +90,11 @@ export const WrapperBuyButton = styled(ButtonComponent)`
     background-color:#008477;
     color:white;
     font-weight:500;
+    border:1px solid #008477;
 `
 export const WrapperAddCartButton = styled(ButtonComponent)`
     width:180px;
-    margin-left:10px;
+    // margin-left:10px;
     border:1px solid #008477;
     font-weight:500;
     color:#008477;

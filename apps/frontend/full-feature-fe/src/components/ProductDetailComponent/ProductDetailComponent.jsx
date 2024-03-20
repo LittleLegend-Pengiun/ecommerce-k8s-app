@@ -1,6 +1,6 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
+import axios from 'axios'
 import { Row, Col,Image } from 'antd'
-import imageProduct from '../../assets/images/detail/detail-1.webp'
 import imageProductSmall_1 from '../../assets/images/detail/small-1.webp'
 import imageProductSmall_2 from '../../assets/images/detail/small-2.webp'
 import imageProductSmall_3 from '../../assets/images/detail/small-3.webp'
@@ -24,20 +24,53 @@ import {
     WrapperButton,
     WrapperBuyButton,
     WrapperAddCartButton,
+    WrapperReleaseDate,
 } from './style'
-import '../../formater/formater'
 import { StarFilled ,PlusOutlined,MinusOutlined } from '@ant-design/icons'
 import {formatPrice} from '../../formater/formater'
 import logo from '../../assets/images/slider/logo.png'
 import { Link } from 'react-router-dom'
-const ProductDetailComponent = () => {
-    const onChange = () => { }
+const ProductDetailComponent = ({productID}) => {
+    //State for quantity product
+    const [quantity, setQuantity] = useState(1)
+    const decreaseQuantity = () => { quantity > 1 && setQuantity(quantity - 1)}
+    const increaseQuantity = () => { setQuantity(quantity + 1) }
+    //State for product
+    const [seletedProduct, setSeletedProduct] = useState({})
+    const handleProductClick = (product) => {
+        setSeletedProduct(product);
+    }
+    const [allProducts, setAllProducts] = useState({products:[]})
+    useEffect(() => {
+      const fetchData = async () =>{
+        // setLoading(true);
+        try {
+        const res = await axios.get(`${process.env.REACT_APP_CATALOG_MS_1_URL}/products`);
+          const response = res.data;
+          setAllProducts(response);
+        } catch (error) {
+          console.error(error.message);
+        }
+        // setLoading(false);
+      }
+  
+      fetchData();
+    }, []);
+    useEffect(() => {
+        const product = allProducts.products.find((item) => item.productID == productID);
+        if (product) {
+            handleProductClick(product);
+        }
+    }, [productID,allProducts]);
+    console.log('seletedProduct',seletedProduct);
   return (
     <Row style={{padding:'16px',background:'white'}}>
         <Col span={10}>
-            <Image src={imageProduct} alt="image-product" preview={false}/>
+            <Row style={{width:'100%',alignItems:'center',justifyContent:'center'}}>
+                <Image src={seletedProduct.imageUrl} alt="image-product" preview={false} style={{height:'500px'}}/>
+            </Row>
             <Row style={{paddingTop:'10px',justifyContent:'space-between'}}>
-                <WrapperColImage span={4}> 
+                <WrapperColImage span={4} style={{border:'2px solid #008477'}}> 
                     <WrapperSmallImage src={imageProductSmall_1} alt="image-product_small" preview={false}/> 
                 </WrapperColImage>
                 <WrapperColImage span={4}> 
@@ -55,23 +88,29 @@ const ProductDetailComponent = () => {
             </Row>
         </Col>
         <Col span={14} style={{paddingLeft:'30px'}}>
-            <img src={logo} alt="logo" preview={false}
+            <img src={logo} alt="logo" preview="false"
                 style={{width:'90px',height:'20px',borderTopLeftRadius:'3px'}}
             />
-            <WrapperProductDescription>Điện thoại Xiaomi Redmi Note 12 (8GB/128GB) - Hàng chính hãng </WrapperProductDescription>
+            <WrapperProductDescription>
+                {seletedProduct.description}
+            </WrapperProductDescription>
             <span style={{marginRight:'10px'}}>
-              <WrapperTextReport style={{marginRight:'6px'}}>5.0</WrapperTextReport>
-              <StarFilled style={{fontSize:'12px',color:'yellow'}}/>
-              <StarFilled style={{fontSize:'12px',color:'yellow'}}/>
-              <StarFilled style={{fontSize:'12px',color:'yellow'}}/>
-              <StarFilled style={{fontSize:'12px',color:'yellow'}}/>
-              <StarFilled style={{fontSize:'12px',color:'yellow'}}/>
-          </span>
-          <WrapperTextReport>(60) | Đã bán 102</WrapperTextReport>
+            <WrapperTextReport style={{marginRight:'6px'}}>5.0</WrapperTextReport>
+            <StarFilled style={{fontSize:'12px',color:'yellow'}}/>
+            <StarFilled style={{fontSize:'12px',color:'yellow'}}/>
+            <StarFilled style={{fontSize:'12px',color:'yellow'}}/>
+            <StarFilled style={{fontSize:'12px',color:'yellow'}}/>
+            <StarFilled style={{fontSize:'12px',color:'yellow'}}/>
+            </span>
+        <WrapperTextReport><span>Số lượng trong kho: ({seletedProduct.stockQuantity})</span> | Đã bán {seletedProduct.soldQuantity}</WrapperTextReport>
+        <div style={{margin:'12px 0'}}>
+            <WrapperReleaseDate>Ngày ra mắt: <span style={{color:'#008477',fontWeight:'500',fontSize:'22px'}}>{seletedProduct.releaseDate}</span></WrapperReleaseDate>
+            <WrapperReleaseDate>Nhà sản xuất: <span style={{color:'#008477',fontWeight:'500',fontSize:'22px'}}>{seletedProduct.manufacture}</span></WrapperReleaseDate>
+        </div>
             <WrapperProductPrice>
-                <WrapperProductPriceText>{formatPrice(2500000)}</WrapperProductPriceText>
+                <WrapperProductPriceText>{formatPrice(seletedProduct.price)}</WrapperProductPriceText>
             </WrapperProductPrice>
-          <div>
+        <div> 
             <span style={{fontSize:'18px'}}>Màu</span>
             <Row style={{paddingTop:'10px',justifyContent:'space-between'}}>
                 <WrapperColImage span={4} style={{border:'2px solid #008477'}}> 
@@ -87,7 +126,7 @@ const ProductDetailComponent = () => {
                     <WrapperSmallImage src={imageColor_xam} alt="image-color" preview={false}/> 
                 </WrapperColImage>
             </Row>
-          </div>
+        </div>
             <WrapperAddress>
                 <p>Thông tin vận chuyển</p>
                 <span style={{paddingLeft:'10px'}}>Giao đến </span>
@@ -98,13 +137,16 @@ const ProductDetailComponent = () => {
             <div style={{display:'flex'}}>
                     <WrapperQuantityProduct>
                         <div style={{display:'flex'}}>
-                            <WrapperButtonQuantity
+                            <WrapperButtonQuantity 
+                                onClick={decreaseQuantity}                         
                                 size="large"
                                 styleButton={{borderRadius:'3px',border:'1px solid #efefef'}}
                                 textButton={<MinusOutlined />}
+
                             />
-                            <WrapperInputQuantity defaultValue={3} onChange={onChange} size="large" />
+                            <WrapperInputQuantity  value={quantity} size="large"/>
                             <WrapperButtonQuantity
+                                onClick={increaseQuantity}
                                 size="large"
                                 styleButton={{borderRadius:'3px',border:'1px solid #efefef'}}
                                 textButton={<PlusOutlined />}
@@ -112,18 +154,18 @@ const ProductDetailComponent = () => {
                         </div>
                     </WrapperQuantityProduct>
                 <WrapperButton>
-                    <Link to="/payment/:id">
-                        <WrapperBuyButton
-                            size="large" 
-                            styleButton={{borderRadius:'0'}}
-                            textButton="Mua ngay"
-                        />
-                    </Link>
                     <Link to="/shopping-cart/:id">
                         <WrapperAddCartButton
                             size="large" 
                             styleButton={{borderRadius:'0'}}
                             textButton="Thêm vào giỏ hàng"
+                        />
+                    </Link>
+                    <Link to="/payment/:id">
+                        <WrapperBuyButton
+                            size="large" 
+                            styleButton={{borderRadius:'0'}}
+                            textButton="Mua ngay"
                         />
                     </Link>
                 </WrapperButton>

@@ -19,7 +19,6 @@ import {Link} from 'react-router-dom';
 const HomePage = () => {
     const category = ['Tất cả sản phẩm','Điện thoại','Laptop','Máy ảnh','Phụ kiện','Đồng hồ'];
     const [allProducts, setAllProducts] = useState({products:[]})
-
     useEffect(() => {
       const fetchData = async () =>{
         // setLoading(true);
@@ -40,11 +39,11 @@ const HomePage = () => {
     const pagesVisited = pageNumber * productsPerPage;
     const displayProducts = allProducts.products.slice(pagesVisited, pagesVisited + productsPerPage).map((item,index) => {
         return (
-                <Link to={`/product-detail/${item.id}`} key={index} style={{textDecoration:'none'}}>
+                <Link to={`/product-detail/${item.productID}`} key={index} style={{textDecoration:'none'}}>
                     <CardComponent 
                     key={index}
-                    productName={item.name}
-                    productImg={item.img}
+                    productName={item.productName}
+                    productImg={item.imageUrl}
                     productPrice={formatPrice(item.price)}
                     />
                 </Link>
