@@ -9,15 +9,11 @@ import (
 )
 
 func router(app *fiber.App) {
-	// Apply middleware before binding route
-	// app.Use("/validation", middlewares.RequireAuth)
-
 	app.Get("/", Hello)
 	app.Get("/users", controllers.GetAllUsers)
-	// app.Get("/validation", controllers.Validate)
+	app.Get("/user", controllers.GetUserById)
 
-	// app.Post("/signup", controllers.SignUp)
-	// app.Post("/login", controllers.Login)
+	app.Post("/users", controllers.AddUsers)
 }
 
 func Hello(c *fiber.Ctx) error {

@@ -31,21 +31,9 @@ func GetAllUsers(c *fiber.Ctx) error {
 }
 
 func GetUserById(c *fiber.Ctx) error {
-	var body struct {
-		Id string `json:"id"`
-	}
-
-	if err := c.BodyParser(body); err != nil {
-		c.SendStatus(http.StatusBadRequest)
-		c.JSON(fiber.Map{
-			"error": "Failed to read body",
-		})
-		return nil
-	}
-
+	id := c.Query("id", "0")
 	var user models.User
-
-	tx := initializers.DB.First(&user, body.Id)
+	tx := initializers.DB.First(&user, id)
 
 	if tx.Error != nil {
 		c.SendStatus(http.StatusInternalServerError)
@@ -70,7 +58,7 @@ func AddUsers(c *fiber.Ctx) error {
 	}
 
 	body := []bodyStruct{}
-	if err := c.BodyParser(body); err != nil {
+	if err := c.BodyParser(&body); err != nil {
 		c.SendStatus(http.StatusBadRequest)
 		c.JSON(fiber.Map{
 			"error": "Failed to read body",
