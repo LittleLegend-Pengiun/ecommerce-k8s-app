@@ -1,11 +1,12 @@
 package controllers
 
 import (
-	"authen-ms/initializers"
-	"authen-ms/models"
 	"net/http"
 	"os"
 	"time"
+
+	"authen-ms/initializers"
+	"authen-ms/models"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/golang-jwt/jwt/v5"
@@ -31,7 +32,6 @@ func SignUp(c *fiber.Ctx) error {
 
 	// Hash the password
 	hash, err := bcrypt.GenerateFromPassword([]byte(body.Password), 10)
-
 	if err != nil {
 		c.SendStatus(http.StatusBadRequest)
 		c.JSON(fiber.Map{
@@ -41,24 +41,42 @@ func SignUp(c *fiber.Ctx) error {
 	}
 
 	// Create user
-	user := models.User{Username: body.Username, Password: string(hash)}
+	// user := models.User{Username: body.Username, Password: string(hash)}
+	//
+	// result := initializers.DB.Create(&user) // pass pointer of data to Create
+	// if result.Error != nil {
+	// 	c.SendStatus(http.StatusBadRequest)
+	// 	c.JSON(fiber.Map{
+	// 		"error": "Failed to create user",
+	// 	})
+	// 	return nil
+	// }
+	reqBody := make([]interface{}, 1)
+	reqBody[0] = fiber.Map{
+		"username": body.Username,
+		"password": string(hash),
+	}
+	agent := fiber.Post("http://localhost:8003/users")
+	agent.JSON(fiber.Map{
+		"users_list": reqBody,
+	})
 
-	result := initializers.DB.Create(&user) // pass pointer of data to Create
-	if result.Error != nil {
-		c.SendStatus(http.StatusBadRequest)
-		c.JSON(fiber.Map{
-			"error": "Failed to create user",
+	statusCode, resBody, errs := agent.Bytes()
+
+	if len(errs) > 0 {
+		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
+			"errs": errs,
 		})
-		return nil
 	}
 	// Response
 
-	c.SendStatus(http.StatusOK)
-	c.JSON(fiber.Map{
-		"message": "SignUp",
-	})
-
-	return nil
+	// c.SendStatus(http.StatusOK)
+	// c.JSON(fiber.Map{
+	// 	"message": "SignUp",
+	// })
+	//
+	// return nil
+	return c.Status(statusCode).Send(resBody)
 }
 
 func Login(c *fiber.Ctx) error {
@@ -87,7 +105,6 @@ func Login(c *fiber.Ctx) error {
 
 	// Compare sent in pass with saved user pass hash
 	err := bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(body.Password))
-
 	if err != nil {
 		c.SendStatus(http.StatusBadRequest)
 		c.JSON(fiber.Map{
@@ -106,7 +123,6 @@ func Login(c *fiber.Ctx) error {
 	// Sign and get the complete encoded token as a string using the secret
 	secret := os.Getenv("SECRET")
 	tokenString, err := token.SignedString([]byte(secret))
-
 	if err != nil {
 
 		c.SendStatus(http.StatusBadRequest)

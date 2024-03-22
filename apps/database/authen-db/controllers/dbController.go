@@ -52,12 +52,16 @@ func GetUserById(c *fiber.Ctx) error {
 }
 
 func AddUsers(c *fiber.Ctx) error {
-	type bodyStruct struct {
+	type userStruct struct {
 		Username string `json:"username"`
 		Password string `json:"password"`
 	}
 
-	body := []bodyStruct{}
+	type bodyStruct struct {
+		Users_list []userStruct
+	}
+
+	body := bodyStruct{}
 	if err := c.BodyParser(&body); err != nil {
 		c.SendStatus(http.StatusBadRequest)
 		c.JSON(fiber.Map{
@@ -66,7 +70,7 @@ func AddUsers(c *fiber.Ctx) error {
 		return nil
 	}
 
-	for _, user := range body {
+	for _, user := range body.Users_list {
 		newUser := models.User{Username: user.Username, Password: user.Password}
 		result := initializers.DB.Create(&newUser) // pass pointer of data to Create
 		if result.Error != nil {
