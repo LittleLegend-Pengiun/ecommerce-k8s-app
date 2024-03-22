@@ -23,8 +23,4 @@ export default defineConfig({
   define: {
     'process.env.REACT_APP_CATALOG_MS_1_URL': JSON.stringify(process.env.REACT_APP_CATALOG_MS_1_URL),
   },
-<<<<<<< HEAD:apps/frontend/full-feature-fe/vite.config.js
 })
-=======
-})
->>>>>>> dev:apps/frontend/catalog-fe/vite.config.js
