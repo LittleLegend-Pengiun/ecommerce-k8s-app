@@ -1,11 +1,11 @@
 package controllers
 
 import (
+	"encoding/json"
 	"net/http"
 	"os"
 	"time"
 
-	"authen-ms/initializers"
 	"authen-ms/models"
 
 	"github.com/gofiber/fiber/v2"
@@ -40,17 +40,6 @@ func SignUp(c *fiber.Ctx) error {
 		return nil
 	}
 
-	// Create user
-	// user := models.User{Username: body.Username, Password: string(hash)}
-	//
-	// result := initializers.DB.Create(&user) // pass pointer of data to Create
-	// if result.Error != nil {
-	// 	c.SendStatus(http.StatusBadRequest)
-	// 	c.JSON(fiber.Map{
-	// 		"error": "Failed to create user",
-	// 	})
-	// 	return nil
-	// }
 	reqBody := make([]interface{}, 1)
 	reqBody[0] = fiber.Map{
 		"username": body.Username,
@@ -70,12 +59,6 @@ func SignUp(c *fiber.Ctx) error {
 	}
 	// Response
 
-	// c.SendStatus(http.StatusOK)
-	// c.JSON(fiber.Map{
-	// 	"message": "SignUp",
-	// })
-	//
-	// return nil
 	return c.Status(statusCode).Send(resBody)
 }
 
@@ -92,16 +75,40 @@ func Login(c *fiber.Ctx) error {
 	}
 
 	// Look up requested user
-	var user models.User
-	initializers.DB.First(&user, "username = ?", body.Username)
-
-	if user.ID == 0 {
-		c.SendStatus(http.StatusBadRequest)
-		c.JSON(fiber.Map{
-			"error": "Invalid username or password",
+	// var user models.User
+	// initializers.DB.First(&user, "username = ?", body.Username)
+	//
+	// if user.ID == 0 {
+	// 	c.SendStatus(http.StatusBadRequest)
+	// 	c.JSON(fiber.Map{
+	// 		"error": "Invalid username or password",
+	// 	})
+	// 	return nil
+	// }
+	agent := fiber.Get("http://localhost:8003/user?username=" + body.Username)
+	statusCode, resBody, errs := agent.Bytes()
+	if len(errs) > 0 {
+		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
+			"errs": errs,
 		})
-		return nil
 	}
+
+	if statusCode != http.StatusOK {
+		return c.Status(statusCode).Send(resBody)
+	}
+
+	type Response struct {
+		User_info models.User
+	}
+
+	var r Response
+	if error := json.Unmarshal(resBody, &r); error != nil {
+		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
+			"errs": errs,
+		})
+	}
+
+	user := r.User_info
 
 	// Compare sent in pass with saved user pass hash
 	err := bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(body.Password))

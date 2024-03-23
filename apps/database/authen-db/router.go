@@ -11,7 +11,7 @@ import (
 func router(app *fiber.App) {
 	app.Get("/", Hello)
 	app.Get("/users", controllers.GetAllUsers)
-	app.Get("/user", controllers.GetUserById)
+	app.Get("/user", controllers.GetUserByUsername)
 
 	app.Post("/users", controllers.AddUsers)
 }

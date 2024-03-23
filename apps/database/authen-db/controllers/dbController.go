@@ -30,15 +30,15 @@ func GetAllUsers(c *fiber.Ctx) error {
 	return nil
 }
 
-func GetUserById(c *fiber.Ctx) error {
-	id := c.Query("id", "0")
+func GetUserByUsername(c *fiber.Ctx) error {
+	username := c.Query("username", "")
 	var user models.User
-	tx := initializers.DB.First(&user, id)
+	initializers.DB.First(&user, "username = ?", username)
 
-	if tx.Error != nil {
-		c.SendStatus(http.StatusInternalServerError)
+	if user.ID == 0 {
+		c.SendStatus(http.StatusBadRequest)
 		c.JSON(fiber.Map{
-			"message": "Cannot fetch user from database",
+			"error": "Invalid username or password",
 		})
 		return nil
 	}
