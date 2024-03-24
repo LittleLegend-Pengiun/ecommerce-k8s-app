@@ -1,0 +1,9 @@
+{
+  "name": "authen-db",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "dev": "CompileDaemon --command=\"./authen-db\"",
+    "image:build": "docker build -t authen-db ."
+  }
+}
