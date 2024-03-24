@@ -1,8 +1,9 @@
 package main
 
 import (
-	"authen-ms/initializers"
 	"os"
+
+	"authen-ms/initializers"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/logger"
@@ -10,9 +11,9 @@ import (
 
 func init() {
 	initializers.LoadEnvVariables()
-	initializers.ConnectToDB()
-	initializers.SyncDatabase()
-	initializers.CreateUsers()
+	// initializers.ConnectToDB()
+	// initializers.SyncDatabase()
+	// initializers.CreateUsers()
 }
 
 func main() {

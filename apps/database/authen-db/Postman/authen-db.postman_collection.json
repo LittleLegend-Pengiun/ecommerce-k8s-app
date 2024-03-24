@@ -11,7 +11,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "http://localhost:8000/"
+				"url": "http://localhost:9091/"
 			},
 			"response": []
 		},
@@ -22,14 +22,14 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "[\r\n    {\r\n        \"username\": \"admin2\",\r\n        \"password\": \"1\"\r\n    },\r\n    {\r\n        \"username\": \"admin1\",\r\n        \"password\": \"1\"\r\n    }\r\n]",
+					"raw": "{\r\n    \"users_list\": [\r\n        {\r\n            \"username\": \"admin2\",\r\n            \"password\": \"1\"\r\n        },\r\n        {\r\n            \"username\": \"admin1\",\r\n            \"password\": \"1\"\r\n        }\r\n    ]\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
 						}
 					}
 				},
-				"url": "http://localhost:8000/users"
+				"url": "http://localhost:9091/users"
 			},
 			"response": []
 		},
@@ -38,29 +38,29 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "http://localhost:8000/users"
+				"url": "http://localhost:9091/users"
 			},
 			"response": []
 		},
 		{
-			"name": "User by id",
+			"name": "User by username",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/user?id=2",
+					"raw": "http://localhost:9091/user?username=admin",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8000",
+					"port": "9091",
 					"path": [
 						"user"
 					],
 					"query": [
 						{
-							"key": "id",
-							"value": "2"
+							"key": "username",
+							"value": "admin"
 						}
 					]
 				}
