@@ -7,20 +7,24 @@ function App() {
   return (
     <div>
       <Router>
-          <Routes>
-            {routes.map((route) => {
-              const Component = route.component
-              const Layout = route.isShowHeader ? DefaultComponent : Fragment
-              return (
-                <Route key={route.path} path={route.path} element={
-                <Layout>
-                  <Component />
-                </Layout>
-                } />
-              )
-            })}
-          </Routes>
-        </Router>
+        <Routes>
+          {routes.map((route) => {
+            const Component = route.component;
+            const Layout = route.isShowHeader ? DefaultComponent : Fragment;
+            return (
+              <Route
+                key={route.path}
+                path={route.path}
+                element={
+                  <Layout>
+                    <Component />
+                  </Layout>
+                }
+              />
+            );
+          })}
+        </Routes>
+      </Router>
     </div>
   )
 };
