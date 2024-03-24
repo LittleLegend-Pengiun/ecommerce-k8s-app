@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "d81da600-43e2-485f-8ad7-5d086c42eccb",
-		"name": "Go JWT Server",
+		"_postman_id": "94392afc-0286-442d-aefe-1b6c9560990b",
+		"name": "authen-ms",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "23881042"
 	},
@@ -11,7 +11,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "http://localhost:3000/"
+				"url": "http://localhost:8081/"
 			},
 			"response": []
 		},
@@ -22,14 +22,14 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"test\",\r\n    \"password\": \"1\"\r\n}",
+					"raw": "{\r\n    \"username\": \"test1\",\r\n    \"password\": \"1\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
 						}
 					}
 				},
-				"url": "http://localhost:3000/signup"
+				"url": "http://localhost:8081/signup"
 			},
 			"response": []
 		},
@@ -40,32 +40,14 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"test\",\r\n    \"password\": \"1\"\r\n}",
+					"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"1\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
 						}
 					}
 				},
-				"url": "http://localhost:3000/login"
-			},
-			"response": []
-		},
-		{
-			"name": "Users",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": "http://localhost:3000/users"
-			},
-			"response": []
-		},
-		{
-			"name": "Validation",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": "http://localhost:3000/validation"
+				"url": "http://localhost:8081/login"
 			},
 			"response": []
 		}

@@ -45,7 +45,8 @@ func SignUp(c *fiber.Ctx) error {
 		"username": body.Username,
 		"password": string(hash),
 	}
-	agent := fiber.Post("http://localhost:8003/users")
+	dbPort := os.Getenv("DB_PORT")
+	agent := fiber.Post("http://localhost:" + string(dbPort) + "/users")
 	agent.JSON(fiber.Map{
 		"users_list": reqBody,
 	})
@@ -85,7 +86,9 @@ func Login(c *fiber.Ctx) error {
 	// 	})
 	// 	return nil
 	// }
-	agent := fiber.Get("http://localhost:8003/user?username=" + body.Username)
+	dbPort := os.Getenv("DB_PORT")
+	url := "http://localhost:" + string(dbPort) + "/user?username="
+	agent := fiber.Get(url + body.Username)
 	statusCode, resBody, errs := agent.Bytes()
 	if len(errs) > 0 {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
