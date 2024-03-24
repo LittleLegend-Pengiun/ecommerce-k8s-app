@@ -1,5 +1,5 @@
 {
-  "name": "order-db",
+  "name": "order-ms",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,7 +8,7 @@
     "dev": "./mvnw spring-boot:run",
     "stop-java": "./mvnw spring-boot:stop",
     "build": "./mvnw package -DskipTests",
-    "image:build": "docker build -t catalog-ms .",
-    "init:db": "docker-compose up -d"
+    "image:build": "docker build -t order-ms .",
+    "init:ms": "docker-compose up -d"
   }
 }
