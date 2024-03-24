@@ -1,4 +1,4 @@
-package com.service.order.reposistory;
+package com.service.order.repository;
 
 import java.util.ArrayList;
 
