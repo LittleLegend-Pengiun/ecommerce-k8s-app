@@ -24,4 +24,4 @@ export default defineConfig({
       process.env.REACT_APP_CATALOG_MS_1_URL,
     ),
   },
-});
+})
