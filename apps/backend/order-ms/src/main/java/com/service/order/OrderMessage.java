@@ -1,26 +1,26 @@
-// package com.service.order;
+package com.service.order;
 
-// public class OrderMessage {
-//     private String message;
+public class OrderMessage {
+    private String message;
     
-//     public OrderMessage(String mess) {
-//         this.message = mess;
-//     }
+    public OrderMessage(String mess) {
+        this.message = mess;
+    }
 
-//     // Getter
+    // Getter
 
-//     /**
-//      * @return String return the message
-//      */
-//     public String getMessage() {
-//         return message;
-//     }
+    /**
+     * @return String return the message
+     */
+    public String getMessage() {
+        return message;
+    }
 
-//     /**
-//      * @param message the message to set
-//      */
-//     public void setMessage(String message) {
-//         this.message = message;
-//     }
+    /**
+     * @param message the message to set
+     */
+    public void setMessage(String message) {
+        this.message = message;
+    }
 
-// }
+}

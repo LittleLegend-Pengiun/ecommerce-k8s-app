@@ -61,3 +61,11 @@ public class OrderController {
         return orderService.deleteOrder(orderId);
     }
 }
+// @RestController
+// @RequestMapping("")
+// public class OkMessage {
+//     @GetMapping
+//     public ResponseEntity<String> okMessage() {
+//         return ResponseEntity.status(HttpStatus.FOUND).body("OK");
+//     }
+// }
