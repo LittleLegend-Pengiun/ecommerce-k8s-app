@@ -31,6 +31,7 @@ public class Product {
     private Integer stockQuantity;
     private String manufacture;
     private String releaseDate;
+    private Integer soldQuantity;
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)

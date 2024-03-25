@@ -58,7 +58,7 @@ const ProductDetailComponent = ({productID}) => {
       fetchData();
     }, []);
     useEffect(() => {
-        const product = allProducts.products.find((item) => item.productID == productID);
+        const product = allProducts.products.find((item) => item.productId == productID);
         if (product) {
             handleProductClick(product);
         }

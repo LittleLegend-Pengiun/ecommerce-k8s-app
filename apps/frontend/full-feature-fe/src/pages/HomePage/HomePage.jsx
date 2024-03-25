@@ -39,7 +39,7 @@ const HomePage = () => {
     const pagesVisited = pageNumber * productsPerPage;
     const displayProducts = allProducts.products.slice(pagesVisited, pagesVisited + productsPerPage).map((item,index) => {
         return (
-                <Link to={`/product-detail/${item.productID}`} key={index} style={{textDecoration:'none'}}>
+                <Link to={`/product-detail/${item.productId}`} key={index} style={{textDecoration:'none'}}>
                     <CardComponent 
                     key={index}
                     productName={item.productName}
