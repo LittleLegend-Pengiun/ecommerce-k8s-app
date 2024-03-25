@@ -17,6 +17,7 @@ public class ReadData {
     @Autowired
     private ProductReposistory productReposistory;
 
+    @SuppressWarnings("null")
     public void readJsonFile(String filePath) {
         ObjectMapper mapper = new ObjectMapper();
         try {
