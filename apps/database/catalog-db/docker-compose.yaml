@@ -26,6 +26,15 @@ services:
       POSTGRES_PASSWORD: duyphatbk
     ports:
       - "5432:5432"
+
+  postgres1:
+    image: postgres:12
+    environment:
+      POSTGRES_DB: order
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: duyphatbk
+    ports:
+      - "5433:5432"
   
   pgadmin:
     image: dpage/pgadmin4
