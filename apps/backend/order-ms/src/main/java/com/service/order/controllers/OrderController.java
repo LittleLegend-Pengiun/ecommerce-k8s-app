@@ -24,70 +24,76 @@ import reactor.core.publisher.Mono;
 @RestController
 @RequestMapping("orders")
 public class OrderController {
-    
-    @Autowired
-    OrderService orderService;
 
-    @PostMapping("/create-order")
-    public Mono<ResponseEntity<String>> createOrder(@RequestBody Cart cart) {
-        try {
-            WebClient client = WebClient.create("http://order-db:9092");
-            return client.post()
-                    .uri("/orders/create-order")
-                    .accept(MediaType.APPLICATION_JSON)
-                    .bodyValue(cart)
-                    .retrieve()
-                    .toEntity(String.class);
-        } catch (Exception e) {
-            Mono<ResponseEntity<String>> responseMono = Mono.just(ResponseEntity.status(HttpStatus.NOT_FOUND)
-                    .body("error"));
-            return responseMono;
+        @Autowired
+        OrderService orderService;
+
+        @SuppressWarnings("null")
+        @PostMapping("/create-order")
+        public Mono<ResponseEntity<String>> createOrder(@RequestBody Cart cart) {
+                try {
+                        WebClient client = WebClient.create("http://order-db:9092");
+                        return client.post()
+                                        .uri("/orders/create-order")
+                                        .accept(MediaType.APPLICATION_JSON)
+                                        .bodyValue(cart)
+                                        .retrieve()
+                                        .toEntity(String.class);
+                } catch (Exception e) {
+                        Mono<ResponseEntity<String>> responseMono = Mono
+                                        .just(ResponseEntity.status(HttpStatus.NOT_FOUND)
+                                                        .body("error"));
+                        return responseMono;
+                }
         }
-    }
 
-    @GetMapping
-    @SuppressWarnings("unlikely-arg-type")
-    public Mono<ResponseEntity<Object>> getOrderById(@RequestParam Long orderId) {
-        WebClient client = WebClient.create("http://order-db:9092");
-        Mono<ResponseEntity<Object>> result = client.get()
-                .uri("/orders?orderId={orderId}", orderId)
-                .accept(MediaType.APPLICATION_JSON)
-                .retrieve()
-                .onStatus(HttpStatus.NOT_FOUND::equals,
-                        response -> Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND, "Order Not Found")))
-                .onStatus(HttpStatus.FORBIDDEN::equals,
-                        response -> Mono.error(new ResponseStatusException(HttpStatus.FORBIDDEN, "Forbiden")))
-                .toEntity(Object.class);
-        return result;
+        @GetMapping
+        @SuppressWarnings("unlikely-arg-type")
+        public Mono<ResponseEntity<Object>> getOrderById(@RequestParam Long orderId) {
+                WebClient client = WebClient.create("http://order-db:9092");
+                Mono<ResponseEntity<Object>> result = client.get()
+                                .uri("/orders?orderId={orderId}", orderId)
+                                .accept(MediaType.APPLICATION_JSON)
+                                .retrieve()
+                                .onStatus(HttpStatus.NOT_FOUND::equals,
+                                                response -> Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND,
+                                                                "Order Not Found")))
+                                .onStatus(HttpStatus.FORBIDDEN::equals,
+                                                response -> Mono.error(new ResponseStatusException(HttpStatus.FORBIDDEN,
+                                                                "Forbiden")))
+                                .toEntity(Object.class);
+                return result;
 
-    }
+        }
 
-    @PutMapping("/{orderId}")
-    @SuppressWarnings("unlikely-arg-type")
-    public Mono<ResponseEntity<?>> updateOrder(@PathVariable Long orderId, @RequestBody Cart cart) {
-        WebClient client = WebClient.create("http://order-db:9092");
+        @PutMapping("/{orderId}")
+        @SuppressWarnings("unlikely-arg-type")
+        public Mono<ResponseEntity<?>> updateOrder(@PathVariable Long orderId, @RequestBody Cart cart) {
+                WebClient client = WebClient.create("http://order-db:9092");
 
-        return client.put()
-                .uri("/orders/{orderId}", orderId)
-                .body(Mono.just(cart), Cart.class)
-                .retrieve()
-                .onStatus(HttpStatus.NOT_FOUND::equals,
-                        response -> Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND, "Order Not Found")))
-                .toBodilessEntity()
-                .flatMap(responseEntity -> Mono.just(ResponseEntity.ok("Order updated!")));
-    }
+                return client.put()
+                                .uri("/orders/{orderId}", orderId)
+                                .body(Mono.just(cart), Cart.class)
+                                .retrieve()
+                                .onStatus(HttpStatus.NOT_FOUND::equals,
+                                                response -> Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND,
+                                                                "Order Not Found")))
+                                .toBodilessEntity()
+                                .flatMap(responseEntity -> Mono.just(ResponseEntity.ok("Order updated!")));
+        }
 
-    @DeleteMapping("/{orderId}")
-    @SuppressWarnings("unlikely-arg-type")
-    public Mono<ResponseEntity<String>> deleteOrder(@PathVariable Long orderId) {
-        WebClient client = WebClient.create("http://order-db:9092");
-        Mono<ResponseEntity<String>> result = client.delete()
-                .uri("/orders/{orderId}", orderId)
-                .accept(MediaType.APPLICATION_JSON)
-                .retrieve()
-                .onStatus(HttpStatus.NOT_FOUND::equals,
-                        response -> Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND, "Order Not Found")))
-                .toEntity(String.class);
-        return result;
-    }
+        @DeleteMapping("/{orderId}")
+        @SuppressWarnings("unlikely-arg-type")
+        public Mono<ResponseEntity<String>> deleteOrder(@PathVariable Long orderId) {
+                WebClient client = WebClient.create("http://order-db:9092");
+                Mono<ResponseEntity<String>> result = client.delete()
+                                .uri("/orders/{orderId}", orderId)
+                                .accept(MediaType.APPLICATION_JSON)
+                                .retrieve()
+                                .onStatus(HttpStatus.NOT_FOUND::equals,
+                                                response -> Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND,
+                                                                "Order Not Found")))
+                                .toEntity(String.class);
+                return result;
+        }
 }
