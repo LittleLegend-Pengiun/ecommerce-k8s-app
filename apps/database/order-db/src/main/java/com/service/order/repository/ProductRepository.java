@@ -1,4 +1,4 @@
-package com.service.order.reposistory;
+package com.service.order.repository;
 
 import com.service.order.models.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
