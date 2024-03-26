@@ -67,7 +67,7 @@ public class OrderController {
         }
 
         @PutMapping("/{orderId}")
-        @SuppressWarnings("unlikely-arg-type")
+        @SuppressWarnings({ "unlikely-arg-type", "null" })
         public Mono<ResponseEntity<?>> updateOrder(@PathVariable Long orderId, @RequestBody Cart cart) {
                 WebClient client = WebClient.create("http://order-db:9092");
 
