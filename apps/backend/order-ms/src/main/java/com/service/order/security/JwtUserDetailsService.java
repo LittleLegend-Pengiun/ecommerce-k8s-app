@@ -18,7 +18,7 @@ import jakarta.servlet.ServletException;
 
 @Service
 public class JwtUserDetailsService implements UserDetailsService {
-    @Value("${secretKey}")
+    @Value("${SECRET}")
     private String secretKey;
 
     @Override
@@ -32,7 +32,6 @@ public class JwtUserDetailsService implements UserDetailsService {
     }
 
     public Claims getAllClaimsFromToken(String tokenWithBearer) throws ServletException {
-
         String secretKeyString = secretKey;
         String token = tokenWithBearer.replace("Bearer ", "");
         SecretKey secretKey = createSecretKey(secretKeyString);

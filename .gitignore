@@ -30,3 +30,4 @@ yarn-error.log*
 
 .vscode
 apps/backend/order-ms/docker-compose.yaml
+apps/backend/order-db/docker-compose.yaml
