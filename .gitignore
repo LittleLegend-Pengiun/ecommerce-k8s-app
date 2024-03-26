@@ -29,4 +29,3 @@ yarn-error.log*
 .vercel
 
 .vscode
-apps/backend/order-ms/docker-compose.yaml
