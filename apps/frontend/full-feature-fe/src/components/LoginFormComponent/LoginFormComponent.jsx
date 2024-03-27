@@ -27,6 +27,7 @@ const LoginFormComponent = () => {
       });
       if (res.status === 200) {
         localStorage.setItem('token', res.data.token);
+        localStorage.setItem('username', res.data.username);
         console.log('Success:', values);
         navigate('/');
       }
