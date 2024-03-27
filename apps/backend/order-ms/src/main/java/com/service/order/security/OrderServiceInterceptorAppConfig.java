@@ -14,5 +14,6 @@ public class OrderServiceInterceptorAppConfig implements WebMvcConfigurer {
    @Override
    public void addInterceptors(InterceptorRegistry registry) {
       registry.addInterceptor(orderServiceInterceptor).addPathPatterns("/orders/**");
+      registry.addInterceptor(orderServiceInterceptor).addPathPatterns("/orders");
    }
 }
