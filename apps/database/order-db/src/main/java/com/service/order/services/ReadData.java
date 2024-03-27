@@ -28,9 +28,9 @@ public class ReadData {
             InputStream inputStream = getClass().getClassLoader().getResourceAsStream(filePath);
             List<Product> products = mapper.readValue(inputStream, new TypeReference<List<Product>>() {
             });
-            for (Product product : products) {
-                product.setDescription(product.getProductName());
-            }
+            // for (Product product : products) {
+            //     product.setDescription(product.getProductName());
+            // }
             productReposistory.saveAll(products);
         } catch (IOException e) {
             System.out.println("Unable to save products: " + e.getMessage());
