@@ -45,6 +45,7 @@ const HomePage = () => {
                     productName={item.productName}
                     productImg={item.imageUrl}
                     productPrice={formatPrice(item.price)}
+                    soldQuantity={item.soldQuantity}
                     />
                 </Link>
         );
