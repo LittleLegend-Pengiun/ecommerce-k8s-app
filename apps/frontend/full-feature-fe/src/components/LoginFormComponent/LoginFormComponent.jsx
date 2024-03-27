@@ -10,13 +10,34 @@ import {
     WrappperRemember,
     WrapperMoreAction,
   } from './style'
-  import { Form } from 'antd';
+import { Form } from 'antd';
+import axios from 'axios';
+
 
 const LoginFormComponent = () => {
   const navigate = useNavigate()
-  const onFinish = (values) => {
-    console.log('Success:', values);
-    navigate('/');
+  const onFinish = async (values) => {
+    const username = values.email;
+    const password = values.password;
+    // console.log(values);
+    try {
+      const res = await axios.post('http://localhost:8081/login', {
+        username: username,
+        password: password,
+      });
+      if (res.status === 200) {
+        localStorage.setItem('token', res.data.token);
+        console.log('Success:', values);
+        navigate('/');
+      }
+      else {
+        alert('Failed:' + values);
+      }
+    }
+    catch (error) {
+      console.error(error.message);
+    }
+    
   };
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
