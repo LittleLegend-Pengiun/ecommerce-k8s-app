@@ -15,7 +15,15 @@ const SliderComponent = ({arrImages}) => {
       <Slider {...settings}>
         {arrImages.map((item,key) => {
                 return (
-                <Image src={item} alt="slider" preview={false} width='100%' height='400px' key={key}/>
+                <Image 
+                  src={item} 
+                  alt="slider" 
+                  preview={false} 
+                  width='100%' 
+                  height='400px' 
+                  style={{justifyContent:'center',display:'flex',alignItems:'center'}} 
+                  key={key}
+                  />
                 )
             }) 
         }
