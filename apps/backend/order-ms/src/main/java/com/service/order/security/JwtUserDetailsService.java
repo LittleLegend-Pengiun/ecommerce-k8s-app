@@ -15,7 +15,7 @@ import jakarta.servlet.ServletException;
 
 @Service
 public class JwtUserDetailsService {
-    @Value("${SECRET_KEY}")
+    @Value("${secretkey}")
     private String secretKey;
 
     public static SecretKey createSecretKey(String secretKeyString) {
