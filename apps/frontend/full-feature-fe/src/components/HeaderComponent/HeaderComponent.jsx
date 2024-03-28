@@ -1,15 +1,22 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Badge, Col} from 'antd';
-import { UserOutlined,DownOutlined,ShoppingCartOutlined } from '@ant-design/icons';
+import { UserOutlined,ShoppingCartOutlined } from '@ant-design/icons';
 import { WrapperAccountHeader,
         WrapperHeader, 
         WrapperTextHeader,
-        WrapperTextHeaderSmall,
-        WrapperLink } 
+        WrapperTextHeaderSmall } 
   from './style';
 import SearchInputButton  from '../SearchInputButton/SearchInputButton'
 import { useNavigate } from 'react-router-dom';
 const HeaderComponent = () => {
+  const [username, setUsername] = useState("");
+
+  useEffect(() => {
+    const items = localStorage.getItem('username');
+    if (items) {
+    setUsername(items);
+    }
+  }, []);
   const navigate = useNavigate();
   const handleNavigateSignIn = () => {
     navigate('/sign-in');
@@ -44,15 +51,20 @@ const HeaderComponent = () => {
             <UserOutlined style={{fontSize:'30px'}}/>
         </div>
         <div>
-            <WrapperTextHeaderSmall onClick={handleNavigateSignIn}>
-              Đăng nhập
-            </WrapperTextHeaderSmall>
+          {username.length > 0 ? (
+            <WrapperTextHeaderSmall>{username}</WrapperTextHeaderSmall>
+          ) : (
             <div>
-            <WrapperTextHeaderSmall onClick={handleNavigateAccount}>
-              Tài khoản
-            </WrapperTextHeaderSmall>
-            {/* <DownOutlined /> */}
+              <WrapperTextHeaderSmall onClick={handleNavigateSignIn}>
+                Đăng nhập
+              </WrapperTextHeaderSmall>
+              <div>
+                <WrapperTextHeaderSmall onClick={handleNavigateAccount}>
+                  Tài khoản
+                </WrapperTextHeaderSmall>
+              </div>
             </div>
+            )}
         </div>
         </WrapperAccountHeader>
           <div onClick={handleNavigateShoppingCart}>

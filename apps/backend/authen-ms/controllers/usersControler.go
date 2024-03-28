@@ -161,7 +161,8 @@ func Login(c *fiber.Ctx) error {
 	// Send it back as request
 	c.SendStatus(http.StatusOK)
 	c.JSON(fiber.Map{
-		"token": tokenString,
+		"username": user.Username,
+		"token":    tokenString,
 	})
 
 	return nil

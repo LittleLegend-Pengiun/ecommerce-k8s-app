@@ -1,0 +1,14 @@
+{
+  "name": "order-ms",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "install-java": "./mvnw clean install",
+    "dev": "./mvnw spring-boot:run",
+    "stop-java": "./mvnw spring-boot:stop",
+    "build": "./mvnw package -DskipTests",
+    "image:build": "docker build -t order-ms .",
+    "init:ms": "docker-compose up -d"
+  }
+}
