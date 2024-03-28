@@ -9,6 +9,6 @@
     "stop-java": "./mvnw spring-boot:stop",
     "build": "./mvnw package -DskipTests",
     "image:build": "docker build -t order-ms .",
-    "init:ms": "docker-compose up"
+    "init:ms": "docker-compose up -d"
   }
 }
