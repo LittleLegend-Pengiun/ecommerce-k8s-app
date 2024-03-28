@@ -45,13 +45,13 @@ const HeaderComponent = () => {
   }
   const AccountOption = (
     <Menu>
-      <Menu.Item onClick={handleNavigateAccount}>
+      <Menu.Item onClick={handleNavigateAccount} key={1}>
         <WrapperTextListAccountDropdown>Tài khoản</WrapperTextListAccountDropdown>
       </Menu.Item>
-      <Menu.Item onClick={handleNavigateOrdered}>
+      <Menu.Item onClick={handleNavigateOrdered} key={2}>
         <WrapperTextListAccountDropdown>Quản lý đơn hàng</WrapperTextListAccountDropdown>
       </Menu.Item>
-      <Menu.Item onClick={handleLogout}>
+      <Menu.Item onClick={handleLogout} key={3}>
         <WrapperTextListAccountDropdown>Đăng xuất</WrapperTextListAccountDropdown>
       </Menu.Item>
     </Menu>

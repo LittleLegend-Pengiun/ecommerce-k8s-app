@@ -27,7 +27,8 @@
     "sass": "^1.71.1",
     "slick-carousel": "^1.8.1",
     "styled-components": "^6.1.8",
-    "yup": "^1.4.0"
+    "yup": "^1.4.0",
+    "localStorage": "^1.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.56",
