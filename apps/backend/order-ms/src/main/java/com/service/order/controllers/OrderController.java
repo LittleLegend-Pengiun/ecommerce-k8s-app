@@ -16,6 +16,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.service.order.dto.Cart;
+import com.service.order.models.Order;
 
 import reactor.core.publisher.Mono;
 
@@ -44,10 +45,10 @@ public class OrderController {
         }
 
         @GetMapping
-        @SuppressWarnings("unlikely-arg-type")
-        public Mono<ResponseEntity<Object>> getOrderById(@RequestParam Long orderId) {
+        @SuppressWarnings({ "unlikely-arg-type", "null" })
+        public Mono<ResponseEntity<Order>> getOrderById(@RequestParam Long orderId) {
                 WebClient client = WebClient.create("http://localhost:9092");
-                Mono<ResponseEntity<Object>> result = client.get()
+                Mono<ResponseEntity<Order>> result = client.get()
                                 .uri("/orders?orderId={orderId}", orderId)
                                 .accept(MediaType.APPLICATION_JSON)
                                 .retrieve()
@@ -57,9 +58,8 @@ public class OrderController {
                                 .onStatus(HttpStatus.FORBIDDEN::equals,
                                                 response -> Mono.error(new ResponseStatusException(HttpStatus.FORBIDDEN,
                                                                 "Forbiden")))
-                                .toEntity(Object.class);
+                                .toEntity(Order.class);
                 return result;
-
         }
 
         @PutMapping("/{orderId}")
