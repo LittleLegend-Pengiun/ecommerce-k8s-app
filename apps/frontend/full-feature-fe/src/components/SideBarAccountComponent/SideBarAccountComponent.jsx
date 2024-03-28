@@ -5,7 +5,15 @@ import {
     WrapperLi,
     WrapperLink,
 } from './style.js'
+import { useNavigate } from 'react-router-dom'
 const SideBarAccountComponent = () => {
+    const navigate = useNavigate();
+    const handleNavigateAccount = () => {
+        navigate('/manage-account/:id');
+    }
+    const handleNavigateOrdered = () => {
+        navigate('/manage-order/:id');
+    }
   return (
     <div>
         <div style={{border:'1px solid #e5e5e5',padding:'20px 0',textAlign:'center',backgroundColor:'white'}}>
@@ -13,16 +21,12 @@ const SideBarAccountComponent = () => {
             <p style={{fontSize:'20px',fontWeight:'500',marginTop:'10px'}}>Nguyễn Văn A</p>
         </div>
         <div style={{marginTop:'20px'}}>
-            {/* <h1>Tài khoản của tôi</h1> */}
             <WrapperUl style={{listStyle:'none',padding:'0'}}>
-                <WrapperLink to="/manage-account/:id">
+                <WrapperLink onClick={handleNavigateAccount}>
                     <WrapperLi>Thông tin tài khoản</WrapperLi>
                 </WrapperLink>
-                <WrapperLink to="/manage-order/:id">
+                <WrapperLink onClick={handleNavigateOrdered}>
                     <WrapperLi>Lịch sử mua hàng</WrapperLi>
-                </WrapperLink>
-                <WrapperLink to="/sign-in">
-                <WrapperLi>Đăng xuất</WrapperLi>
                 </WrapperLink>
             </WrapperUl>
         </div>

@@ -25,12 +25,22 @@ font-size:14px;
 `;
 export const WrapperTextHeaderSmall = styled.span`
 color:white;
-font-size: 16px;
+font-size: 18px;
 white-space: nowrap;
 margin-right:5px;
 cursor: pointer;
 &:hover{
     color:white;
+    font-weight: bold;
+}
+`;
+export const WrapperTextListAccountDropdown = styled.span`
+color:black;    
+font-size: 16px;
+white-space: nowrap;
+cursor: pointer;
+&:hover{
+    color:black;
     font-weight: bold;
 }
 `;

@@ -21,7 +21,7 @@ const LoginFormComponent = () => {
     const password = values.password;
     // console.log(values);
     try {
-      const res = await axios.post('http://localhost:8081/login', {
+      const res = await axios.post(`${process.env.REACT_APP_AUTHEN_MS_URL}/login`, {
         username: username,
         password: password,
       });

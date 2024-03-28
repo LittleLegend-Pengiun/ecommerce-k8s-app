@@ -9,13 +9,13 @@ export const WrapperLi = styled.li`
     font-size: 18px;
     font-weight: 400;
     cursor: pointer;
-`
-export const WrapperLink = styled(Link)`
+    &:hover{
+        color:black;
+    font-weight: bold;
+    }
+`;
+export const WrapperLink = styled.div`
 color:black;
 white-space: nowrap;
 cursor: pointer;
-&:hover{
-    color:black;
-    font-weight: bold;
-}
 `;

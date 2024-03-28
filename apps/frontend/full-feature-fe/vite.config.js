@@ -23,5 +23,8 @@ export default defineConfig({
     "process.env.REACT_APP_CATALOG_MS_1_URL": JSON.stringify(
       process.env.REACT_APP_CATALOG_MS_1_URL,
     ),
+    "process.env.REACT_APP_AUTHEN_MS_URL": JSON.stringify(
+      process.env.REACT_APP_AUTHEN_MS_URL,
+    ),
   },
 })
