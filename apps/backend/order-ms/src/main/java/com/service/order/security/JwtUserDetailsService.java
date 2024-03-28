@@ -8,23 +8,15 @@ import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import jakarta.servlet.ServletException;
 
 
 @Service
-public class JwtUserDetailsService implements UserDetailsService {
-    @Value("${secretKey}")
+public class JwtUserDetailsService {
+    @Value("${SECRET_KEY}")
     private String secretKey;
-
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return null;
-    }
 
     public static SecretKey createSecretKey(String secretKeyString) {
         byte[] decodedKey = Base64.getDecoder().decode(secretKeyString);

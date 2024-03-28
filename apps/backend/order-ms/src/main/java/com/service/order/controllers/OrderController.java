@@ -1,6 +1,5 @@
 package com.service.order.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +16,6 @@ import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.service.order.dto.Cart;
-import com.service.order.services.OrderService;
 
 import reactor.core.publisher.Mono;
 
@@ -25,14 +23,12 @@ import reactor.core.publisher.Mono;
 @RequestMapping("orders")
 public class OrderController {
 
-        @Autowired
-        OrderService orderService;
-
         @SuppressWarnings("null")
         @PostMapping("/create-order")
         public Mono<ResponseEntity<String>> createOrder(@RequestBody Cart cart) {
                 try {
-                        WebClient client = WebClient.create("http://order-db:9092");
+                        WebClient client = WebClient.create("http://localhost:9092");
+
                         return client.post()
                                         .uri("/orders/create-order")
                                         .accept(MediaType.APPLICATION_JSON)
@@ -50,7 +46,7 @@ public class OrderController {
         @GetMapping
         @SuppressWarnings("unlikely-arg-type")
         public Mono<ResponseEntity<Object>> getOrderById(@RequestParam Long orderId) {
-                WebClient client = WebClient.create("http://order-db:9092");
+                WebClient client = WebClient.create("http://localhost:9092");
                 Mono<ResponseEntity<Object>> result = client.get()
                                 .uri("/orders?orderId={orderId}", orderId)
                                 .accept(MediaType.APPLICATION_JSON)
@@ -69,7 +65,7 @@ public class OrderController {
         @PutMapping("/{orderId}")
         @SuppressWarnings({ "unlikely-arg-type", "null" })
         public Mono<ResponseEntity<?>> updateOrder(@PathVariable Long orderId, @RequestBody Cart cart) {
-                WebClient client = WebClient.create("http://order-db:9092");
+                WebClient client = WebClient.create("http://localhost:9092");
 
                 return client.put()
                                 .uri("/orders/{orderId}", orderId)
@@ -85,7 +81,7 @@ public class OrderController {
         @DeleteMapping("/{orderId}")
         @SuppressWarnings("unlikely-arg-type")
         public Mono<ResponseEntity<String>> deleteOrder(@PathVariable Long orderId) {
-                WebClient client = WebClient.create("http://order-db:9092");
+                WebClient client = WebClient.create("http://localhost:9092");
                 Mono<ResponseEntity<String>> result = client.delete()
                                 .uri("/orders/{orderId}", orderId)
                                 .accept(MediaType.APPLICATION_JSON)

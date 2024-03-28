@@ -1,5 +1,5 @@
 {
-  "name": "order-ms",
+  "name": "order-ms-1",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,6 +9,6 @@
     "stop-java": "./mvnw spring-boot:stop",
     "build": "./mvnw package -DskipTests",
     "image:build": "docker build -t order-ms .",
-    "init:ms": "docker-compose up -d"
+    "init:ms": "docker-compose up"
   }
 }
