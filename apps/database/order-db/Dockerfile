@@ -5,13 +5,13 @@ FROM eclipse-temurin:17-jdk-alpine
 WORKDIR /app
 
 # Copy the current directory contents into the container at /app
-COPY target/*.jar /app/order-ms.jar
+COPY target/*.jar /app/order-db.jar
 
 # Build the Spring Boot application
 # RUN ./mvnw package -DskipTests
 
 # Expose the port that your Spring Boot application will run on
-EXPOSE 8090
+EXPOSE 9092
 
 # Define the command to run your application
-CMD ["java", "-jar", "order-ms.jar"]
+CMD ["java", "-jar", "order-db.jar"]

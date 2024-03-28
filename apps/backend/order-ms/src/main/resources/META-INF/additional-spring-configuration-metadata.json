@@ -1,19 +1,9 @@
 {
     "properties": [
         {
-            "name": "spring.amqp.deserialization.trust.all",
+            "name": "secretkey",
             "type": "java.lang.String",
-            "description": "A description for 'spring.amqp.deserialization.trust.all'"
-        },
-        {
-            "name": "secretKey",
-            "type": "java.lang.String",
-            "description": "A description for 'secretKey'"
-        },
-        {
-            "name": "secretKey",
-            "type": "java.lang.String",
-            "description": "A description for 'secretKey'"
+            "description": "A description for 'secretkey'"
         }
     ]
 }

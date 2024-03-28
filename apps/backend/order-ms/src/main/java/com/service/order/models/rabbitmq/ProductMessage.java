@@ -1,4 +1,4 @@
-package com.service.order.models;
+package com.service.order.models.rabbitmq;
 
 import java.io.Serializable;
 

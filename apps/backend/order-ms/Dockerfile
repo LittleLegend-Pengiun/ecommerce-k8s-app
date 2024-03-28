@@ -11,7 +11,7 @@ COPY target/*.jar /app/order-ms.jar
 # RUN ./mvnw package -DskipTests
 
 # Expose the port that your Spring Boot application will run on
-EXPOSE 8090
+EXPOSE 8082
 
 # Define the command to run your application
 CMD ["java", "-jar", "order-ms.jar"]

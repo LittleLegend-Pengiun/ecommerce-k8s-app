@@ -4,8 +4,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.service.order.models.Product;
 import com.service.order.models.User;
-import com.service.order.reposistory.ProductRepository;
-import com.service.order.reposistory.UserRepository;
+import com.service.order.repository.ProductRepository;
+import com.service.order.repository.UserRepository;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -28,9 +28,9 @@ public class ReadData {
             InputStream inputStream = getClass().getClassLoader().getResourceAsStream(filePath);
             List<Product> products = mapper.readValue(inputStream, new TypeReference<List<Product>>() {
             });
-            for (Product product : products) {
-                product.setDescription(product.getProductName());
-            }
+            // for (Product product : products) {
+            //     product.setDescription(product.getProductName());
+            // }
             productReposistory.saveAll(products);
         } catch (IOException e) {
             System.out.println("Unable to save products: " + e.getMessage());

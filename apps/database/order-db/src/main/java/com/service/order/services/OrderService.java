@@ -15,10 +15,10 @@ import com.service.order.models.Order;
 import com.service.order.models.OrderDetail;
 import com.service.order.models.Product;
 import com.service.order.models.User;
-import com.service.order.reposistory.OrderDetailsRepository;
-import com.service.order.reposistory.OrderRepository;
-import com.service.order.reposistory.ProductRepository;
-import com.service.order.reposistory.UserRepository;
+import com.service.order.repository.OrderDetailsRepository;
+import com.service.order.repository.OrderRepository;
+import com.service.order.repository.ProductRepository;
+import com.service.order.repository.UserRepository;
 
 import jakarta.transaction.Transactional;
 
